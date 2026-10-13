@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ระบบให้น้ำพืช · บทที่ 2</title>
+<meta name="description" content="บทที่ 2 ระบบให้น้ำเพื่อการเกษตร — สปริงเกลอร์ มินิสปริงเกลอร์ ไมโครสเปรย์และเจ็ท น้ำหยด ต่างกันอย่างไร และเลือกแบบไหน">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mali:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ── chapter-specific ── */
+/* word keys in the step lists (หัว, ทรงพุ่ม, เขตเปียก) need a wider key column */
+.steps .st{grid-template-columns:5rem 1fr auto}
+@media (max-width:560px){ .steps .st{grid-template-columns:4rem 1fr auto} }
+ol.plain{margin:0;padding-inline-start:1.4em;max-width:66ch;display:flex;flex-direction:column;gap:7px}
+ol.plain li::marker{color:var(--accent);font-family:var(--f-mono);font-size:.85em}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <a class="home" href="./">← หลักสูตรทั้งหมด</a>
+  <div class="ch">บทที่ 2</div>
+  <h1><span class="nb">ระบบให้น้ำพืช</span></h1>
+  <p class="sub">บทที่ 1 บอกว่าพืชต้องการน้ำวันละกี่ลิตร บทนี้ตอบว่า<strong>จะเอาน้ำไปให้มันอย่างไร</strong>
+     — ระบบให้น้ำสี่แบบที่ใช้จริงในไทย ต่างกันตรงไหน และแบบไหนเหมาะกับแปลงแบบใด</p>
+  <p class="by">เอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” · สมาคมวิศวกรรมเกษตรแห่งประเทศไทย · ชีรวรรธก์ มั่นกิจ</p>
+
+  <dl class="rules">
+    <div><dt>เป้าหมายของระบบ</dt><dd>ต่างกัน ≤ 10%<small>พืชในแปลงเดียวกันต้องได้รับน้ำต่างกันไม่เกินนี้</small></dd></div>
+    <div><dt>องค์ประกอบหลัก</dt><dd>4 อย่าง<small>เครื่องสูบน้ำ · กรอง · ท่อ · หัวจ่ายน้ำ</small></dd></div>
+    <div><dt>เขตเปียกต่อทรงพุ่ม</dt><dd>≥ 50%<small>เกณฑ์ออกแบบสำหรับระบบเฉพาะจุด</small></dd></div>
+    <div><dt>ความจริงข้อสำคัญ</dt><dd>ลอกแบบกันไม่ได้<small>ทุกแปลงต้องออกแบบเอง ไม่มีชุดสำเร็จรูป</small></dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="สารบัญ">
+  <ol>
+    <li><a href="#s1"><b>1</b>ระบบให้น้ำคืออะไร</a></li>
+    <li><a href="#s2"><b>2</b>องค์ประกอบหลัก</a></li>
+    <li><a href="#s3"><b>3</b>เลือกหัวจ่ายน้ำ</a></li>
+    <li><a href="#s4"><b>4</b>สปริงเกลอร์</a></li>
+    <li><a href="#s5"><b>5</b>ให้น้ำเฉพาะจุด</a></li>
+    <li><a href="#s6"><b>6</b>มินิสปริงเกลอร์</a></li>
+    <li><a href="#s7"><b>7</b>ไมโครสเปรย์และเจ็ท</a></li>
+    <li><a href="#s8"><b>8</b>น้ำหยด</a></li>
+    <li><a href="#s9"><b>9</b>เปรียบเทียบและเลือก</a></li>
+  </ol>
+</nav>
+
+<!-- ══ 1 ══ -->
+<section class="sec" id="s1">
+  <div class="col">
+    <h2><span class="n">01 / นิยาม</span>ระบบให้น้ำพืชคืออะไร</h2>
+    <p class="lead">เป็น<strong>กลไกที่ทำให้สามารถจัดการควบคุมปริมาณการให้น้ำพืชได้อย่างถูกต้อง เหมาะสม สะดวก</strong></p>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>ระบบให้น้ำที่ดี</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ต้องสนองความต้องการน้ำของพืชได้อย่างเพียงพอ</li>
+          <li>ต้องเหมาะกับปัจจัยต่างๆ เช่น แหล่งน้ำ ข้อจำกัดของเครื่องสูบน้ำ เวลาในการให้น้ำ</li>
+          <li>ต้องมีความสะดวกแก่ผู้ใช้</li>
+          <li>ผู้เลือกใช้จะต้องรู้จักและทำความเข้าใจกับระบบให้น้ำนั้นๆ</li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>ผลดีที่ได้</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>พืชไม่ชะงักการเจริญเติบโต และเจริญเติบโตอย่างเต็มที่</li>
+          <li>เพิ่มปริมาณและคุณภาพของผลผลิต</li>
+          <li><strong>กำหนดเวลาการเก็บผลผลิตได้</strong> — ไม่ต้องปลูกรอฝน</li>
+          <li>การใช้ปุ๋ยมีประสิทธิภาพมากขึ้น</li>
+          <li>สะดวกและประหยัดเวลาการให้น้ำ</li>
+          <li>ลดความเสี่ยงในอาชีพเกษตรกรรม</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ระบบให้น้ำไม่ได้ประกอบมาเป็นชุดสำเร็จรูปพร้อมใช้งาน</strong> —
+        เป็นระบบที่ประกอบด้วยอุปกรณ์ส่วนต่างๆ หลากหลาย ต้องเลือกและนำส่วนเหล่านั้นมาประกอบกันให้เป็นระบบที่ใช้งานได้
+        ระบบมีขนาดใหญ่เล็กแตกต่างกัน ขึ้นกับปัจจัยที่แตกต่างกันในแปลงปลูกพืชเป็นตัวกำหนด
+        <strong>ระบบให้น้ำจึงลอกแบบกันไม่ได้</strong></p>
+    </div>
+
+    <div class="callout">
+      <p><strong>เป้าหมายหลัก</strong> — ระบบต้องส่งน้ำไปยังบริเวณที่ต้องการจ่ายน้ำ กระจายน้ำให้ทั่วถึงและสม่ำเสมอ
+        โดยที่<strong>พืชได้รับน้ำแตกต่างกันไม่เกิน 10%</strong>
+        (เกณฑ์เดียวกับที่ใช้คุมแรงดัน 20% ในบทที่ 4)</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ระบบที่เปิดให้จบเร็วๆ ระบบจะต้องใหญ่กว่า (ขนาด)</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เปิด-ปิดวาล์ว · เวลา</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ไม่ต้องปลูกรอฝน</p>
+  </aside>
+</section>
+
+<!-- ══ 2 ══ -->
+<section class="sec" id="s2">
+  <div class="col">
+    <h2><span class="n">02 / โครงสร้าง</span>องค์ประกอบหลักสี่อย่าง</h2>
+    <p class="lead">ทุกระบบให้น้ำ ไม่ว่าจะเป็นแบบไหน ประกอบด้วยของสี่อย่างนี้เสมอ</p>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:600px">
+        <thead><tr><th style="text-align:start">องค์ประกอบ</th><th style="text-align:start">หน้าที่</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">เครื่องสูบน้ำ</th><td style="text-align:start">สูบน้ำจากแหล่งน้ำ และ<strong>เพิ่มแรงดัน</strong>ให้กับน้ำให้ไหลไปในท่อจนถึงหัวจ่ายน้ำ</td></tr>
+          <tr><th style="text-align:start">กรอง</th><td style="text-align:start">กรองสิ่งสกปรกและเศษผงที่ปนมากับน้ำ ป้องกันไม่ให้เกิดการอุดตันที่หัวจ่ายน้ำ</td></tr>
+          <tr><th style="text-align:start">ท่อเมน</th><td style="text-align:start">ส่งน้ำที่ออกจากเครื่องสูบน้ำไปยังพื้นที่แปลงปลูก</td></tr>
+          <tr><th style="text-align:start">ท่อเมนย่อย</th><td style="text-align:start">รับน้ำจากท่อเมนและส่งน้ำแยกเข้าไปในแปลงปลูก</td></tr>
+          <tr><th style="text-align:start">ท่อย่อย</th><td style="text-align:start">เป็นที่ติดตั้งหัวจ่ายน้ำ รับน้ำจากท่อเมนย่อยและจ่ายน้ำให้กับหัวจ่ายน้ำ</td></tr>
+          <tr><th style="text-align:start; color:var(--accent)">หัวจ่ายน้ำ</th><td style="text-align:start">รับน้ำจากท่อย่อย และจ่ายน้ำให้กับต้นพืชตามปริมาณที่ต้องการ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>หัวจ่ายน้ำเป็นตัวบ่งบอกประเภทของระบบ</strong> — ทั้งสี่ระบบในบทนี้ใช้ปั๊ม กรอง และท่อเหมือนกันหมด
+        สิ่งที่ทำให้เรียกว่า “ระบบสปริงเกลอร์” หรือ “ระบบน้ำหยด” คือ<strong>หัวที่ปลายท่อย่อย</strong>เท่านั้น
+        และหัวนั้นเป็นตัวกำหนดแรงดัน อัตราการไหล และขนาดท่อทั้งระบบย้อนกลับไปถึงปั๊ม</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>หัวจ่ายน้ำ — เป็นตัวบ่งบอกประเภทของระบบ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เริ่มออกแบบตรงนี้ แล้วไล่ย้อนกลับไปหาปั๊ม</p>
+  </aside>
+</section>
+
+<!-- ══ 3 ══ -->
+<section class="sec" id="s3">
+  <div class="col">
+    <h2><span class="n">03 / การเลือก</span>สี่สิ่งที่ต้องดูตอนเลือกหัวจ่ายน้ำ</h2>
+    <p class="lead">ผู้ใช้ต้องเลือกใช้หัวจ่ายน้ำให้เหมาะกับชนิดของพืชและองค์ประกอบต่างๆ ของระบบ</p>
+
+    <div class="panel">
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">Q</span><span class="d"><strong>อัตราการไหลของหัวจ่ายน้ำ</strong> — ปริมาณน้ำต่อหน่วยเวลา เลือกให้เหมาะสมกับความต้องการน้ำของพืช รวมทั้งเวลาการให้น้ำด้วย</span><span class="v">ลิตร/ชั่วโมง</span></div>
+          <div class="st"><span class="k">H</span><span class="d"><strong>แรงดันของหัวจ่ายน้ำ</strong> — แรงดันที่ต้องใช้เพื่อให้ได้อัตราการไหลตามที่ผู้ผลิตกำหนด ทำให้การกระจายน้ำเป็นไปสม่ำเสมอตามที่แสดงไว้ในแคตตาล็อค</span><span class="v">เมตร หรือ บาร์</span></div>
+          <div class="st"><span class="k">D</span><span class="d"><strong>เส้นผ่านศูนย์กลางของการกระจายน้ำ</strong> — เขตเปียกที่หัวจ่ายน้ำกระจายน้ำได้ ระบุเป็นเมตร ที่แรงดันกำหนด</span><span class="v">เมตร</span></div>
+          <div class="st tot"><span class="k">รูป</span><span class="d"><strong>รูปแบบของการกระจายน้ำ</strong> — ลักษณะของน้ำที่กระจายออกจากหัวจ่ายน้ำ เช่น สปริงเกลอร์ มินิสปริงเกลอร์ สเปรย์และเจ็ท น้ำหยด</span><span class="v">ตามระบบ</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>Q กับ D ผูกกับ H เสมอ</strong> — แคตตาล็อคจะเขียนแบบ “เส้นผ่านศูนย์กลางเขตเปียก 4 เมตรที่แรงดัน 15 เมตร
+        หรือ 6 เมตรที่แรงดัน 20 เมตร” ตัวเลขเดี่ยวๆ ไม่มีความหมาย
+        ถ้าแรงดันจริงในแปลงไม่ถึงที่ระบุ ทั้งอัตราการไหลและรัศมีจะตกลงพร้อมกัน</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ข้อมูลนี้ผู้ผลิตหัวจ่ายน้ำจะแสดงไว้ในแคตตาล็อค</p>
+  </aside>
+</section>
+
+<!-- ══ 4 ══ -->
+<section class="sec" id="s4">
+  <div class="col">
+    <h2><span class="n">04 / แบบที่ 1</span>การให้น้ำแบบฉีดฝอย — สปริงเกลอร์</h2>
+    <p class="lead">ให้น้ำโดยฉีดน้ำขึ้นไปบนอากาศเหนือต้นพืช กระจายเป็นฝอยแล้ว<strong>ตกลงมาเหมือนฝน</strong>
+      — จึงมีชื่อเล่นว่าฝนเทียมหรือฝนโปรย</p>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>คุณสมบัติของระบบ</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ใช้แรงดันตั้งแต่ <strong>2 บาร์ขึ้นไป</strong> (ประมาณถังน้ำสูง 20 เมตร)</li>
+          <li>รัศมีฉีดน้ำ <strong>10 เมตรขึ้นไป</strong></li>
+          <li>อัตราการจ่ายน้ำ <strong>200 ลิตร/ชั่วโมงขึ้นไป</strong></li>
+          <li>เหมาะสำหรับการให้น้ำในบริเวณกว้าง ครอบคลุมพื้นที่ได้มาก เช่น พืชไร่ พืชผัก</li>
+          <li>เหมาะกับแหล่งน้ำที่มีปริมาณมากเพียงพอ คุณภาพน้ำปานกลาง</li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>ข้อเสีย</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>เปียกพื้นที่ทั้งหมด เปียกลำต้น ใบ และบริเวณพื้นดินที่ไม่มีพืช</li>
+          <li>สูญเสียน้ำจากปัจจัยต่างๆ มาก เช่น การระเหย <strong>การฟุ้งกระจายตามลม</strong></li>
+          <li>แรงดันที่ต้องใช้สูง ทำให้<strong>ลงทุนค่าเครื่องสูบน้ำสูง และค่าพลังงานสูงที่สุด</strong>ในบรรดาสี่ระบบ</li>
+          <li>การดูแลง่ายเพราะปัญหาการอุดตันน้อย จึงไม่ต้องการระบบกรอง
+            แต่ถ้าคุณภาพน้ำต่ำและมีสิ่งเจือปนมากก็จำเป็นต้องมี</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>แรงดันไม่พอ = เสียหาย</strong> — ถ้าแรงดันไม่พอ น้ำไม่เกิดเป็นฝอย
+        น้ำจะตกลงมาเหมือน<strong>น้ำสาด</strong>เป็นจุดๆ ทำให้พืชเสียหายและดินถูกกัดเซาะ
+        สปริงเกลอร์จึงเป็นระบบที่ห้ามประหยัดแรงดัน</p>
+    </div>
+
+    <h3>ประเภทของหัวสปริงเกลอร์</h3>
+    <div class="tscroll">
+      <table class="data" style="min-width:560px">
+        <thead><tr><th style="text-align:start">แบบ</th><th style="text-align:start">กลไก</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">Impact</th><td style="text-align:start">ใช้กลไกของแรงดันน้ำที่ฉีดออกมาปะทะกับ<strong>แขนเตะ</strong>ซึ่งมีสปริงดันไว้ให้ตีดออกและตีกลับปะทะหัวฉีดให้หมุนเล็กน้อย เปลี่ยนทิศทางการฉีดไปเรื่อยๆ เป็นวงกลม</td></tr>
+          <tr><th style="text-align:start">Gear drive / Rotor</th><td style="text-align:start">ใช้แรงดันน้ำขับระบบเกียร์ภายในให้กลไกของหัวจ่ายน้ำหมุนรูฉีดน้ำเป็นวงกลม</td></tr>
+          <tr><th style="text-align:start">ท่อน้ำพุ่ง</th><td style="text-align:start">ท่อบางที่เจาะรูเล็กๆ ไว้เป็นระเบียบให้น้ำฉีดออกมาตลอดความยาวของท่อ พุ่งเป็นเส้นเล็กๆ ไปในอากาศ ตกลงมายังพื้นที่เพาะปลูกเหมือนฝน — <strong>ใช้แรงดันต่ำ</strong> ใช้ในแปลงผักได้</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body">ทั้ง Impact และ Gear drive มีลักษณะการฉีดน้ำออกเป็น 1 หรือ 2 สาย และแตกกระจายเป็นฝอย
+      สามารถ<strong>ปรับมุมการฉีดได้</strong>ตามความต้องการ เช่น เป็นส่วนของวงกลมหรือเต็มวงกลม</p>
+
+    <h3>หลักการวางระยะหัวสปริงเกลอร์</h3>
+    <ul class="plain">
+      <li>ระยะห่างระหว่างหัวสปริงเกลอร์ที่ติดตั้ง ขึ้นอยู่กับ<strong>รัศมีการฉีดน้ำ</strong>ของหัวสปริงเกลอร์นั้นๆ</li>
+      <li>ต้องติดตั้งให้มีการฉีด<strong>ทับกัน (overlap) 50–65%</strong> ขึ้นอยู่กับความเร็วลมในพื้นที่ใช้งาน</li>
+      <li>การวางฉีดทับกัน 50% คือการวางห่างกัน<strong>เท่ากับระยะรัศมีการฉีด</strong></li>
+    </ul>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เครื่องคิดระยะปักหัว</h3><span>ลมแรง ต้องทับกันมากขึ้น</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="ovDia">เส้นผ่านศูนย์กลางการฉีด · ม.</label><input id="ovDia" type="number" value="22" min="1" step="0.5"></div>
+          <div class="fld"><label for="ovPct">ทับกัน · %</label>
+            <select id="ovPct">
+              <option value="50">50% — ลมอ่อน</option>
+              <option value="60">60% — ลมปานกลาง</option>
+              <option value="65">65% — ลมแรง</option>
+            </select></div>
+        </div>
+        <div class="res"><span class="num" id="ovOut">11.0</span><span class="lbl">เมตร &mdash; ระยะห่างระหว่างหัว</span></div>
+        <div class="steps" id="ovSteps"></div>
+      </div>
+    </div>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างจากแคตตาล็อค</span><h3>หัวรุ่น 21P Part Circle · หัวฉีดเบอร์ 10</h3></header>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">แรงดัน 200 kPa หรือ 2 บาร์ (20 ม.) <span style="color:var(--ink-3)">— 1 บาร์ = 100 kPa</span></span><span class="v">2 บาร์</span></div>
+          <div class="st"><span class="k">2</span><span class="d">ฉีดน้ำเป็นวงกลมเส้นผ่านศูนย์กลาง (Dia)</span><span class="v">22 เมตร</span></div>
+          <div class="st"><span class="k">3</span><span class="d">อัตราการจ่ายน้ำ</span><span class="v">14 ลิตร/นาที</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">สำหรับพื้นที่ลมอ่อน ให้มีระยะ overlap 50% จึงต้องมีระยะระหว่างหัวเท่ากับรัศมี</span><span class="v">11 เมตร</span></div>
+        </div>
+      </div>
+    </article>
+
+    <h3>การใช้ระบบสปริงเกลอร์กับพืชไร่ พืชผัก</h3>
+    <ul class="plain">
+      <li>ใช้ได้กับพืชไร่ที่มีระยะปลูกทั้งแถวชิดและห่าง เช่น มันสำปะหลัง อ้อย ข้าวโพด สับปะรด
+        ที่มีระยะการปลูกระหว่างแถว 1–2 เมตร และพืชผักเช่นเดียวกัน</li>
+      <li>การติดตั้ง<strong>ไม่ต้องวางท่อย่อยทุกแถวพืช</strong> แต่ใช้ระยะห่างระหว่างแนวท่อย่อยและระหว่างหัวตั้งแต่
+        10 เมตรขึ้นไป และให้หัวสูงกว่าต้นพืช</li>
+      <li>ตัวอย่างการติดตั้ง: หัวรัศมีการกระจายน้ำ 10–12 เมตร ทุกระยะ <strong>10×10 เมตร</strong>
+        สำหรับพื้นที่กว้าง 40 เมตร ยาว 80 เมตร</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>ข้อดีที่แลกมากับค่าไฟ</strong> — ไม่ต้องห่วงเรื่องแนวแถวพืช เพราะรดแบบปูพรม
+        วางห่างได้ อุปกรณ์น้อย แต่อาจจะแพงที่ตัวอุปกรณ์และค่าพลังงาน</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>aka ฝนเทียม ฝนโปรย</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถ้าแรงดันไม่พอ น้ำไม่เกิดเป็นฝอย น้ำตกลงมาเหมือนน้ำสาด เกิดความเสียหาย</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ต้นเตี้ย ยังไงก็ไม่โตสูงขึ้นมาบัง · เสา sprinkler ต้องสูงกว่า</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เดี๋ยวนี้ big gun ไม่ค่อยนิยม เพราะว่ากินกำลังเครื่องสูบสูง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ระยะปัก = r</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>1 bar = 100 kPa</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ไม่ต้องห่วงเรื่องแถวพืช เพราะรดแบบปูพรม วางห่าง อุปกรณ์น้อย แต่อาจจะอุปกรณ์แพง</p>
+  </aside>
+</section>
+
+<!-- ══ 5 ══ -->
+<section class="sec" id="s5">
+  <div class="col">
+    <h2><span class="n">05 / แบบที่ 2</span>การให้น้ำแบบเฉพาะจุด (Localize Irrigation)</h2>
+    <p class="lead">แทนที่จะรดทั้งแปลง ให้น้ำเฉพาะบริเวณที่รากพืชอยู่ —
+      เป็นการให้น้ำ<strong>บ่อยๆ ปริมาณน้ำทีละน้อยเพียงพอแก่การเจริญเติบโตของพืช</strong></p>
+
+    <ul class="plain">
+      <li>หัวจ่ายน้ำถูกติดไว้ยังจุดที่เลือกบนท่อส่งน้ำ กระจายน้ำไปเฉพาะบริเวณที่ต้องการให้เปียก
+        ให้น้ำซึมไปในดินบริเวณ<strong>เขตรากพืช</strong></li>
+      <li>หัวจ่ายน้ำส่วนใหญ่จะอยู่เหนือผิวดินหรือวางไว้บนผิวดิน แต่ก็สามารถฝังไว้ในระดับตื้นๆ เพื่อป้องกันการเสียหายได้</li>
+      <li>เป็นระบบที่<strong>ประหยัดน้ำอย่างแท้จริง</strong> มีการสูญเสียน้ำจากปัจจัยต่างๆ น้อยมาก</li>
+      <li>เป็นระบบที่ใช้<strong>แรงดันต่ำ</strong> ทำให้ประหยัดค่าใช้จ่ายในด้านต้นกำลังสูบน้ำ</li>
+    </ul>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>ข้อดี 6 ข้อ</h3></div>
+        <div class="panel-b"><ol class="plain" style="list-style:decimal">
+          <li><strong>ประหยัดพลังงาน</strong> ใช้ต้นกำลังขนาดเล็กลง</li>
+          <li><strong>ประหยัดน้ำ</strong> ปรับให้น้ำเฉพาะบริเวณเขตรากพืชทำให้สูญเสียน้ำน้อย</li>
+          <li><strong>การเจริญเติบโตของพืชดีขึ้น</strong> การให้น้ำน้อยๆ แต่บ่อยครั้งทำให้ดินคงความชื้นอยู่ตลอดเวลา</li>
+          <li><strong>เพิ่มประสิทธิภาพการให้ปุ๋ย</strong> สามารถให้ปุ๋ยบ่อยๆ และโดยตรงต่อพืช</li>
+          <li><strong>การใช้น้ำที่มีเกลือปน</strong> น้ำไม่สัมผัสโดยตรงกับใบจึงไม่เกิดปัญหา</li>
+          <li><strong>แรงงานที่ใช้</strong> พื้นที่ให้น้ำต่อวาล์วกว้างขึ้น ลดจำนวนวาล์วลง ใช้แรงงานเปิดปิดวาล์วน้อยลง</li>
+        </ol></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>ข้อจำกัด 4 ข้อ</h3></div>
+        <div class="panel-b"><ol class="plain" style="list-style:decimal">
+          <li><strong>หัวจ่ายน้ำอุดตัน</strong> จากสิ่งเจือปนในน้ำ เช่น สนิมเหล็ก แคลเซียมคาร์บอเนต และตะไคร่
+            ควรใช้สารเคมีชะล้าง หรือเปิดปลายท่อย่อยล้างสิ่งตกค้าง</li>
+          <li><strong>ระบบการกรอง</strong> ควรจะต้องทำความสะอาดกรองตามระยะเวลา</li>
+          <li><strong>เกลือในดิน</strong> การให้น้ำช่วยดันเกลือออกไปอยู่รอบเขตเปียก
+            แต่ถ้าปล่อยให้ดินแห้ง เกลือจะเคลื่อนเข้ามาในเขตรากพืชทำให้พืชเสียหายได้</li>
+          <li><strong>การแผ่กระจายของรากพืช</strong> ถ้ามีการให้น้ำเปียกเฉพาะผิวดิน
+            รากพืชจะแผ่กระจายหนาแน่นอยู่ในเขตตื้นๆ ตามเขตความชื้น เมื่อมีการขาดน้ำจะเฉาได้ง่าย</li>
+        </ol></div>
+      </div>
+    </div>
+
+    <h3>พื้นที่ทรงพุ่มและพื้นที่เขตเปียก</h3>
+    <div class="tscroll">
+      <table class="data" style="min-width:480px">
+        <thead><tr><th style="text-align:start">คำ</th><th style="text-align:start">หมายถึง</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">พื้นที่ทรงพุ่ม</th><td style="text-align:start">บริเวณพื้นดินใต้ต้นพืชที่ต้นพืชครอบคลุมถึง</td></tr>
+          <tr><th style="text-align:start">พื้นที่เขตเปียก</th><td style="text-align:start">บริเวณพื้นดินที่เปียกน้ำโดยน้ำจากหัวจ่ายน้ำ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>งานวิจัยของมหาวิทยาลัยควีนแลนด์ ประเทศออสเตรเลีย</strong> พบว่า
+        การให้น้ำเปียกเพียง <strong>1 ใน 3</strong> ของบริเวณเขตรากพืช
+        พืชก็สามารถพัฒนาระบบรากให้เจริญเติบโตในบริเวณที่เปียกและดูดน้ำไปใช้เพื่อการเจริญเติบโตได้
+        โดยไม่ทำให้ผลผลิตลดลง —
+        <strong>ในการออกแบบ จึงต้องเลือกหัวจ่ายน้ำให้จ่ายน้ำครอบคลุมพื้นที่เขตเปียกได้ไม่น้อยกว่า 50% ของพื้นที่ทรงพุ่ม</strong>
+        (เผื่อจากผลวิจัยไว้อีกเท่าตัว)</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ทำไมเกณฑ์ 50% ถึงประหยัดเงินมาก</strong> — ถ้าต้องรดให้เปียก 100% ของทรงพุ่ม
+        ต้นไม้ระยะ 8×8 ม. ต้องใช้หัวที่กระจายน้ำได้ 64 ตร.ม. ซึ่งเป็นหัวใหญ่และแพง
+        แต่เกณฑ์ 50% ทำให้ใช้หัวที่ครอบคลุม 32 ตร.ม. ก็พอ — <strong>1 หัวจ่ายน้ำต่อ 1 ต้น</strong>
+        ช่วยประหยัดไปได้มาก</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เปียกเฉพาะผิวดิน = รากลอย</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>น้ำสนิม Ca กรองไม่ได้ · มีกรองก็อุดตันได้</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ดินเค็ม — ดันเกลือ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>1 หัวจ่ายน้ำ : 1 ต้น · ช่วยประหยัดไปได้มาก</p>
+  </aside>
+</section>
+
+<!-- ══ 6 ══ -->
+<section class="sec" id="s6">
+  <div class="col">
+    <h2><span class="n">06 / เฉพาะจุด</span>ระบบมินิสปริงเกลอร์</h2>
+    <p class="lead">ทางออกของน้ำขนาดเล็ก กระจายน้ำเป็น<strong>เม็ด</strong>ด้วยใบหมุนลงดินในเขตรากพืช
+      — เป็นเม็ดน้ำ ไม่ใช่ละอองฝอย</p>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>คุณสมบัติของระบบ</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ใช้แรงดัน <strong>1–2 บาร์</strong> (ประมาณถังน้ำสูง 10–20 เมตร)</li>
+          <li>รัศมีกระจายน้ำ <strong>2–4 เมตร</strong></li>
+          <li>อัตราการไหลของหัวจ่ายน้ำ <strong>35–300 ลิตร/ชั่วโมง</strong></li>
+          <li>เหมาะกับแหล่งน้ำที่มีปริมาณน้ำจำกัด คุณภาพน้ำค่อนข้างดี <strong>ต้องมีระบบกรองที่ดี</strong></li>
+          <li>แรงดันปานกลาง การลงทุนด้านเครื่องสูบน้ำและค่าใช้จ่ายด้านพลังงานน้อย</li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>ลักษณะเด่น: ใบหมุน</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ข้อแตกต่างจากหัวจ่ายน้ำแบบอื่นๆ ที่ค่อนข้างเด่น คือมีส่วนที่หมุนได้เรียกว่า <strong>ใบหมุน</strong></li>
+          <li>เป็นตัวทำให้น้ำกระจายออกเป็นวงกว้างกว่าหัวจ่ายน้ำแบบอื่น ทำให้มีพื้นที่เขตเปียกมาก</li>
+          <li>ติดไว้บนขาตั้งและต่อกับท่อย่อยโดยใช้<strong>ท่ออ่อน</strong> เส้นผ่านศูนย์กลาง 4 มม. ยาวประมาณ 0.5 เมตร</li>
+          <li>ท่ออ่อนนี้เป็นประโยชน์เมื่อต้องการโค้งงอ หรือเคลื่อนย้ายจุดจ่ายน้ำรอบๆ โคนต้นพืช</li>
+          <li>สำหรับหัวที่ให้ปริมาณน้ำมากกว่า <strong>100 ลิตร/ชั่วโมง ควรใช้ท่ออ่อนที่มีขนาดใหญ่ขึ้น</strong>
+            เพื่อช่วยลดการสูญเสียแรงดัน</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <h3>การใช้กับไม้ผล</h3>
+    <ul class="plain">
+      <li>เหมาะกับพืชที่ปลูกทั้งระยะชิดและระยะห่าง <strong>ใช้ได้ดีกับไม้ผล</strong></li>
+      <li>เหมาะสำหรับไม้ผลที่มีระยะปลูกตั้งแต่ <strong>4 เมตรขึ้นไป</strong></li>
+      <li>หัวจะต่อไว้ยังจุดที่เลือกบนท่อย่อย วางไว้เหนือผิวดิน กระจายน้ำด้วยใบหมุนลงสู่ดินในบริเวณเขตรากพืช รัศมี 2–4 เมตร</li>
+    </ul>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เครื่องคำนวณหัวมินิสปริงเกลอร์</h3><span>จากแคตตาล็อคจริงในเอกสาร หน้า 35</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="msNoz">หัวฉีด (ขนาด/สี)</label><select id="msNoz"></select></div>
+          <div class="fld"><label for="msP">แรงดัน · กก./ซม²</label>
+            <select id="msP">
+              <option value="1.0">1.0 (10 ม.)</option>
+              <option value="1.5" selected>1.5 (15 ม.)</option>
+              <option value="2.0">2.0 (20 ม.)</option>
+              <option value="2.5">2.5 (25 ม.)</option>
+              <option value="3.0">3.0 (30 ม.)</option>
+            </select></div>
+          <div class="fld"><label for="msSp">ระยะปลูก · ม. × ม.</label><input id="msSp" type="number" value="8" min="1" step="0.5"></div>
+          <div class="fld"><label for="msNeed">น้ำที่ต้องให้ · ลิตร/ต้น/วัน</label><input id="msNeed" type="number" value="503" min="1" step="1"></div>
+        </div>
+        <div class="steps" id="msSteps"></div>
+        <div id="msVerdict"></div>
+      </div>
+    </div>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างจากเอกสาร</span><h3>หัวสีแดง 1.50 มม. · ไม้ผล 8×8 เมตร</h3></header>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">หัวมินิสปริงเกลอร์ (สี red) ขนาดรูหัวฉีด 1.50 มม.</span><span class="v">—</span></div>
+          <div class="st"><span class="k">2</span><span class="d">ที่แรงดัน 1.5 kg/cm² หรือ 1.5 บาร์ (15 ม.) กระจายน้ำเป็นวงกลมเส้นผ่านศูนย์กลาง 6 เมตร</span><span class="v">100 ลิตร/ชั่วโมง</span></div>
+          <div class="st"><span class="k">3</span><span class="d">ไม้ผลระยะปลูก 8×8 เมตร เมื่อโตเต็มที่จะมีพื้นที่ทรงพุ่ม</span><span class="v">64 ตร.ม.</span></div>
+          <div class="st"><span class="k">4</span><span class="d">หัวมินิสปริงเกลอร์จ่ายน้ำได้พื้นที่เขตเปียกประมาณ</span><span class="v">36 ตร.ม.</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">พื้นที่เขตเปียก ÷ พื้นที่ทรงพุ่ม = 36/64</span><span class="v">56% ✓ ใช้ได้</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:.9rem;color:var(--ink-2)">
+          เขตเปียกคิดเป็นวงกลมรัศมี 3 ม. ได้ 28.3 ตร.ม. แต่เอกสารใช้ 36 ตร.ม. ซึ่งคือ 6×6
+          — คือคิดเป็น<strong>สี่เหลี่ยมจัตุรัสด้านเท่าเส้นผ่านศูนย์กลาง</strong> เพราะหัวข้างเคียงจะเติมมุมให้กันเอง</p>
+      </div>
+    </article>
+
+    <div class="callout warn">
+      <p><strong>อย่าใช้แรงดันสูงเกิน</strong> — จากการจ่ายน้ำเป็นเม็ดจะกลายเป็นฝอยแทน
+        ซึ่งลอยตามลมและระเหยไปมาก (อาจประยุกต์ใช้ในโรงเรือนได้ถ้าต้องการความชื้น แต่ในแปลงเปิดคือการสูญเสีย)</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>ปลูกชิดเกินไป น้ำจากหัวจะมาชนกัน</strong> — ทำให้บางจุดได้น้ำสองเท่าและบางจุดไม่ได้เลย
+        ในช่วงต้นเล็ก ให้รดน้ำวงกว้างไว้ก่อนเพื่อช่วยชักนำราก แล้วค่อยปรับเมื่อทรงพุ่มโตขึ้น</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เป็นเม็ดน้ำ ≠ ฝอย</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ไม่เปียกต้น ใบ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ใบหมุนเหวี่ยงน้ำได้ไกล</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>max 300 L/hr.</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>1 kg/cm² ~ 1 bar</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถ้าใช้แรงดันสูงเกิน จากการจ่ายน้ำเป็นเม็ดจะกลายเป็นฝอยแทน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ปลูกชิดเกินไป น้ำจากหัวมาชนกัน · รดน้ำวงกว้างไว้ก่อน ช่วยชักนำราก</p>
+  </aside>
+</section>
+
+<!-- ══ 7 ══ -->
+<section class="sec" id="s7">
+  <div class="col">
+    <h2><span class="n">07 / เฉพาะจุด</span>ระบบไมโครสเปรย์และเจ็ท</h2>
+    <p class="lead">หัวจ่ายน้ำกระจายน้ำเป็น<strong>ฝอย</strong> (ไมโครสเปรย์) หรือ<strong>เป็นเส้น</strong> (เจ็ท)
+      โดยที่หัวจ่ายน้ำ<strong>ไม่มีใบหมุนหรือชิ้นส่วนที่เคลื่อนไหว</strong></p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>คุณสมบัติของระบบ</h3><span>แรงดันเท่ามินิสปริงเกลอร์</span></div>
+      <div class="panel-b"><ul class="plain">
+        <li>ใช้แรงดัน <strong>1–2 บาร์</strong> (ประมาณถังน้ำสูง 10–20 เมตร)</li>
+        <li>รัศมีกระจายน้ำ <strong>1–2 เมตร</strong> — แคบกว่ามินิสปริงเกลอร์</li>
+        <li>อัตราการไหลของหัวจ่ายน้ำ <strong>35–220 ลิตร/ชั่วโมง</strong></li>
+        <li>เหมาะกับแหล่งน้ำที่มีปริมาณน้ำจำกัด คุณภาพน้ำค่อนข้างดี ต้องมีระบบกรองที่ดี</li>
+        <li>แรงดันปานกลาง การลงทุนด้านเครื่องสูบน้ำและค่าใช้จ่ายด้านพลังงานน้อย</li>
+      </ul></div>
+    </div>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>ไมโครสเปรย์</h3><span>เป็นละออง</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>เหมาะสำหรับพืชที่ปลูก<strong>ในเรือนเพาะชำที่ต้องการความชื้นสูง</strong></li>
+          <li>เหมาะสำหรับพืชที่ปลูกระยะชิด หรือไม้ผลระยะต้นเล็กๆ</li>
+          <li>เหมาะสำหรับไม้ผลที่มีระยะปลูก<strong>ไม่เกิน 4 เมตร</strong></li>
+          <li>แบบที่ฉีดเป็นฝอยละเอียดต้อง<strong>เลี่ยงการใช้ในที่แจ้งที่มีลมแรง</strong></li>
+          <li>วางไว้เหนือผิวดิน กระจายน้ำลงดินในเขตรากพืชรัศมี 1 เมตร</li>
+          <li>วางท่อย่อยตามแถวของไม้ผลทุกแถว ติดตั้งต้นละ 1–2 หัว</li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>เจ็ท</h3><span>เป็นเส้น</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>เหมาะสำหรับพืชที่ปลูกระยะชิด หรือไม้ผลระยะต้นเล็กๆ</li>
+          <li>เหมาะสำหรับไม้ผลที่มีระยะปลูก<strong>ไม่เกิน 4 เมตร</strong></li>
+          <li>วางไว้เหนือผิวดิน กระจายน้ำลงดินในเขตรากพืชรัศมี <strong>2–3 เมตร</strong></li>
+          <li>วางท่อย่อยตามแถวของไม้ผลทุกแถว ติดตั้งต้นละ 1–2 หัว</li>
+          <li>ใช้ในโรงเรือนไม่ได้ (ต่างจากไมโครสเปรย์)</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ละออง ≠ หมอก</strong> — ฝอยที่ละเอียดเกินไปจะฟุ้งกระจายและหายไปในอากาศก่อนถึงดิน
+        ไมโครสเปรย์ที่ดีต้องให้น้ำ<strong>ตกลงมาเปียกข้างล่าง</strong> ไม่ใช่ลอยอยู่กลางอากาศ
+        นี่คือเหตุผลที่ห้ามใช้ในที่ลมแรง</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เท่า mini sprinkler</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ตัวปะทะเป็นจาน = ละออง ไมโครสเปรย์ · ตัวปะทะเป็นหยัก = เป็นเส้น เจ็ท</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>น้ำตกลงมาเปียกข้างล่าง · ละออง ≠ หมอก (ฟุ้งกระจายหายไปในอากาศ)</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ใช้ในโรงเรือนไม่ได้ (เจ็ท)</p>
+  </aside>
+</section>
+
+<!-- ══ 8 ══ -->
+<section class="sec" id="s8">
+  <div class="col">
+    <h2><span class="n">08 / เฉพาะจุด</span>ระบบน้ำหยด</h2>
+    <p class="lead">แรงดันต่ำที่สุด อัตราการไหลน้อยที่สุด เวลาให้น้ำนานที่สุด
+      และ<strong>ประหยัดค่าพลังงานที่สุด</strong>ในสี่ระบบ</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>คุณสมบัติของระบบ</h3></div>
+      <div class="panel-b"><ul class="plain">
+        <li>ใช้แรงดัน <strong>0.5–1.5 บาร์</strong> (ประมาณถังน้ำสูง 5–15 เมตร)</li>
+        <li>อัตราการไหลของหัวจ่ายน้ำ <strong>1–8 ลิตร/ชั่วโมง</strong></li>
+        <li>เหมาะสำหรับพืชที่ปลูกเรียงเป็นแถวชิด หรือต้นไม้ขนาดเล็ก</li>
+        <li>จ่ายน้ำผ่านหัวน้ำหยดสู่ดิน น้ำซึมไปในดินด้วย<strong>แรงดูดซับ (Capillarity)</strong>
+          ช่องว่างในดินขนาดเล็กจะมีแรงดูดซับสูงแต่น้ำเคลื่อนที่ช้า</li>
+        <li><strong>เขตเปียกของดินจะมากน้อยขึ้นอยู่กับคุณลักษณะของดิน</strong></li>
+        <li>แหล่งน้ำที่มีปริมาณน้ำจำกัด คุณภาพน้ำดี ต้องมีระบบกรองที่ดี</li>
+        <li>การลงทุนด้านเครื่องสูบน้ำและค่าใช้จ่ายด้านพลังงาน<strong>น้อยที่สุด</strong></li>
+        <li>หัวน้ำหยดจะมีจำนวนตั้งแต่ 1 หัวต่อต้นสำหรับพืชขนาดเล็ก จนกระทั่งถึง 8 หัวหรือมากกว่าสำหรับพืชต้นใหญ่</li>
+      </ul></div>
+    </div>
+
+    <h3>ประเภทของหัวน้ำหยด</h3>
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>แบบติดบนท่อ (On line)</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ยึดติดกับท่อย่อยโดยอาศัยเขี้ยวเกาะ — <strong>เลือกเจาะเองได้</strong></li>
+          <li>ใช้ในโรงเรือน โรงอนุบาลพืช พืชตระกูลส้ม มะนาว ไม้ผลัดใบ ไม้ผลต่างๆ และไม้เถา เช่น องุ่น</li>
+          <li>แบบติดบนท่อนี้ทำให้<strong>ยากต่อการม้วนเก็บ</strong> จึงนิยมติดตั้งแบบถาวร</li>
+          <li>มีทั้งชนิดไม่ควบคุมแรงดันและชนิดควบคุมแรงดันในตัวได้</li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>แบบฝังในท่อ (In line)</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>หัวน้ำหยดอยู่ภายในท่อ ไม่มีส่วนยื่นออกมาภายนอก <strong>สามารถม้วนเก็บได้</strong></li>
+          <li><strong>ท่อน้ำหยด</strong> — ท่อผนังหนาคงรูป มีหัวน้ำหยดอยู่ภายใน ใช้กับไม้ผลที่มีอายุยืน</li>
+          <li><strong>เทปน้ำหยด</strong> — ท่อผนังบางมีหัวน้ำหยดอยู่ภายใน (ทั่วไปควรหนา 0.2 มม.)
+            ใช้กับพืชอายุสั้นต่างๆ ที่ปลูกเป็นแถว สับปะรด อ้อย มันสำปะหลัง พืชผัก</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <h3>เลือกระยะหยดตามชนิดดิน</h3>
+    <p class="body">ระยะหยดทั่วไปของเทปน้ำหยดคือ 10 · 15 · 20 · 25 · 30 · 50 · 100 ซม.
+      หลังให้น้ำประมาณ 1–2 ชม. <strong>ต้องเปียกสม่ำเสมอประสานกันเป็นแถบ</strong></p>
+    <div class="panel">
+      <div class="panel-h"><h3>เลือกระยะหยด</h3></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:14px">
+        <div class="ctrls" style="grid-template-columns:minmax(200px,1fr)">
+          <div class="fld"><label for="soilT">ชนิดดินในแปลง</label>
+            <select id="soilT">
+              <option value="sand">ดินทราย — น้ำซึมเร็ว</option>
+              <option value="loam" selected>ดินร่วน — น้ำซึมปานกลาง</option>
+              <option value="clay">ดินเหนียว — น้ำซึมช้า</option>
+            </select></div>
+        </div>
+        <div class="res"><span class="num" id="soilOut">20 25 30</span><span class="lbl">เซนติเมตร &mdash; ระยะหยดที่แนะนำ</span></div>
+        <div id="soilWhy"></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ข้อผิดพลาดที่พบบ่อยที่สุด</strong> — มีความเข้าใจผิดว่าระบบน้ำหยด<strong>ไม่ต้องการแรงดันมากนัก</strong></p>
+      <p style="margin-top:10px"><strong>สาเหตุ:</strong> ท่อย่อยทั้งแปลงจำนวนมากเกินไป<br>
+        <strong>ผล:</strong> ทำให้แรงดันในระบบอ่อนเกินไป · น้ำหยดน้อยเกินไปใช้เวลานานขึ้น · เกิดการอุดตันง่าย</p>
+      <p style="margin-top:10px"><strong>แรงดันในระบบน้อยกว่า 0.4 บาร์ = ใช้งานไม่ได้</strong></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>วิธีเช็คหน้างานโดยไม่ต้องมีเกจ</h3></div>
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">✗</span><span class="d">ยกเทปขึ้นแล้ว<strong>หักงอเป็นมุม</strong> — แรงดันไม่พอ</span><span class="v" style="color:var(--fail)">ใช้งานไม่ได้</span></div>
+          <div class="st"><span class="k">✓</span><span class="d">ยกเทปขึ้นแล้วหักงอ<strong>แต่ไม่เป็นมุม</strong> (ยังกลมอยู่)</span><span class="v" style="color:var(--pass)">ใช้งานได้</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:.93rem;color:var(--ink-2)">
+          อีกวิธีคือ<strong>ตรวจสอบน้ำที่ซึมลงในดิน โดยใช้ไม้หรือเหล็กแหงดินที่เปียก</strong>
+          ดูว่าน้ำซึมลงลึกและประสานกันเป็นแถบจริงหรือไม่</p>
+      </div>
+    </div>
+
+    <h3>การเก็บรักษาเทปน้ำหยด</h3>
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>ผิด</h3></div>
+        <div class="panel-b"><p style="margin:0;font-size:.94rem;color:var(--fail)">
+          <strong>การพับเก็บโดยไม่ม้วน</strong> เป็นสาเหตุให้เทปน้ำหยด<strong>แตกรั่วที่รอยพับ</strong></p></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>ถูก</h3></div>
+        <div class="panel-b"><p style="margin:0;font-size:.94rem;color:var(--pass)">
+          <strong>การม้วน</strong>ทำให้เก็บรักษาเทปน้ำหยดได้ดี ควรมีที่ม้วนเก็บท่อ
+          — ของดีหนาหน่อย ใช้ได้ 5–6 ปีก็ยังใช้ได้</p></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>การใช้เทปน้ำหยดกับพืชไร่ พืชผัก</strong> — พืชไร่ที่มีการปลูกเป็นแถวชิด เช่น
+        มันสำปะหลัง อ้อย ข้าวโพด สับปะรด หรือพืชผักที่มีระยะการปลูกระหว่างแถว 1–2 เมตร
+        สามารถใช้เทปน้ำหยดวางตามแถวปลูกทุกแถว (1 เส้น = 1 แถว)
+        โดยใช้เทปที่มีอัตราหยด <strong>1–4 ลิตร/ชั่วโมง</strong> ทุกช่องทางออกระยะ 30–50 ซม.
+        ถ้าอยากเพิ่มพื้นที่เปียก วาง 2 เส้น</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถังสูง 1–2 m = ไม่ถูกต้อง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถังสูง 2 เมตร พอใช้กับพื้นที่เล็กๆ ได้ เช่น ผักสวนครัว แต่นานๆ ไปหัวจะตัน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถ้าแรงดันถูกต้อง ฝุ่นตะกอนจะหลุดออกตามหัวน้ำหยด ไม่ตัน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>หัวหงายหรือคว่ำ ดีกว่ากัน → หงาย เพราะว่าอุดตันยากกว่า</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ติดแล้วม้วนเก็บยาก</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>วาง 2 เส้น เพื่อเพิ่มพื้นที่เปียก</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ของดี หนาหน่อย ใช้ได้ 5–6 ปีก็ยังใช้ได้</p>
+  </aside>
+</section>
+
+<!-- ══ 9 ══ -->
+<section class="sec" id="s9" style="border-bottom:0">
+  <div class="col">
+    <h2><span class="n">09 / สรุป</span>เปรียบเทียบและเลือกระบบ</h2>
+    <p class="lead">ตารางนี้เป็นสไลด์ปิดบทของเอกสาร — สรุปทั้งสี่ระบบไว้ในหน้าเดียว</p>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:640px">
+        <thead><tr>
+          <th style="text-align:start">ระบบ</th><th>แรงดัน (H)</th><th>อัตราการไหล (Q)</th><th>เวลาให้น้ำ</th>
+        </tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">สปริงเกลอร์</th>
+              <td>สูง<br><span style="color:var(--ink-3)">20 ม. ขึ้นไป</span></td>
+              <td>มาก<br><span style="color:var(--ink-3)">200 ล./ชม. ขึ้นไป</span></td>
+              <td>น้อย</td></tr>
+          <tr><th style="text-align:start">มินิสปริงเกลอร์</th>
+              <td>ปานกลาง<br><span style="color:var(--ink-3)">10–20 ม.</span></td>
+              <td>ปานกลาง<br><span style="color:var(--ink-3)">35–300 ล./ชม.</span></td>
+              <td>ปานกลาง</td></tr>
+          <tr><th style="text-align:start">ไมโครสเปรย์และเจ็ท</th>
+              <td>ปานกลาง<br><span style="color:var(--ink-3)">10–20 ม.</span></td>
+              <td>ปานกลาง<br><span style="color:var(--ink-3)">35–220 ล./ชม.</span></td>
+              <td>ปานกลาง</td></tr>
+          <tr><th style="text-align:start">น้ำหยด</th>
+              <td>ต่ำ<br><span style="color:var(--ink-3)">5–15 ม.</span></td>
+              <td>ต่ำ<br><span style="color:var(--ink-3)">1–8 ล./ชม.</span></td>
+              <td>นาน</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>อ่านตารางนี้เป็นการแลกเปลี่ยน</strong> — แรงดันสูงและอัตราการไหลมาก แปลว่ารดเสร็จเร็ว
+        แต่จ่ายค่าปั๊มและค่าไฟแพง ส่วนน้ำหยดถูกที่สุดในการเดินระบบ แต่ต้องเปิดน้ำนานที่สุด
+        และต้องการกรองที่ดีที่สุด <strong>ไม่มีระบบไหนดีที่สุด มีแต่ระบบที่เหมาะกับแปลงนั้น</strong></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ตัวช่วยเลือกระบบ</h3><span>ตอบสามข้อ</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="pkCrop">ชนิดพืชและระยะปลูก</label>
+            <select id="pkCrop">
+              <option value="row">พืชไร่/พืชผัก ปลูกเป็นแถวชิด 1–2 ม.</option>
+              <option value="small">ไม้ผลระยะปลูกไม่เกิน 4 ม. หรือต้นเล็ก</option>
+              <option value="big" selected>ไม้ผลระยะปลูก 4 ม. ขึ้นไป</option>
+              <option value="house">พืชในเรือนเพาะชำ ต้องการความชื้นสูง</option>
+            </select></div>
+          <div class="fld"><label for="pkWater">แหล่งน้ำ</label>
+            <select id="pkWater">
+              <option value="plenty">มีปริมาณมากพอ คุณภาพปานกลาง</option>
+              <option value="limited" selected>ปริมาณจำกัด คุณภาพค่อนข้างดี</option>
+            </select></div>
+          <div class="fld"><label for="pkPri">สิ่งที่ให้ความสำคัญที่สุด</label>
+            <select id="pkPri">
+              <option value="energy" selected>ประหยัดค่าพลังงาน</option>
+              <option value="time">รดให้เสร็จเร็ว</option>
+              <option value="simple">ดูแลง่าย ไม่อยากล้างกรองบ่อย</option>
+            </select></div>
+        </div>
+        <div id="pkOut"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ทุกระบบหัวจ่ายน้ำ ใช้หลักการเหมือนกัน</p>
+  </aside>
+</section>
+
+<section class="sec" style="border-bottom:0;padding-top:0">
+  <div class="col">
+    <nav class="pager" aria-label="บทก่อนหน้าและบทถัดไป">
+      <a class="prev" href="ch1-water-need.html"><small>← บทที่ 1</small><span>ความต้องการน้ำของพืช</span></a>
+      <a class="next" href="ch3-pipes.html"><small>บทที่ 3 →</small><span>ท่อสำหรับระบบให้น้ำ</span></a>
+    </nav>
+    <div class="callout">
+      <p><strong>บทอื่นในหลักสูตร</strong> — <a href="./">หน้าแรก</a> ·
+        <a href="ch1-water-need.html">บทที่ 1 · ความต้องการน้ำของพืช</a> ·
+        <a href="ch3-pipes.html">บทที่ 3 · ท่อสำหรับระบบให้น้ำ</a> ·
+        <a href="ch4-friction.html">บทที่ 4 · แรงเสียดทานกับขนาดท่อ</a> ·
+        <a href="ch5-layout.html">บทที่ 5 · การแบ่งแปลงและวางแนวท่อ</a> ·
+        <a href="ch6-pumps.html">บทที่ 6 · เครื่องสูบน้ำเพื่อการเกษตร</a></p>
+    </div>
+  </div>
+  <aside class="rail"></aside>
+</section>
+
+<footer class="end">
+  <p>เรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” บทที่ 2 หน้า 19–44
+     ของสมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+  <p>ข้อความในกรอบลายมือคือบันทึกที่จดไว้ระหว่างการอบรม เก็บไว้ตามตำแหน่งเดิมในเอกสาร</p>
+</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const nf = n => n.toLocaleString('en-US', {maximumFractionDigits:1});
+
+/* ═════ แคตตาล็อคหัวมินิสปริงเกลอร์ (เอกสารหน้า 35) ═════
+   P = 1.0 / 1.5 / 2.0 / 2.5 / 3.0 กก./ซม²
+   Q = ลิตร/ชั่วโมง · D = เส้นผ่านศูนย์กลางการกระจายน้ำ (ม.)
+   x = emitter exponent · k = flow coefficient (Q ≈ k × P^x)      */
+const PRESSURES = [1.0, 1.5, 2.0, 2.5, 3.0];
+const NOZZLES = [
+  {mm:0.65, th:'ดำ',      en:'Black',  x:0.51, k:16,  Q:[15,19,23,26,28],      D:[2.4,2.8,3.2,3.6,4.0]},
+  {mm:0.87, th:'น้ำเงิน',  en:'Blue',   x:0.51, k:26,  Q:[26,32,37,42,46],      D:[3.4,3.6,4.0,4.2,4.4]},
+  {mm:1.12, th:'เขียว',   en:'Green',  x:0.51, k:44,  Q:[44,55,63,71,78],      D:[4.2,4.4,4.6,4.8,5.0]},
+  {mm:1.50, th:'แดง',     en:'Red',    x:0.40, k:85,  Q:[85,100,112,122,131],  D:[5.6,6.0,6.8,7.0,7.2]},
+  {mm:1.85, th:'ขาว',     en:'White',  x:0.43, k:110, Q:[110,130,148,163,176], D:[6.0,7.6,8.0,8.2,8.4]},
+  {mm:2.10, th:'ส้ม',      en:'Orange', x:0.44, k:140, Q:[140,163,185,205,222], D:[7.4,8.0,8.2,8.4,8.6]},
+  {mm:2.50, th:'เหลือง',  en:'Yellow', x:0.40, k:180, Q:[180,211,237,259,279], D:[8.0,8.4,8.6,8.8,8.8]}
+];
+
+/* ═════ §4 sprinkler spacing ═════ */
+const ovDia = $('#ovDia'), ovPct = $('#ovPct');
+function runOverlap(){
+  const dia = +ovDia.value || 0, pct = +ovPct.value;
+  const r = dia/2;
+  /* 50% overlap = spacing equals the radius; more overlap tightens it proportionally */
+  const spacing = r * (50/pct);
+  $('#ovOut').textContent = spacing.toFixed(1);
+  $('#ovSteps').innerHTML =
+    `<div class="st"><span class="k">1</span><span class="d">รัศมีการฉีด = เส้นผ่านศูนย์กลาง ÷ 2</span><span class="v">${r.toFixed(1)} ม.</span></div>` +
+    `<div class="st"><span class="k">2</span><span class="d">ทับกัน ${pct}% — ที่ 50% ระยะห่างเท่ากับรัศมีพอดี</span><span class="v">× ${(50/pct).toFixed(2)}</span></div>` +
+    `<div class="st tot"><span class="k">=</span><span class="d">ระยะห่างระหว่างหัวสปริงเกลอร์</span><span class="v">${spacing.toFixed(1)} ม.</span></div>`;
+}
+[ovDia, ovPct].forEach(el => el.addEventListener('input', runOverlap));
+ovPct.addEventListener('change', runOverlap);
+runOverlap();
+
+/* ═════ §6 mini-sprinkler calculator ═════ */
+const ms = {noz:$('#msNoz'), p:$('#msP'), sp:$('#msSp'), need:$('#msNeed')};
+ms.noz.innerHTML = NOZZLES.map((n,i) =>
+  `<option value="${i}"${n.mm===1.50?' selected':''}>${n.mm.toFixed(2)} มม. · สี${n.th} (${n.en})</option>`).join('');
+
+function runMS(){
+  const n  = NOZZLES[+ms.noz.value];
+  const pi = PRESSURES.indexOf(+ms.p.value);
+  const Q  = n.Q[pi], D = n.D[pi];
+  const sp = +ms.sp.value || 0;
+  const need = +ms.need.value || 0;
+
+  const canopy = sp*sp;
+  /* the handout counts the wetted patch as a square of side D — neighbouring heads fill the corners */
+  const wet    = D*D;
+  const ratio  = canopy > 0 ? wet/canopy*100 : 0;
+  const hours  = Q > 0 ? need/Q : 0;
+
+  const r = (k,d,v,c) => `<div class="st"><span class="k">${k}</span><span class="d">${d}</span>` +
+    `<span class="v"${c?` style="color:${c}"`:''}>${v}</span></div>`;
+  let h = '';
+  h += r('หัว', `รูหัวฉีด ${n.mm.toFixed(2)} มม. สี${n.th}`, `${n.en}`);
+  h += r('P', `แรงดันใช้งาน ${(+ms.p.value).toFixed(1)} กก./ซม²`, `${(+ms.p.value*10).toFixed(0)} ม.`);
+  h += r('Q', 'อัตราการจ่ายน้ำจากแคตตาล็อค', `${Q} ลิตร/ชม.`);
+  h += r('D', 'เส้นผ่านศูนย์กลางการกระจายน้ำ', `${D.toFixed(1)} ม.`);
+  h += r('ทรงพุ่ม', `ระยะปลูก ${sp}×${sp} ม.`, `${nf(canopy)} ตร.ม.`);
+  h += r('เขตเปียก', `คิดเป็นสี่เหลี่ยมด้าน ${D.toFixed(1)} ม. (หัวข้างเคียงเติมมุมให้)`, `${nf(wet)} ตร.ม.`);
+  h += `<div class="st tot"><span class="k">=</span><span class="d">เขตเปียก ÷ ทรงพุ่ม — เกณฑ์คือไม่น้อยกว่า 50%</span>` +
+       `<span class="v">${ratio.toFixed(0)}%</span></div>`;
+  $('#msSteps').innerHTML = h;
+
+  let v = '';
+  if(ratio >= 50){
+    v += `<div class="verdict ok"><span class="big">${ratio.toFixed(0)}% ≥ 50%</span>` +
+         `<span>ผ่านเกณฑ์เขตเปียก — หัวนี้ใช้ได้</span></div>`;
+  } else {
+    v += `<div class="verdict no"><span class="big">${ratio.toFixed(0)}% &lt; 50%</span>` +
+         `<span>เขตเปียกแคบไป — เลือกหัวใหญ่ขึ้น เพิ่มแรงดัน หรือใช้ 2 หัวต่อต้น</span></div>`;
+  }
+  if(Q > 300){
+    v += `<div class="callout warn" style="margin-top:14px"><p>อัตราการไหล ${Q} ลิตร/ชม. ` +
+         `<strong>เกินช่วงของระบบมินิสปริงเกลอร์</strong> (35–300 ลิตร/ชม.) ตามที่เอกสารระบุ</p></div>`;
+  }
+  if(need > 0 && Q > 0){
+    const flex = Q > 100
+      ? ' และเนื่องจากหัวนี้จ่ายน้ำเกิน 100 ลิตร/ชม. <strong>ควรใช้ท่ออ่อนขนาดใหญ่ขึ้น</strong>เพื่อลดการสูญเสียแรงดัน'
+      : '';
+    v += `<div class="callout" style="margin-top:14px"><p>ถ้าต้องให้น้ำ <strong>${nf(need)} ลิตร/ต้น/วัน</strong> ` +
+         `ด้วยหัวนี้ 1 หัวต่อต้น ต้องเปิดน้ำวันละ <strong>${hours.toFixed(1)} ชั่วโมง</strong>` +
+         ` (หรือ ${(hours*2).toFixed(1)} ชม. ถ้ารดวันเว้นวัน)${flex}</p></div>`;
+  }
+  $('#msVerdict').innerHTML = v;
+}
+Object.values(ms).forEach(el => el.addEventListener('input', runMS));
+[ms.noz, ms.p].forEach(el => el.addEventListener('change', runMS));
+runMS();
+
+/* ═════ §8 drip spacing by soil ═════ */
+const SOIL = {
+  sand: {sp:'10 15',    why:'ดินทรายน้ำซึมเร็วลงในแนวดิ่งและแผ่ออกข้างน้อย ต้องวางหัวถี่ๆ ไม่งั้นจะได้เป็นจุดๆ ไม่ประสานกัน'},
+  loam: {sp:'20 25 30', why:'ดินร่วนน้ำแผ่ออกข้างได้พอสมควร ระยะกลางๆ จึงเพียงพอ'},
+  clay: {sp:'50',       why:'ดินเหนียวน้ำซึมช้าแต่แผ่ออกข้างได้กว้าง วางห่างได้ ถ้าวางถี่เกินจะแฉะและเปลืองหัว'}
+};
+const soilT = $('#soilT');
+function runSoil(){
+  const s = SOIL[soilT.value];
+  $('#soilOut').textContent = s.sp + (soilT.value==='clay' ? ' ขึ้นไป' : '');
+  $('#soilWhy').innerHTML = `<div class="callout"><p>${s.why}</p></div>` +
+    `<div class="callout warn" style="margin-top:12px"><p><strong>ตรวจสอบเสมอ</strong> — ` +
+    `หลังให้น้ำ 1–2 ชั่วโมง เขตเปียกต้องประสานกันเป็นแถบต่อเนื่อง ` +
+    `ถ้ายังขาดเป็นช่วงๆ แปลว่าระยะหยดห่างเกินไปสำหรับดินแปลงนี้</p></div>`;
+}
+soilT.addEventListener('change', runSoil);
+runSoil();
+
+/* ═════ §9 system picker ═════ */
+const SYS = {
+  sprinkler: {name:'สปริงเกลอร์', h:'20 ม. ขึ้นไป', q:'200 ล./ชม. ขึ้นไป', t:'น้อย'},
+  mini:      {name:'มินิสปริงเกลอร์', h:'10–20 ม.', q:'35–300 ล./ชม.', t:'ปานกลาง'},
+  micro:     {name:'ไมโครสเปรย์และเจ็ท', h:'10–20 ม.', q:'35–220 ล./ชม.', t:'ปานกลาง'},
+  drip:      {name:'น้ำหยด', h:'5–15 ม.', q:'1–8 ล./ชม.', t:'นาน'}
+};
+const pk = {crop:$('#pkCrop'), water:$('#pkWater'), pri:$('#pkPri')};
+function runPick(){
+  const c = pk.crop.value, w = pk.water.value, p = pk.pri.value;
+  let key, why, alt = null, altWhy = '';
+
+  if(c === 'house'){
+    key = 'micro'; why = 'พืชในเรือนเพาะชำที่ต้องการความชื้นสูง เป็นงานที่เอกสารระบุว่าไมโครสเปรย์เหมาะที่สุด';
+  } else if(c === 'row'){
+    if(w === 'plenty' && p === 'time'){
+      key = 'sprinkler';
+      why = 'พืชไร่พืชผักแถวชิด แหล่งน้ำมากพอ และต้องการรดเร็ว — สปริงเกลอร์ครอบคลุมพื้นที่กว้างโดยไม่ต้องวางท่อทุกแถว';
+      alt = 'drip'; altWhy = 'ถ้ายอมเปิดน้ำนานขึ้น เทปน้ำหยดจะประหยัดน้ำและค่าไฟกว่ามาก';
+    } else {
+      key = 'drip';
+      why = 'พืชปลูกเป็นแถวชิด 1–2 เมตร ใช้เทปน้ำหยดวางตามแถวปลูกได้ทุกแถว (1 เส้น = 1 แถว) ประหยัดน้ำและพลังงานที่สุด';
+      alt = 'sprinkler'; altWhy = 'ถ้าน้ำมากพอและอยากรดให้เสร็จเร็ว สปริงเกลอร์ก็ใช้กับพืชกลุ่มนี้ได้';
+    }
+  } else if(c === 'small'){
+    key = 'micro';
+    why = 'ไม้ผลระยะปลูกไม่เกิน 4 เมตรหรือต้นยังเล็ก — รัศมี 1–3 เมตรของไมโครสเปรย์และเจ็ทพอดีกับทรงพุ่มขนาดนี้';
+    alt = 'drip'; altWhy = 'ถ้าอยากประหยัดพลังงานที่สุดและยอมเปิดน้ำนาน น้ำหยดก็ทำได้';
+  } else {
+    key = 'mini';
+    why = 'ไม้ผลระยะปลูก 4 เมตรขึ้นไป — ใบหมุนของมินิสปริงเกลอร์กระจายน้ำได้รัศมี 2–4 เมตร ครอบคลุมทรงพุ่มได้ตามเกณฑ์ 50%';
+    if(p === 'energy'){ alt = 'drip'; altWhy = 'ถ้าเน้นประหยัดพลังงานสุดๆ ใช้น้ำหยดหลายหัวต่อต้นได้ (ไม้ผลต้นใหญ่ใช้ได้ถึง 8 หัวหรือมากกว่า)'; }
+  }
+
+  const s = SYS[key];
+  let warn = '';
+  if(key !== 'sprinkler' && p === 'simple'){
+    warn = `<div class="callout warn" style="margin-top:14px"><p><strong>ข้อควรทราบ</strong> — ` +
+      `ระบบเฉพาะจุดทุกแบบ<strong>ต้องมีระบบกรองที่ดี</strong>และต้องล้างกรองตามระยะเวลา ` +
+      `ถ้าไม่อยากดูแลกรองเลย มีเพียงสปริงเกลอร์ที่ปัญหาการอุดตันน้อยจนอาจไม่ต้องใช้กรอง ` +
+      `แต่ต้องแลกด้วยค่าพลังงานที่สูงที่สุด</p></div>`;
+  }
+  if(key === 'sprinkler' && w === 'limited'){
+    warn += `<div class="callout warn" style="margin-top:14px"><p><strong>ข้อควรทราบ</strong> — ` +
+      `สปริงเกลอร์เหมาะกับแหล่งน้ำที่มีปริมาณมากเพียงพอ ` +
+      `ถ้าน้ำจำกัดจริงๆ ควรทบทวนไปใช้ระบบเฉพาะจุดแทน</p></div>`;
+  }
+
+  $('#pkOut').innerHTML =
+    `<div class="verdict ok" style="margin-bottom:16px"><span class="big">${s.name}</span>` +
+    `<span>H ${s.h} · Q ${s.q} · เวลาให้น้ำ ${s.t}</span></div>` +
+    `<div class="steps">` +
+      `<div class="st"><span class="k">เหตุ</span><span class="d">${why}</span><span class="v">—</span></div>` +
+      (alt ? `<div class="st"><span class="k">รอง</span><span class="d">${altWhy}</span><span class="v">${SYS[alt].name}</span></div>` : '') +
+      `<div class="st tot"><span class="k">→</span><span class="d">เลือกหัวได้แล้ว ขั้นต่อไปคือหาปริมาณน้ำต่อต้นจากบทที่ 1 แล้ววางผังในบทที่ 5</span><span class="v">ต่อไป</span></div>` +
+    `</div>` + warn;
+}
+Object.values(pk).forEach(el => el.addEventListener('change', runPick));
+runPick();
+</script>
+
+</body>
+</html>

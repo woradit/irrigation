@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เครื่องสูบน้ำเพื่อการเกษตร · บทที่ 6</title>
+<meta name="description" content="บทที่ 6 ระบบให้น้ำเพื่อการเกษตร — หน่วยแรงดัน ประเภทเครื่องสูบน้ำ การหา H ของระบบ อ่านแคตตาล็อกและแผ่นป้าย และการเลือกต้นกำลัง">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mali:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ── chapter-specific ── */
+/* word keys in the step lists (คู่ที่ 1, ประมาณ, ต้องการ) need a wider key column */
+.steps .st{grid-template-columns:5.2rem 1fr auto}
+@media (max-width:560px){ .steps .st{grid-template-columns:4.2rem 1fr auto} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <a class="home" href="./">← หลักสูตรทั้งหมด</a>
+  <div class="ch">บทที่ 6</div>
+  <h1><span class="nb">เครื่องสูบน้ำเพื่อการเกษตร</span></h1>
+  <p class="sub">ปั๊มเป็นชิ้นสุดท้ายที่เลือก เพราะต้องรู้ก่อนว่าระบบทั้งหมดต้องการน้ำเท่าไรและแรงดันเท่าไร
+     บทนี้ว่าด้วยการอ่านตัวเลขให้ถูก — ทั้งในแคตตาล็อกและบนแผ่นป้ายข้างเครื่อง</p>
+  <p class="by">เอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” · สมาคมวิศวกรรมเกษตรแห่งประเทศไทย · ชีรวรรธก์ มั่นกิจ</p>
+
+  <dl class="rules">
+    <div><dt>เลือกปั๊มด้วย</dt><dd>Q และ H<small>ไม่ใช่ขนาดท่อส่ง และไม่ใช่แรงม้าของมอเตอร์</small></dd></div>
+    <div><dt>1 บรรยากาศ</dt><dd>= 10 เมตร<small>= 1 บาร์ = 100 kPa = 14.7 psi = 1 กก./ซม²</small></dd></div>
+    <div><dt>ขีดจำกัดการดูด</dt><dd>6 เมตร<small>หอยโข่งลึกกว่านี้ประสิทธิภาพตก · 10 เมตรใช้ไม่ได้เลย</small></dd></div>
+    <div><dt>เผื่อต้นกำลัง</dt><dd>10% / 25%<small>มอเตอร์ไฟฟ้า / เครื่องยนต์ดีเซล</small></dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="สารบัญ">
+  <ol>
+    <li><a href="#s1"><b>1</b>หน่วยแรงดัน</a></li>
+    <li><a href="#s2"><b>2</b>ทำไม 1 atm = 10 ม.</a></li>
+    <li><a href="#s3"><b>3</b>ประเภทเครื่องสูบน้ำ</a></li>
+    <li><a href="#s4"><b>4</b>ปั๊มหอยโข่ง</a></li>
+    <li><a href="#s5"><b>5</b>เลือกผิด vs เลือกถูก</a></li>
+    <li><a href="#s6"><b>6</b>หา H ของระบบ</a></li>
+    <li><a href="#s7"><b>7</b>อ่านแคตตาล็อก</a></li>
+    <li><a href="#s8"><b>8</b>อ่านแผ่นป้าย</a></li>
+    <li><a href="#s9"><b>9</b>ต้นกำลัง</a></li>
+  </ol>
+</nav>
+
+<!-- ══ 1 ══ -->
+<section class="sec" id="s1">
+  <div class="col">
+    <h2><span class="n">01 / พื้นฐาน</span>หน่วยแรงดัน</h2>
+    <p class="lead"><strong>เครื่องสูบน้ำเพื่อการเกษตร</strong> เป็นเครื่องมือที่ใช้ในการชักนำน้ำจากแหล่งน้ำที่อยู่ต่ำ
+      เข้าสู่พื้นที่ทำการเกษตร หรือใช้ในการ<strong>เพิ่มแรงดันให้น้ำผ่านระบบท่อ</strong>เพื่อกระจายน้ำไปทั่วพื้นที่</p>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:620px">
+        <thead><tr>
+          <th>atm<br><span style="font-weight:400;color:var(--ink-3)">บรรยากาศ</span></th>
+          <th>psi<br><span style="font-weight:400;color:var(--ink-3)">ปอนด์/ตร.นิ้ว</span></th>
+          <th>kg/cm²<br><span style="font-weight:400;color:var(--ink-3)">กก./ตร.ซม.</span></th>
+          <th>kPa<br><span style="font-weight:400;color:var(--ink-3)">กิโลปาสกาล</span></th>
+          <th>Bar<br><span style="font-weight:400;color:var(--ink-3)">บาร์</span></th>
+          <th>m<br><span style="font-weight:400;color:var(--ink-3)">ความสูงน้ำ</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>1</td><td>14.7</td><td>1.0332</td><td>101.325</td><td>1.01325</td><td>10</td></tr>
+          <tr><td>1</td><td>14.7</td><td class="hit">1</td><td class="hit">100</td><td class="hit">1</td><td class="hit">10</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body" style="font-size:.93rem;color:var(--ink-2)">
+      แถวบนคือค่าที่ถูกต้องตามฟิสิกส์ แถวล่างคือ<strong>ค่าที่ใช้จริงในงานออกแบบ</strong> — ปัดให้กลมเพื่อคิดในหัวได้เร็ว
+      ต่างกันไม่ถึง 3.4% ซึ่งน้อยกว่าค่าเผื่อที่เราใส่ไว้ในระบบอยู่แล้ว</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เครื่องแปลงหน่วยแรงดัน</h3><span>พิมพ์ค่าในช่องไหนก็ได้</span></div>
+      <div class="panel-b">
+        <div class="ctrls">
+          <div class="fld"><label for="uM">เมตร (ความสูงน้ำ)</label><input id="uM" type="number" value="20" step="1"></div>
+          <div class="fld"><label for="uBar">บาร์</label><input id="uBar" type="number" value="2" step="0.1"></div>
+          <div class="fld"><label for="uKpa">kPa</label><input id="uKpa" type="number" value="200" step="10"></div>
+          <div class="fld"><label for="uPsi">psi</label><input id="uPsi" type="number" value="29.4" step="1"></div>
+          <div class="fld"><label for="uKg">กก./ซม²</label><input id="uKg" type="number" value="2" step="0.1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ใช้กับน้ำระบบปิด = ท่อ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>1 bar = 100 kPa</p>
+  </aside>
+</section>
+
+<!-- ══ 2 ══ -->
+<section class="sec" id="s2">
+  <div class="col">
+    <h2><span class="n">02 / กลไก</span>ทำไม 1 บรรยากาศ ถึงเท่ากับ 10 เมตร</h2>
+    <p class="lead">ตัวเลขนี้ไม่ใช่ค่าที่ท่องจำเฉยๆ มันคือ<strong>ขีดจำกัดทางฟิสิกส์ของการดูดน้ำ</strong>
+      และเป็นเหตุผลที่ปั๊มหอยโข่งดูดน้ำลึกเกิน 6 เมตรไม่ไหว</p>
+
+    <figure>
+      <svg viewBox="0 0 620 260" role="img" aria-label="การทดลองหลอดสุญญากาศ เมื่อดูดอากาศออกจากท่อที่จุ่มปลายล่างในน้ำ ความดันบรรยากาศจะดันน้ำขึ้นไปได้สูงสุด 10 เมตร และภาชนะรูปทรงต่างกันที่ระดับน้ำสูง 10 เมตรให้แรงดันเท่ากันหมด">
+        <!-- vacuum tube experiment -->
+        <text x="0" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="12.5" font-weight="600" fill="currentColor">ดูดอากาศออก น้ำขึ้นได้สูงสุด 10 เมตร</text>
+        <ellipse cx="112" cy="34" rx="14" ry="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <text x="132" y="30" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">ดูดอากาศออก</text>
+        <rect x="104" y="42" width="16" height="152" fill="none" stroke="var(--pvc)" stroke-width="2"/>
+        <rect x="105" y="96" width="14" height="98" fill="var(--accent-soft)"/>
+        <ellipse cx="112" cy="206" rx="52" ry="16" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+        <text x="112" y="238" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">ภาชนะใส่น้ำ</text>
+        <text x="112" y="254" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="10.5" fill="var(--ink-3)">1 atm ดันลงบนผิวน้ำ</text>
+        <g fill="none" stroke="var(--ink-3)" stroke-width="1"><line x1="150" y1="96" x2="150" y2="194"/></g>
+        <g fill="var(--ink-3)"><polygon points="146,100 154,100 150,92"/><polygon points="146,190 154,190 150,198"/></g>
+        <text x="158" y="149" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--accent)" font-weight="500">10 ม.</text>
+        <g fill="currentColor">
+          <polygon points="70,172 82,172 76,188"/><polygon points="142,172 154,172 148,188"/>
+        </g>
+
+        <line x1="240" y1="20" x2="240" y2="248" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- same head, different shapes -->
+        <text x="266" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="12.5" font-weight="600" fill="currentColor">รูปทรงไม่เกี่ยว — ระดับน้ำเท่ากัน แรงดันเท่ากัน</text>
+        <g stroke="var(--pvc)" stroke-width="2" fill="var(--accent-soft)">
+          <rect x="286" y="60" width="16" height="134"/>
+          <rect x="336" y="60" width="34" height="134"/>
+          <rect x="404" y="60" width="62" height="134"/>
+          <rect x="512" y="60" width="70" height="60"/>
+          <rect x="538" y="120" width="18" height="74"/>
+        </g>
+        <line x1="270" y1="60" x2="596" y2="60" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <line x1="270" y1="194" x2="596" y2="194" stroke="var(--rule-strong)" stroke-width="2"/>
+        <text x="266" y="56" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--accent)">10 ม.</text>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)" text-anchor="middle">
+          <text x="294" y="212">1 atm</text><text x="353" y="212">1 atm</text>
+          <text x="435" y="212">1 atm</text><text x="547" y="212">1 atm</text>
+        </g>
+        <text x="266" y="238" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">แรงดัน = มวลน้ำ ÷ พื้นที่หน้าตัด — ทั้งสองโตขึ้นพร้อมกัน จึงหักล้างกันพอดี</text>
+      </svg>
+      <figcaption>ท่อผอมหรือถังอ้วนไม่ต่างกัน เพราะแรงดันคือ<strong>มวลน้ำหารด้วยพื้นที่หน้าตัด</strong>
+        ภาชนะที่กว้างขึ้นมีน้ำหนักน้ำมากขึ้นตามสัดส่วนพอดี — สิ่งที่กำหนดแรงดันคือ<strong>ความสูง</strong>อย่างเดียว</figcaption>
+    </figure>
+
+    <div class="callout warn">
+      <p><strong>ผลที่ตามมาในไร่</strong> — น้ำไม่ขึ้นไปมากกว่านี้ ไม่ว่าจะใช้ปั๊มแรงแค่ไหน
+        เพราะสิ่งที่ดันน้ำขึ้นมาคือความดันบรรยากาศ ไม่ใช่ปั๊ม
+        และในทางปฏิบัติมีการสูญเสียอีก ปั๊มหอยโข่งจึงดูดได้จริงแค่ราว <strong>6 เมตร</strong>
+        ถ้าบ่อลึกกว่านั้นต้อง<strong>ย้ายปั๊มลงไปใกล้น้ำ</strong> หรือใช้ปั๊มจมน้ำแทน</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>ขุดสระถูกกว่าสร้างถังน้ำสูง</strong> — ถ้าอยากได้แรงดัน 20 เมตรจากถังน้ำ ต้องยกถังขึ้นไป 20 เมตรจริงๆ
+        ซึ่งเป็นโครงสร้างที่แพงมาก เทียบกับการขุดสระเก็บน้ำแล้วใช้ปั๊มสร้างแรงดันแทน</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ที่ลึกของ 1 atm = 10 m. น้ำไม่ขึ้นไปมากกว่านี้</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ขุดสระถูกกว่าสร้างถังน้ำสูง</p>
+  </aside>
+</section>
+
+<!-- ══ 3 ══ -->
+<section class="sec" id="s3">
+  <div class="col">
+    <h2><span class="n">03 / ชนิด</span>ประเภทเครื่องสูบน้ำที่ใช้ทางการเกษตร</h2>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:640px">
+        <thead><tr><th style="text-align:start">ประเภท</th><th style="text-align:start">แบบย่อย</th><th style="text-align:start">ลักษณะและการใช้งาน</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start" rowspan="2">ส่งน้ำตามแนวแกน<br><span style="font-weight:400;color:var(--ink-3)">Axial Flow</span></th>
+              <td style="text-align:start">ท่อสูบน้ำ<br>(ท่อพญานาค)</td>
+              <td style="text-align:start">ใบพัดอยู่ในท่อ ส่งน้ำ<strong>ปริมาณมากแต่ยกได้ต่ำ</strong> ท่อหลายขนาดตั้งแต่ 3 นิ้วขึ้นไป
+                ใช้สูบน้ำจากแหล่งน้ำผิวดินเข้าพื้นที่ที่ระดับต่างกันไม่เกิน 5–6 เมตร</td></tr>
+          <tr><td style="text-align:start">เทอร์ไบน์<br>(Vertical Turbine)</td>
+              <td style="text-align:start">เพลายาวลงไปหมุนใบพัดที่จมอยู่ในน้ำ ใช้กับ<strong>บ่อบาดาล</strong>
+                มีทั้งใบพัดแบบใบและแบบเกลียว</td></tr>
+          <tr><th style="text-align:start">จมใต้น้ำ<br><span style="font-weight:400;color:var(--ink-3)">Submersible</span></th>
+              <td style="text-align:start">—</td>
+              <td style="text-align:start">ใช้สูบน้ำจากบ่อบาดาลน้ำลึกซึ่งเป็นน้ำสะอาด เป็นแบบ<strong>ใบพัดหลายชั้น (Multi Stages)</strong>
+                เพื่อให้มีกำลังส่งสูง <strong>ส่งได้สูงกว่า 100 เมตร</strong>
+                ปริมาณน้ำที่สูบไม่มากนักขึ้นอยู่กับอัตราการไหลของน้ำเข้ามาในบ่อ
+                <strong>หากสูบเร็วเกินไปบ่อจะเสียหายได้</strong></td></tr>
+          <tr><th style="text-align:start; color:var(--accent)">เหวี่ยงหนีศูนย์<br><span style="font-weight:400;color:var(--ink-3)">Centrifugal</span></th>
+              <td style="text-align:start">หอยโข่ง</td>
+              <td style="text-align:start">เป็นแบบที่ใช้ในระบบให้น้ำมากที่สุด — ดูหัวข้อถัดไป
+                มีทั้งแบบใบพัดชั้นเดียว (Single Stage) แบบใบพัดหลายชั้น (Multi Stage) และแบบล่อน้ำด้วยตัวเอง (Self Priming)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>ลำดับการพิจารณาตามเอกสาร</strong> — <strong>เครื่องสูบน้ำแบบเหวี่ยงหนีศูนย์เป็นอันดับแรก</strong>
+        ที่ถูกพิจารณาเลือกใช้ในการเกษตร เพื่อสูบน้ำจากแหล่งน้ำประเภทแม่น้ำ ลำคลอง ที่มีตลิ่งไม่สูงชันมากนัก
+        ส่วน <strong>Submersible หรือ Vertical Turbine เป็นอันดับถัดไป</strong>
+        เพราะมีใบพัดจมอยู่ใต้น้ำ จึงควรเลือกใช้เมื่อระดับน้ำต่ำกว่าผิวดินเกิน 6 เมตร และสามารถส่งน้ำได้สูงเป็นร้อยเมตร</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>บ่อลึกใช้ใบพัดเยอะ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>แต่ส่งได้ทั้งสิ้น (ท่อพญานาค — ยกได้ต่ำ)</p>
+  </aside>
+</section>
+
+<!-- ══ 4 ══ -->
+<section class="sec" id="s4">
+  <div class="col">
+    <h2><span class="n">04 / หลักการ</span>ปั๊มหอยโข่ง (Centrifugal)</h2>
+    <p class="lead">ปั๊มที่ใช้ในระบบให้น้ำเกือบทั้งหมดเป็นแบบนี้ เข้าใจหลักการแล้วจะรู้ว่าทำไมต้องล่อน้ำ
+      และทำไมดูดลึกไม่ได้</p>
+
+    <div class="panel">
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">การหมุนของใบพัดสร้างแรงเหวี่ยงหนีศูนย์ เหวี่ยงน้ำจากศูนย์กลางใบพัดออกไปยังขอบใบพัดในเรือนสูบ ทำให้มีพลังงานเพิ่มขึ้นจนออกจากเรือนสูบ</span><span class="v">—</span></div>
+          <div class="st"><span class="k">2</span><span class="d">เมื่อน้ำถูกดันออกไปจากเรือนสูบ ทำให้<strong>แรงดันภายในเรือนสูบและท่อดูดลดต่ำลง</strong> แรงดันบรรยากาศภายนอกจะดันน้ำให้ไหลเข้าไปแทนที่ ทำให้ส่งน้ำได้ต่อเนื่อง</span><span class="v">—</span></div>
+          <div class="st"><span class="k">3</span><span class="d">เนื่องจากใบพัดอยู่เหนือระดับน้ำ จึงต้องเติมน้ำให้เต็มในเรือนสูบและท่อดูดก่อน จึงจะใช้งานส่งน้ำขึ้นมาได้ เรียกว่า <strong>การล่อน้ำ</strong></span><span class="v">—</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">ใช้สูบน้ำจากแหล่งน้ำทั่วไปที่มีระดับความลึกที่เหมาะสม</span><span class="v">ไม่เกิน 5–6 เมตร</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ตัวปั๊มไม่ได้ดูดน้ำ</strong> — สิ่งที่ดันน้ำขึ้นมาคือความดันบรรยากาศ (หัวข้อ 2)
+        ปั๊มแค่ทำให้ข้างในมีแรงดันต่ำลงเท่านั้น เพราะฉะนั้น<strong>หากเกินกว่า 5–6 เมตรประสิทธิภาพจะลดลง
+        และที่ความลึก 10 เมตรไม่สามารถใช้ได้</strong> ไม่ว่าจะซื้อปั๊มแรงแค่ไหน</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>เงื่อนไขการติดตั้งจากเอกสาร</strong> — การติดตั้งต้องมั่นคงและน้ำท่วมไม่ถึงต้นกำลัง ·
+        แหล่งน้ำต้องมีระดับน้ำลึกไม่เกิน 6 เมตร เช่น สูบน้ำจากบ่อน้ำตื้นระดับ 3–4 เมตรจากผิวดิน
+        และเมื่อสูบแล้วระดับน้ำควรลดลงไม่เกิน 6 เมตร · ถ้าระดับน้ำลดลงเกิน 6 เมตร ประสิทธิภาพจะลดต่ำลง</p>
+    </div>
+
+    <p class="body">ต้นกำลังของปั๊มหอยโข่งมีทั้งแบบที่ใช้<strong>เครื่องยนต์</strong>และแบบที่ใช้<strong>มอเตอร์ไฟฟ้า</strong>
+      — เลือกอย่างไรอยู่ในหัวข้อ 9</p>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ต้นกำลังเป็นเครื่องยนต์ / ต้นกำลังเป็นมอเตอร์ไฟฟ้า</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เดินท่อให้ดี ให้เต็ม แล้วป้อมเปื่อยน้ำ (การล่อน้ำ)</p>
+  </aside>
+</section>
+
+<!-- ══ 5 ══ -->
+<section class="sec" id="s5">
+  <div class="col">
+    <h2><span class="n">05 / กับดัก</span>เลือกผิด กับ เลือกถูก</h2>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>เลือกไม่ถูกต้อง</h3><span style="color:var(--fail)">✗</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>การเลือกโดยใช้ <strong>ขนาดของท่อส่ง</strong></li>
+          <li>หรือ <strong>แรงม้าของมอเตอร์</strong></li>
+          <li>สองอย่างนี้ขึ้นอยู่กับการออกแบบและความเร็วรอบการใช้งาน
+            <strong>ไม่ได้มีผลให้ได้อัตราการส่งน้ำ (Q) และความสูงของน้ำที่ส่ง (H) เท่าที่ต้องการ</strong></li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>เลือกถูกต้อง</h3><span style="color:var(--pass)">✓</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ใช้ <strong>อัตราการส่งน้ำ (Q) และความสูงของน้ำที่ส่ง (H) เป็นตัวกำหนด</strong></li>
+          <li>ถูกต้องตามหลักวิชาการ</li>
+          <li>บริษัทใหญ่หรือตัวแทนจำหน่ายเครื่องสูบน้ำที่ได้มาตรฐาน จะมีข้อมูล Q และ H
+            ยี่ห้อ รุ่น แบบ พร้อมทั้งขนาดเครื่องยนต์ต้นกำลังหรือมอเตอร์ไฟฟ้าให้ได้ทันที</li>
+          <li><strong>เครื่องสูบน้ำหลายยี่ห้อที่ไม่ได้มาตรฐานจะไม่กำหนดข้อมูลเหล่านี้ไว้</strong></li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ใช้ข้อนี้เป็นเกณฑ์เลือกร้าน</strong> — ถ้าร้านบอก Q และ H ของรุ่นที่ขายไม่ได้
+        แปลว่าปั๊มนั้นไม่มีข้อมูลมาตรฐานกำกับ ซึ่งหมายความว่าเราออกแบบระบบไม่ได้เลย
+        เพราะไม่รู้ว่ามันจะส่งน้ำได้จริงเท่าไรที่แรงดันที่เราต้องการ</p>
+    </div>
+
+    <h3>สองตัวเลขที่ต้องรู้</h3>
+    <div class="panel">
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">Q</span><span class="d"><strong>อัตราการส่งน้ำ</strong> — ปริมาณน้ำที่ส่งได้ต่อหน่วยเวลา
+            เป็นค่าเฉพาะตัวเครื่องสูบน้ำ ซึ่งแปรผันตรงกับขนาดเส้นผ่านศูนย์กลางของใบพัดและความเร็วของใบพัด
+            ต้องเหมาะกับปริมาณน้ำที่ใช้ในระบบ เช่น ต้องใช้น้ำ 10 ม³/ชม. ก็ต้องใช้เครื่องสูบน้ำที่ส่งน้ำ<strong>ไม่น้อยกว่า</strong> 10 ม³/ชม.</span>
+            <span class="v">เท่ากับ<br>หรือมากกว่า</span></div>
+          <div class="st tot"><span class="k">H</span><span class="d"><strong>แรงดันหรือความสูงของน้ำที่ส่ง</strong> — แรงดันของเครื่องสูบน้ำ
+            จะต้อง<strong>ไม่น้อยกว่า</strong>แรงดันทั้งหมดที่ต้องใช้ในระบบ ซึ่งประกอบด้วยความสูงของพื้นที่จากเครื่องสูบน้ำ
+            แรงดันที่หัวจ่ายน้ำแต่ละชนิดใช้ และแรงดันที่เสียไปในอุปกรณ์ต่างๆ รวมกันเป็นเมตร</span>
+            <span class="v">มากกว่า<br>หรือเท่ากับ</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>Q เท่ากับ หรือมากกว่าที่ต้องการ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>H มากกว่าหรือเท่ากับ</p>
+  </aside>
+</section>
+
+<!-- ══ 6 ══ -->
+<section class="sec" id="s6">
+  <div class="col">
+    <h2><span class="n">06 / คำนวณ</span>หา H ของระบบ — สี่ส่วนบวกกัน</h2>
+    <p class="lead">แรงดันทั้งหมดที่ใช้ในระบบ เทียบเป็นความสูงของน้ำ (H) ประกอบด้วย 4 ประการ</p>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:600px">
+        <thead><tr><th>ข้อ</th><th style="text-align:start">คือ</th><th style="text-align:start">หาจาก</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td style="text-align:start">ความสูงจากแนวศูนย์กลางเครื่องสูบน้ำถึงจุดสูงสุดที่ส่งน้ำ</td><td style="text-align:start">วัดระดับในแปลง (บทที่ 5)</td></tr>
+          <tr><td>2</td><td style="text-align:start">แรงดันที่หัวจ่ายน้ำแต่ละชนิดใช้</td><td style="text-align:start">ตารางข้างล่าง หรือแคตตาล็อกหัว</td></tr>
+          <tr><td>3</td><td style="text-align:start">แรงดันที่เสียไปในท่อส่งน้ำ — ผลรวมของความเสียดทานภายในท่อจากเครื่องสูบน้ำถึงจุดที่ส่งน้ำ
+            เช่น ท่อเมน ท่อเมนย่อย และท่อย่อย รวมกันเป็นเมตร</td><td style="text-align:start">ตารางแรงเสียดทาน (บทที่ 4)</td></tr>
+          <tr><td>4</td><td style="text-align:start">แรงดันที่เสียไปในกรองและอุปกรณ์ข้อต่อต่างๆ</td>
+              <td style="text-align:start">ถ้าไม่รู้ค่าที่แน่นอน ประมาณได้ <strong>10% หรือ 1–2 เมตร</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>แรงดันที่หัวจ่ายน้ำแต่ละชนิดใช้</h3>
+    <div class="tscroll">
+      <table class="data" style="min-width:420px">
+        <thead><tr><th style="text-align:start">ชนิดหัวจ่ายน้ำ</th><th>ใช้ประมาณ</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">น้ำหยด</th><td>10 เมตร <span style="color:var(--ink-3)">(เทปน้ำหยด ใช้ประมาณ 8 เมตร)</span></td></tr>
+          <tr><th style="text-align:start">มินิสปริงเกลอร์</th><td>15 เมตร</td></tr>
+          <tr><th style="text-align:start">สเปรย์และเจ็ท</th><td>15 เมตร</td></tr>
+          <tr><th style="text-align:start">สปริงเกลอร์</th><td>20 เมตรขึ้นไป</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เครื่องคำนวณ H รวมของระบบ</h3><span>ผลลัพธ์เอาไปเลือกปั๊มในหัวข้อ 7</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="hEm">ชนิดหัวจ่ายน้ำ</label>
+            <select id="hEm">
+              <option value="8">เทปน้ำหยด — 8 ม.</option>
+              <option value="10">น้ำหยด — 10 ม.</option>
+              <option value="15" selected>มินิสปริงเกลอร์ — 15 ม.</option>
+              <option value="15">สเปรย์และเจ็ท — 15 ม.</option>
+              <option value="20">สปริงเกลอร์ — 20 ม.</option>
+            </select></div>
+          <div class="fld"><label for="hLift">ความสูงถึงจุดสูงสุด · ม.</label><input id="hLift" type="number" value="3" step="0.5"></div>
+          <div class="fld"><label for="hPipe">เสียดทานในท่อรวม · ม.</label><input id="hPipe" type="number" value="3.86" step="0.1"></div>
+          <div class="fld"><label for="hQ">Q ที่ระบบต้องการ · ล/นาที</label><input id="hQ" type="number" value="144" step="1"></div>
+        </div>
+        <div class="steps" id="hSteps"></div>
+        <div class="res"><span class="num" id="hOut">—</span><span class="lbl">เมตร &mdash; H ที่ปั๊มต้องทำได้ (รวมเผื่อ 10%)</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>รวมมาให้หมด</p>
+    <p class="note"><b>โยงกับบทที่ 4</b>ข้อ 3 คือผลรวมจากตารางแรงเสียดทาน — ท่อเมนไม่คูณค่าปรับแก้ ท่อเมนย่อยและท่อย่อยคูณ</p>
+  </aside>
+</section>
+
+<!-- ══ 7 ══ -->
+<section class="sec" id="s7">
+  <div class="col">
+    <h2><span class="n">07 / ปฏิบัติ</span>อ่านตารางแคตตาล็อก</h2>
+    <p class="lead">ตารางเทคนิคของผู้ผลิตมี Q อยู่แนวนอน และ H อยู่ในตาราง
+      หารุ่นที่<strong>คอลัมน์ Q ที่เราต้องการ ให้ H ไม่น้อยกว่าที่เราต้องการ</strong></p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ตัวเลือกรุ่นปั๊ม</h3><span>ตารางตัวอย่างชุด SE จากเอกสาร</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="pQ">Q ที่ต้องการ · ล/นาที</label><input id="pQ" type="number" value="200" step="10"></div>
+          <div class="fld"><label for="pH">H ที่ต้องการ · ม.</label><input id="pH" type="number" value="24" step="1"></div>
+        </div>
+        <div id="pTable"></div>
+        <div id="pVerdict"></div>
+      </div>
+    </div>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างจากเอกสาร</span><h3>ต้องการ Q 12 ม³/ชม. ที่ H 24 เมตร</h3></header>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">หาคอลัมน์ Capacity ที่ 12 ม³/ชม. (= 200 ล/นาที)</span><span class="v">คอลัมน์ที่ 4</span></div>
+          <div class="st"><span class="k">2</span><span class="d">ไล่ลงมาหารุ่นแรกที่ Total head ถึง 24 เมตร — SE 150 ให้ 22.5 ม. ยังไม่พอ</span><span class="v" style="color:var(--fail)">✗</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">SE 200 (Single phase) หรือ SE 200 T (Three phase) ให้ 25 เมตร · มอเตอร์ 1.5 kW หรือ 2 HP</span><span class="v" style="color:var(--pass)">SE 200</span></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="callout">
+      <p><strong>ในเครื่องสูบน้ำตัวเดียวกัน อัตราการส่งน้ำผันแปรกับความสูงของน้ำที่ส่ง</strong> เช่น รุ่น SE 200 —
+        ที่ความสูง 21 เมตร ส่งได้ 18 ม³/ชม. (300 ล/นาที) แต่ที่ความสูง 26.5 เมตร ส่งได้เพียง 9 ม³/ชม. (150 ล/นาที)
+        <strong>ที่ความสูงน้อย เครื่องสูบน้ำจะส่งน้ำได้มากขึ้น</strong>
+        ความผันแปรนี้สามารถพิจารณาในการใช้งานเครื่องสูบน้ำที่สภาวะต่างๆ
+        เช่น จ่ายน้ำแต่ละโซนที่มีขนาดต่างกัน แรงดันต่างกัน</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>อย่าเลือกที่ปลายตาราง</strong> — ควรเลือกให้ตกอยู่<strong>ราวกลางตาราง</strong>
+        เพราะประสิทธิภาพ (efficiency) ของปั๊มจะสูงสุดในช่วงกลาง
+        ถ้าเลือกไปอยู่ปลายซ้ายหรือปลายขวาสุด ปั๊มจะกินไฟมากโดยได้งานน้อย</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เลือกให้ตกราวกลางๆ จะได้ efficiency สูง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ปั๊มตัวเดียวกัน ใช้น้ำไม่เท่ากัน (Q) H เปลี่ยนไปได้</p>
+  </aside>
+</section>
+
+<!-- ══ 8 ══ -->
+<section class="sec" id="s8">
+  <div class="col">
+    <h2><span class="n">08 / ปฏิบัติ</span>อ่านแผ่นป้ายข้างเครื่อง</h2>
+    <p class="lead">เวลาไปดูของหน้าร้านหรือตรวจปั๊มที่มีอยู่แล้ว แผ่นป้ายบอกทุกอย่าง
+      แต่ต้องรู้ว่า<strong>ตัวเลขคู่กันแบบสลับข้าง</strong></p>
+
+    <figure>
+      <svg viewBox="0 0 560 210" role="img" aria-label="แผ่นป้ายปั๊มระบุ Q 10 ถึง 400 ลิตรต่อนาที และ H 29 ถึง 5 เมตร ตัวเลขจับคู่กันสลับข้าง คือ Q 10 คู่กับ H 29 และ Q 400 คู่กับ H 5">
+        <rect x="60" y="20" width="440" height="72" rx="4" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="19" font-weight="500" fill="currentColor">
+          <text x="88" y="64">Q</text>
+          <text x="124" y="64" fill="var(--accent)">10</text>
+          <text x="168" y="64" fill="var(--ink-3)">—</text>
+          <text x="196" y="64" fill="var(--mark-line)">400</text>
+          <text x="258" y="64" fill="var(--ink-3)">l/min</text>
+          <text x="344" y="64">H</text>
+          <text x="378" y="64" fill="var(--accent)">29</text>
+          <text x="418" y="64" fill="var(--ink-3)">—</text>
+          <text x="444" y="64" fill="var(--mark-line)">5</text>
+          <text x="466" y="64" fill="var(--ink-3)">m</text>
+        </g>
+        <!-- crossing pair links -->
+        <path d="M134 76 C 180 128, 340 128, 388 76" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M212 76 C 260 168, 400 168, 450 76" fill="none" stroke="var(--mark-line)" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="262" y="126" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="12" fill="var(--accent)" font-weight="600">Q 10 ล/นาที ที่ H 29 ม.</text>
+        <text x="330" y="184" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="12" fill="var(--mark-line)" font-weight="600">Q 400 ล/นาที ที่ H 5 ม.</text>
+        <text x="60" y="206" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">l/min คือ ลิตรต่อนาที · m คือ เมตร</text>
+      </svg>
+      <figcaption>ช่วงของ Q กับช่วงของ H <strong>เขียนสวนทางกัน</strong> — ค่าแรกของ Q คู่กับค่าแรกของ H
+        ซึ่งเป็นน้ำน้อยที่สุดที่แรงดันสูงสุด ส่วนค่าท้ายคือน้ำมากที่สุดที่แรงดันต่ำสุด</figcaption>
+    </figure>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ลองอ่านแผ่นป้ายเอง</h3><span>ใส่ตัวเลขที่เห็นบนป้าย</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="nQ1">Q ค่าแรก · ล/นาที</label><input id="nQ1" type="number" value="10" step="1"></div>
+          <div class="fld"><label for="nQ2">Q ค่าท้าย · ล/นาที</label><input id="nQ2" type="number" value="400" step="1"></div>
+          <div class="fld"><label for="nH1">H ค่าแรก · ม.</label><input id="nH1" type="number" value="29" step="1"></div>
+          <div class="fld"><label for="nH2">H ค่าท้าย · ม.</label><input id="nH2" type="number" value="5" step="1"></div>
+          <div class="fld"><label for="nNeedQ">ระบบเราต้องการ Q</label><input id="nNeedQ" type="number" value="144" step="1"></div>
+          <div class="fld"><label for="nNeedH">ระบบเราต้องการ H</label><input id="nNeedH" type="number" value="24" step="1"></div>
+        </div>
+        <div class="steps" id="nSteps"></div>
+        <div id="nVerdict"></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>H max ไม่ใช่แรงดันใช้งาน</strong> — “H max 29 m” บนป้ายคือแรงดันสูงสุดที่ปั๊มทำได้
+        ซึ่งเกิดขึ้นตอนที่<strong>น้ำแทบไม่ไหลเลย</strong> เช่นเดียวกับ “Q max 400 l/min”
+        ที่เกิดตอนแรงดันต่ำสุด สองค่านี้<strong>ไม่เคยเกิดพร้อมกัน</strong>
+        เวลาออกแบบต้องดูจุดใช้งานจริงที่อยู่ระหว่างกลาง</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>อาการที่บอกว่ามีอากาศเข้าระบบ</strong> — เอกสารระบุว่าเมื่อเครื่องสูบน้ำมีอากาศเข้าไป
+        จะสังเกตได้จาก <strong>Q ต่ำ แต่ H สูง</strong> ผิดปกติ
+        ให้ตรวจรอยรั่วที่ท่อดูดและข้อต่อ แล้วล่อน้ำใหม่</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>กลับกัน (Q กับ H บนป้ายอ่านสลับข้าง)</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ได้ Q ต่ำ · ได้ H สูง (อาการมีอากาศ)</p>
+  </aside>
+</section>
+
+<!-- ══ 9 ══ -->
+<section class="sec" id="s9" style="border-bottom:0">
+  <div class="col">
+    <h2><span class="n">09 / บทที่ 7</span>ต้นกำลัง (Prime Movers)</h2>
+    <div class="callout warn">
+      <p><strong>หมายเหตุเรื่องความครบถ้วน</strong> — หัวข้อนี้เป็นจุดเริ่มต้นของ<strong>บทที่ 7 เครื่องสูบน้ำเพื่อการเกษตร ตอน 2</strong>
+        ซึ่งในไฟล์สแกนที่มีอยู่<strong>มีเพียงหน้า 93 หน้าเดียว</strong> (สไลด์ชื่อบทกับสไลด์ต้นกำลัง)
+        เอกสารจริงยังมีต่อไปอีก รวมทั้งหัวข้อ “กรอง” และ “ภาคปฏิบัติ” ตามสารบัญ
+        เนื้อหาข้างล่างนี้จึงเป็นทุกอย่างที่มีในสแกน ไม่ใช่บทที่ 7 ทั้งบท</p>
+    </div>
+
+    <p class="lead">ต้นกำลังที่นิยมใช้สำหรับเครื่องสูบน้ำมีอยู่ 2 ชนิด คือ
+      <strong>มอเตอร์ไฟฟ้า</strong> และ <strong>เครื่องยนต์</strong></p>
+
+    <p class="body">การเลือกใช้แล้วแต่ความเหมาะสมของพื้นที่และแหล่งพลังงานที่มีอยู่
+      เมื่อไม่สะดวกในการใช้ไฟฟ้าก็จำเป็นต้องใช้เครื่องยนต์</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ถ้ามีไฟฟ้า ควรใช้มอเตอร์ไฟฟ้า เพราะ</h3></div>
+      <div class="panel-b"><ul class="plain">
+        <li>ราคาถูกกว่าเครื่องยนต์</li>
+        <li>การดูแลบำรุงรักษาง่ายกว่า</li>
+        <li>ประสิทธิภาพการทำงานของมอเตอร์จะสูงกว่าเครื่องยนต์</li>
+        <li>ค่าไฟฟ้าถูกกว่าค่าน้ำมัน — เมื่อเทียบค่าใช้จ่ายด้านกระแสไฟฟ้าของมอเตอร์ไฟฟ้า
+          กับค่าใช้จ่ายด้านน้ำมันเชื้อเพลิงของเครื่องยนต์ พบว่า<strong>มอเตอร์ไฟฟ้าประหยัดกว่าร้อยละ 30</strong></li>
+      </ul></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ขนาดของต้นกำลัง</h3></div>
+      <div class="panel-b"><ul class="plain">
+        <li>ต้นกำลังต้องสามารถให้กำลังเครื่องสูบน้ำถึงจุดทำงานสูงสุดได้ <strong>รวมทั้งเผื่อค่าความปลอดภัยด้วย</strong></li>
+        <li>ค่าที่เผื่อไว้สำหรับ<strong>มอเตอร์ไฟฟ้าประมาณ 10%</strong> และสำหรับ<strong>เครื่องยนต์ดีเซลประมาณ 25%</strong></li>
+        <li>ควรจะมีระบบป้องกันต้นกำลังที่ดี ในกรณีที่อาจเกิดแรงดันในท่อเมนเพิ่มขึ้นหรือลดลงอย่างรวดเร็ว</li>
+      </ul></div>
+    </div>
+
+    <div class="callout">
+      <p><strong>ทำไมเครื่องยนต์ต้องเผื่อมากกว่า</strong> — เครื่องยนต์สันดาปให้กำลังไม่คงที่เท่ามอเตอร์
+        และกำลังตกลงตามอายุการใช้งานและอุณหภูมิ จึงต้องเผื่อ 25% เทียบกับ 10% ของมอเตอร์
+        นี่เป็นอีกเหตุผลที่ต้นทุนรวมของเครื่องยนต์สูงกว่าที่เห็นตอนซื้อ</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>สมัยก่อนขายแยก เดี๋ยวนี้ไม่ต้องแล้ว</p>
+  </aside>
+</section>
+
+<section class="sec" style="border-bottom:0;padding-top:0">
+  <div class="col">
+    <nav class="pager" aria-label="บทก่อนหน้า">
+      <a class="prev" href="ch5-layout.html"><small>← บทที่ 5</small><span>การแบ่งแปลงและวางแนวท่อ</span></a>
+    </nav>
+    <div class="callout">
+      <p><strong>บทอื่นในหลักสูตร</strong> — <a href="./">หน้าแรก</a> ·
+        <a href="ch1-water-need.html">บทที่ 1 · ความต้องการน้ำของพืช</a> ·
+        <a href="ch2-systems.html">บทที่ 2 · ระบบให้น้ำพืช</a> ·
+        <a href="ch3-pipes.html">บทที่ 3 · ท่อสำหรับระบบให้น้ำ</a> ·
+        <a href="ch4-friction.html">บทที่ 4 · แรงเสียดทานกับขนาดท่อ</a> ·
+        <a href="ch5-layout.html">บทที่ 5 · การแบ่งแปลงและวางแนวท่อ</a></p>
+    </div>
+  </div>
+  <aside class="rail"></aside>
+</section>
+
+<footer class="end">
+  <p>เรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” บทที่ 6 หน้า 77–92
+     และบทที่ 7 หน้า 93 ของสมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+  <p>ข้อความในกรอบลายมือคือบันทึกที่จดไว้ระหว่างการอบรม เก็บไว้ตามตำแหน่งเดิมในเอกสาร</p>
+</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const nf = (n,d=2) => n.toLocaleString('en-US',{maximumFractionDigits:d});
+
+/* ═════ ตารางเทคนิคชุด SE (เอกสารหน้า 86 · ใช้ในโจทย์บทที่ 4 ด้วย) ═════ */
+const CAP_M3H = [3, 6, 9, 12, 18, 24, 30];
+const CAP_LMIN = [50, 100, 150, 200, 300, 400, 500];
+const PUMPS = [
+  {name:'SE 150', t:'SE 150 T', kw:1.1, hp:1.5, head:[25, 24.5, 23.5, 22.5, 18.5, 12.5, 4]},
+  {name:'SE 200', t:'SE 200 T', kw:1.5, hp:2,   head:[28.5, 28, 26.5, 25, 21, 15, 5.5]},
+  {name:'SE 300', t:'SE 300 T', kw:2.2, hp:3,   head:[34, 33.5, 32.5, 31.5, 28, 22.5, 13.5]}
+];
+
+/* ═════ §1 unit converter ═════ */
+/* งานออกแบบใช้ค่าปัดกลม: 1 บาร์ = 10 ม. = 100 kPa = 1 กก./ซม² = 14.7 psi */
+const U = {m:$('#uM'), bar:$('#uBar'), kpa:$('#uKpa'), psi:$('#uPsi'), kg:$('#uKg')};
+const TO_M = {m:1, bar:10, kpa:0.1, psi:10/14.7, kg:10};
+let uBusy = false;
+function setUnits(metres, except){
+  uBusy = true;
+  const r = (v,d) => +v.toFixed(d);
+  if(except !== 'm')   U.m.value   = r(metres, 2);
+  if(except !== 'bar') U.bar.value = r(metres/10, 3);
+  if(except !== 'kpa') U.kpa.value = r(metres*10, 1);
+  if(except !== 'psi') U.psi.value = r(metres/10*14.7, 2);
+  if(except !== 'kg')  U.kg.value  = r(metres/10, 3);
+  uBusy = false;
+}
+Object.entries(U).forEach(([k, el]) => {
+  el.addEventListener('input', () => {
+    if(uBusy) return;
+    const v = parseFloat(el.value);
+    if(!isFinite(v)) return;
+    setUnits(v * TO_M[k], k);
+  });
+});
+setUnits(20, null);
+
+/* ═════ §6 total head ═════ */
+const H = {em:$('#hEm'), lift:$('#hLift'), pipe:$('#hPipe'), q:$('#hQ')};
+function runHead(){
+  const em = +H.em.value || 0;
+  const lift = +H.lift.value || 0;
+  const pipe = +H.pipe.value || 0;
+  const q = +H.q.value || 0;
+  const sub = em + lift + pipe;
+  const spare = sub * 0.10;
+  const total = sub + spare;
+  const emLabel = H.em.options[H.em.selectedIndex].text.split(' —')[0];
+
+  const r = (k,d,v) => `<div class="st"><span class="k">${k}</span><span class="d">${d}</span><span class="v">${v}</span></div>`;
+  $('#hSteps').innerHTML =
+    r('1', 'ความสูงจากเครื่องสูบน้ำถึงจุดสูงสุดที่ส่งน้ำ', `${nf(lift,1)} ม.`) +
+    r('2', `แรงดันที่หัวจ่ายน้ำ — ${emLabel}`, `${nf(em,1)} ม.`) +
+    r('3', 'แรงเสียดทานรวมในท่อเมน ท่อเมนย่อย และท่อย่อย', `${nf(pipe)} ม.`) +
+    r('4', 'กรองและอุปกรณ์ข้อต่อ — เผื่อ 10%', `${nf(spare)} ม.`) +
+    `<div class="st tot"><span class="k">=</span><span class="d">H ที่ปั๊มต้องทำได้ ที่ Q ${nf(q,0)} ลิตร/นาที (${nf(q*60/1000)} ม³/ชม.)</span>` +
+    `<span class="v">${nf(total)} ม.</span></div>`;
+  $('#hOut').textContent = nf(total);
+
+  /* feed the pump picker so the two tools stay in step */
+  if($('#pQ').dataset.touched !== '1'){ $('#pQ').value = Math.round(q); }
+  if($('#pH').dataset.touched !== '1'){ $('#pH').value = Math.ceil(total); }
+  runPump();
+}
+
+/* ═════ §7 pump picker ═════ */
+const pQ = $('#pQ'), pH = $('#pH');
+[pQ, pH].forEach(el => el.addEventListener('input', () => { el.dataset.touched = '1'; runPump(); }));
+
+function headAt(pump, lmin){
+  const c = CAP_LMIN;
+  if(lmin <= c[0]) return pump.head[0];
+  if(lmin >= c[c.length-1]) return pump.head[c.length-1];
+  for(let i = 0; i < c.length-1; i++){
+    if(lmin >= c[i] && lmin <= c[i+1]){
+      const t = (lmin - c[i]) / (c[i+1] - c[i]);
+      return pump.head[i] + t*(pump.head[i+1] - pump.head[i]);
+    }
+  }
+  return null;
+}
+
+function runPump(){
+  const q = +pQ.value || 0, h = +pH.value || 0;
+  /* nearest catalogue column, for highlighting */
+  let col = 0, best = Infinity;
+  CAP_LMIN.forEach((c,i) => { const d = Math.abs(c-q); if(d < best){ best = d; col = i; } });
+
+  let pick = null;
+  for(const p of PUMPS){
+    const hv = headAt(p, q);
+    if(hv !== null && hv >= h){ pick = {p, hv}; break; }
+  }
+
+  let t = `<div class="tscroll"><table class="data" style="min-width:640px"><thead>
+    <tr><th rowspan="2" style="text-align:start">รุ่น 1 เฟส</th><th rowspan="2" style="text-align:start">รุ่น 3 เฟส</th>
+        <th rowspan="2">kW</th><th rowspan="2">HP</th><th colspan="${CAP_LMIN.length}">Q · ม³/ชม. (ล/นาที) → H เป็นเมตร</th></tr><tr>`;
+  CAP_M3H.forEach((m,i) => {
+    t += `<th class="${i===col?'hitcol':''}">${m}<br><span style="color:var(--ink-3);font-weight:400">${CAP_LMIN[i]}</span></th>`;
+  });
+  t += `</tr></thead><tbody>`;
+  PUMPS.forEach(p => {
+    const isPick = pick && pick.p === p;
+    t += `<tr><th style="text-align:start">${p.name}</th><th style="text-align:start">${p.t}</th><td>${p.kw}</td><td>${p.hp}</td>`;
+    p.head.forEach((v,i) => {
+      const cls = (isPick && i===col) ? 'hit' : (i===col ? 'hitcol' : '');
+      t += `<td class="${cls}">${v}</td>`;
+    });
+    t += `</tr>`;
+  });
+  $('#pTable').innerHTML = t + `</tbody></table></div>`;
+
+  if(pick){
+    const margin = pick.hv - h;
+    /* efficiency hint — the handout warns against picking at the ends of the table */
+    const pos = q / CAP_LMIN[CAP_LMIN.length-1];
+    const edge = (pos < 0.18 || pos > 0.82)
+      ? `<div class="callout warn" style="margin-top:14px"><p>จุดใช้งานอยู่<strong>ค่อนไปทางปลายตาราง</strong> — ` +
+        `ประสิทธิภาพของปั๊มจะไม่ดีที่สุด ถ้าเลือกรุ่นอื่นให้ตกกลางตารางได้จะประหยัดไฟกว่า</p></div>`
+      : '';
+    $('#pVerdict').innerHTML =
+      `<div class="verdict ok"><span class="big">${pick.p.name}</span>` +
+      `<span>${pick.p.kw} kW · ${pick.p.hp} HP · 3 เฟสใช้รุ่น ${pick.p.t}</span>` +
+      `<small>ที่ ${nf(q,0)} ล/นาที ให้ได้ ${nf(pick.hv,1)} ม. — เกินที่ต้องการ ${nf(margin,1)} ม.</small></div>` + edge;
+  } else {
+    $('#pVerdict').innerHTML =
+      `<div class="verdict no"><span class="big">ไม่มีรุ่นที่ไหว</span>` +
+      `<span>ตารางตัวอย่างชุดนี้ทำ H ${nf(h,1)} ม. ที่ ${nf(q,0)} ล/นาที ไม่ได้</span>` +
+      `<small>ลองลดแรงเสียดทานด้วยการขยับขนาดท่อขึ้น (บทที่ 4) แบ่งโซนเพิ่ม (บทที่ 5) หรือดูแคตตาล็อกรุ่นใหญ่กว่านี้</small></div>`;
+  }
+}
+
+Object.values(H).forEach(el => el.addEventListener('input', runHead));
+H.em.addEventListener('change', runHead);
+runHead();
+
+/* ═════ §8 nameplate reader ═════ */
+const N = {q1:$('#nQ1'), q2:$('#nQ2'), h1:$('#nH1'), h2:$('#nH2'),
+           needQ:$('#nNeedQ'), needH:$('#nNeedH')};
+function runPlate(){
+  const q1 = +N.q1.value, q2 = +N.q2.value, h1 = +N.h1.value, h2 = +N.h2.value;
+  const nq = +N.needQ.value || 0, nh = +N.needH.value || 0;
+
+  const r = (k,d,v,c) => `<div class="st"><span class="k">${k}</span><span class="d">${d}</span>` +
+    `<span class="v"${c?` style="color:${c}"`:''}>${v}</span></div>`;
+  let s = '';
+  s += r('คู่ที่ 1', 'ค่าแรกของ Q จับคู่กับค่าแรกของ H — น้ำน้อยที่สุด ที่แรงดันสูงสุด',
+         `Q ${nf(q1,0)} ที่ H ${nf(h1,1)}`);
+  s += r('คู่ที่ 2', 'ค่าท้ายของ Q จับคู่กับค่าท้ายของ H — น้ำมากที่สุด ที่แรงดันต่ำสุด',
+         `Q ${nf(q2,0)} ที่ H ${nf(h2,1)}`);
+
+  /* straight-line read between the two nameplate points */
+  const inRange = nq >= Math.min(q1,q2) && nq <= Math.max(q1,q2);
+  let est = null;
+  if(q2 !== q1){
+    const t = (nq - q1) / (q2 - q1);
+    est = h1 + t*(h2 - h1);
+  }
+  if(est !== null){
+    s += r('ประมาณ', `ที่ Q ${nf(nq,0)} ล/นาที ปั๊มตัวนี้น่าจะให้ H ราว`,
+           `${nf(est,1)} ม.`, inRange ? null : 'var(--fail)');
+  }
+  s += `<div class="st tot"><span class="k">ต้องการ</span><span class="d">ระบบเราต้องการ Q ${nf(nq,0)} ล/นาที ที่ H ${nf(nh,1)} ม.</span>` +
+       `<span class="v">${est !== null && est >= nh ? 'พอ' : 'ไม่พอ'}</span></div>`;
+  $('#nSteps').innerHTML = s;
+
+  let v = '';
+  if(!inRange){
+    v = `<div class="verdict no"><span class="big">นอกช่วง</span>` +
+        `<span>Q ${nf(nq,0)} ล/นาที อยู่นอกช่วง ${nf(Math.min(q1,q2),0)}–${nf(Math.max(q1,q2),0)} ที่ป้ายระบุ</span>` +
+        `<small>ปั๊มตัวนี้ไม่ได้ออกแบบมาให้ทำงานที่อัตราการไหลนี้</small></div>`;
+  } else if(est !== null && est >= nh){
+    v = `<div class="verdict ok"><span class="big">ใช้ได้</span>` +
+        `<span>ที่ Q ที่เราต้องการ ปั๊มยังให้แรงดันราว ${nf(est,1)} ม. ซึ่งเกิน ${nf(nh,1)} ม. ที่ระบบต้องการ</span>` +
+        `<small>เป็นการประมาณแบบเส้นตรงจากสองจุดบนป้าย — เส้นโค้งจริงของปั๊มอาจต่างไปบ้าง ควรเทียบกับแคตตาล็อกอีกที</small></div>`;
+  } else {
+    v = `<div class="verdict no"><span class="big">แรงดันไม่พอ</span>` +
+        `<span>ที่ Q ${nf(nq,0)} ล/นาที ปั๊มให้ได้ราว ${nf(est,1)} ม. แต่ระบบต้องการ ${nf(nh,1)} ม.</span>` +
+        `<small>ต้องหาปั๊มที่แรงกว่า หรือลดแรงเสียดทานในระบบลง</small></div>`;
+  }
+  $('#nVerdict').innerHTML = v;
+}
+Object.values(N).forEach(el => el.addEventListener('input', runPlate));
+runPlate();
+</script>
+
+</body>
+</html>

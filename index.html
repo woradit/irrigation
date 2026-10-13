@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ระบบให้น้ำเพื่อการเกษตร</title>
+<meta name="description" content="บทเรียนออนไลน์แบบโต้ตอบ ออกแบบระบบให้น้ำแปลงเกษตรตั้งแต่ความต้องการน้ำของพืช ระบบหัวจ่าย ท่อ แรงเสียดทาน การวางผัง จนถึงการเลือกเครื่องสูบน้ำ">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mali:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ── home page ── */
+.flow{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;
+}
+.card{
+  display:flex;flex-direction:column;gap:12px;height:100%;
+  padding:20px 22px;text-decoration:none;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;box-shadow:var(--shadow);
+  transition:border-color .15s, transform .15s;
+}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.card .no{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;color:var(--accent)}
+.card .ask{font-family:var(--f-mono);font-size:.7rem;color:var(--ink-3);text-align:end}
+.card h3{font-size:1.2rem}
+.card p{font-size:.93rem;color:var(--ink-2)}
+.card ul{margin:auto 0 0;padding:12px 0 0;border-top:1px dashed var(--rule);list-style:none;
+  display:flex;flex-direction:column;gap:4px;font-size:.84rem;color:var(--ink-2)}
+.card ul li::before{content:"▸ ";color:var(--accent)}
+.card .go{font-family:var(--f-mono);font-size:.76rem;color:var(--accent)}
+
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.82rem}
+.chain span{padding:4px 10px;border:1px solid var(--rule-strong);border-radius:2px;background:var(--surface)}
+.chain i{font-style:normal;color:var(--ink-3)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <div class="ch">หลักสูตร · 6 บท</div>
+  <h1><span class="nb">ระบบให้น้ำ</span><span class="nb">เพื่อการเกษตร</span></h1>
+  <p class="sub">บทเรียนออนไลน์สำหรับคนที่อยากออกแบบระบบน้ำในแปลงของตัวเองให้ถูกหลัก
+     ไล่ตั้งแต่<strong>พืชต้องการน้ำวันละกี่ลิตร</strong> ไปจนถึง<strong>ต้องซื้อปั๊มรุ่นไหน</strong>
+     ทุกบทมีเครื่องคำนวณให้ลองเปลี่ยนตัวเลขของแปลงคุณเอง</p>
+  <p class="by">เรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” · สมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+
+  <dl class="rules">
+    <div><dt>เรียนอะไร</dt><dd>ออกแบบครบระบบ<small>น้ำที่พืชต้องการ → หัวจ่าย → ท่อ → ผังแปลง → ปั๊ม</small></dd></div>
+    <div><dt>เรียนอย่างไร</dt><dd>ลองคำนวณเอง<small>เครื่องมือโต้ตอบในทุกบท ใช้ตัวเลขจริงจากเอกสาร</small></dd></div>
+    <div><dt>ต้องรู้อะไรก่อน</dt><dd>ไม่ต้อง<small>คณิตศาสตร์แค่ บวก ลบ คูณ หาร และอ่านตาราง</small></dd></div>
+  </dl>
+</header>
+
+<section class="sec" style="border-bottom:0">
+  <div class="col">
+    <h2><span class="n">ลำดับการออกแบบ</span>เรียนตามลำดับ เพราะคำตอบของบทหนึ่งคือโจทย์ของบทถัดไป</h2>
+    <div class="chain" aria-label="ลำดับการออกแบบ">
+      <span>ลิตร/ต้น/วัน</span><i>→</i><span>เลือกหัวจ่าย</span><i>→</i><span>เลือกวัสดุท่อ</span><i>→</i>
+      <span>ขนาดท่อ</span><i>→</i><span>วางผังแปลง</span><i>→</i><span>Q และ H ของปั๊ม</span>
+    </div>
+
+    <ol class="flow">
+      <li><a class="card" href="ch1-water-need.html">
+        <div class="top"><span class="no">บทที่ 1</span><span class="ask">พืชต้องการน้ำเท่าไร</span></div>
+        <h3>ความต้องการน้ำของพืช</h3>
+        <p>จากเม็ดฝนถึงเขตรากพืช แล้วไปจบที่สูตร ETcrop = Kc × Kp × Ep
+           ซึ่งให้ตัวเลขลิตรต่อต้นต่อวันที่เป็นโจทย์ตั้งต้นของทั้งหลักสูตร</p>
+        <ul>
+          <li>เครื่องคำนวณความต้องการน้ำ</li>
+          <li>ตาราง Kc 40 พืช · Ep 77 สถานี</li>
+        </ul>
+        <span class="go">เริ่มเรียน →</span>
+      </a></li>
+
+      <li><a class="card" href="ch2-systems.html">
+        <div class="top"><span class="no">บทที่ 2</span><span class="ask">จะส่งน้ำให้พืชอย่างไร</span></div>
+        <h3>ระบบให้น้ำพืช</h3>
+        <p>สปริงเกลอร์ มินิสปริงเกลอร์ ไมโครสเปรย์และเจ็ท น้ำหยด
+           ต่างกันตรงไหน และแบบไหนเหมาะกับแปลงแบบใด</p>
+        <ul>
+          <li>เครื่องคำนวณหัวมินิสปริงเกลอร์ · เกณฑ์เขตเปียก 50%</li>
+          <li>ตัวช่วยเลือกระบบ</li>
+        </ul>
+        <span class="go">เข้าบทนี้ →</span>
+      </a></li>
+
+      <li><a class="card" href="ch3-pipes.html">
+        <div class="top"><span class="no">บทที่ 3</span><span class="ask">ใช้ท่ออะไร</span></div>
+        <h3>ท่อสำหรับระบบให้น้ำ</h3>
+        <p>ท่อพีวีซีกับพีอี ชั้นของท่อหมายถึงอะไร
+           และกับดักเรื่อง “ท่อ 2 นิ้ว ไม่ได้กว้าง 2 นิ้ว”</p>
+        <ul>
+          <li>ภาพตัดขวางเทียบชั้นท่อ · เครื่องเทียบขนาด</li>
+          <li>ตัวช่วยเลือกท่อ</li>
+        </ul>
+        <span class="go">เข้าบทนี้ →</span>
+      </a></li>
+
+      <li><a class="card" href="ch4-friction.html">
+        <div class="top"><span class="no">บทที่ 4</span><span class="ask">ท่อต้องใหญ่แค่ไหน</span></div>
+        <h3>แรงเสียดทานกับขนาดท่อ</h3>
+        <p>น้ำเสียแรงดันไปเท่าไรระหว่างทาง เกณฑ์ 20% ค่าปรับแก้ทางออก
+           และโจทย์ใหญ่ที่ร้อยตั้งแต่หัวจ่ายไปถึงปั๊ม</p>
+        <ul>
+          <li>ตารางแรงเสียดทานแบบไฮไลต์</li>
+          <li>เครื่องมือออกแบบขนาดท่อทั้งระบบ</li>
+        </ul>
+        <span class="go">เข้าบทนี้ →</span>
+      </a></li>
+
+      <li><a class="card" href="ch5-layout.html">
+        <div class="top"><span class="no">บทที่ 5</span><span class="ask">วางท่อตรงไหน</span></div>
+        <h3>การแบ่งแปลงและวางแนวท่อ</h3>
+        <p>แบ่งกี่โซน ท่อเมนย่อยอยู่ข้างหรือกลางแปลง วาล์วอยู่ที่ไหน
+           และพื้นที่ลาดเอียงเกิน 2% เปลี่ยนทุกอย่างอย่างไร</p>
+        <ul>
+          <li>ตัววินิจฉัยอาการในแปลง · เครื่องคำนวณความลาดชัน</li>
+          <li>เครื่องช่วยวางผัง</li>
+        </ul>
+        <span class="go">เข้าบทนี้ →</span>
+      </a></li>
+
+      <li><a class="card" href="ch6-pumps.html">
+        <div class="top"><span class="no">บทที่ 6</span><span class="ask">ซื้อปั๊มรุ่นไหน</span></div>
+        <h3>เครื่องสูบน้ำเพื่อการเกษตร</h3>
+        <p>หน่วยแรงดัน ประเภทปั๊ม การหา H รวมของระบบ
+           การอ่านแคตตาล็อกและแผ่นป้าย และการเลือกต้นกำลัง</p>
+        <ul>
+          <li>แปลงหน่วยแรงดัน · คำนวณ H รวม</li>
+          <li>ตัวเลือกรุ่นปั๊ม · อ่านแผ่นป้าย</li>
+        </ul>
+        <span class="go">เข้าบทนี้ →</span>
+      </a></li>
+    </ol>
+
+    <div class="callout warn">
+      <p><strong>ใช้ประกอบการเรียนเท่านั้น</strong> — เครื่องคำนวณในเว็บนี้อ้างอิงตารางและเกณฑ์จากเอกสารอบรม
+        ตัวเลขอาจต่างจากต้นฉบับเล็กน้อยเพราะการปัดเศษและการแทรกค่า
+        การออกแบบระบบจริงควรตรวจสอบกับแคตตาล็อกผู้ผลิตและวิศวกรอีกครั้ง</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>วิธีใช้เว็บนี้</b>อ่านเนื้อหา แล้วลองเปลี่ยนตัวเลขในกล่องเครื่องคำนวณ ดูว่าคำตอบเปลี่ยนไปอย่างไร</p>
+    <p class="note"><b>กรอบลายมือ</b>คือบันทึกที่จดไว้ระหว่างการอบรม เก็บไว้ตามตำแหน่งเดิมในเอกสาร</p>
+    <p class="note"><b>มือถือ</b>ใช้ได้ ตารางกว้างๆ เลื่อนซ้าย-ขวาในกรอบได้</p>
+  </aside>
+</section>
+
+<footer class="end">
+  <p>เนื้อหาเรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น”
+     ของสมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+</footer>
+</div>
+
+</body>
+</html>

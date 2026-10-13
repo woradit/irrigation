@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แรงเสียดทานกับขนาดท่อ · บทที่ 4</title>
+<meta name="description" content="บทที่ 4 ระบบให้น้ำเพื่อการเกษตร — แรงเสียดทานในท่อ เกณฑ์ 20% ตารางการสูญเสียแรงดัน ค่าปรับแก้ทางออก และเครื่องมือออกแบบขนาดท่อถึงปั๊ม">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mali:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="mast">
+  <a class="home" href="./">← หลักสูตรทั้งหมด</a>
+  <div class="ch">บทที่ 4</div>
+  <h1><span class="nb">แรงเสียดทานกับขนาดท่อเมน</span> <span class="nb">ท่อเมนย่อย และท่อย่อย</span></h1>
+  <p class="sub">น้ำที่ไหลในท่อจะเสียแรงดันไปเรื่อยๆ ตลอดทาง บทนี้สอนวิธีคิดว่าเสียไปเท่าไร
+     และจะเลือกขนาดท่อแบบไหนให้หัวจ่ายน้ำต้นแปลงกับปลายแปลงจ่ายน้ำได้ใกล้เคียงกัน</p>
+  <p class="by">เอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” · สมาคมวิศวกรรมเกษตรแห่งประเทศไทย · ชีรวรรธก์ มั่นกิจ</p>
+
+  <dl class="rules">
+    <div><dt>เกณฑ์อัตราการไหล</dt><dd>≤ 10%<small>Q ในแปลงเดียวกันต่างกันได้ไม่เกินนี้</small></dd></div>
+    <div><dt>เกณฑ์แรงดัน</dt><dd>≤ 20%<small>H ในแปลงเดียวกันต่างกันได้ไม่เกินนี้</small></dd></div>
+    <div><dt>ท่อพลาสติก</dt><dd>C = 150<small>สัมประสิทธิ์แรงเสียดทาน สูตร Hazen–Williams</small></dd></div>
+    <div><dt>หน่วยในตาราง</dt><dd>ม./10 ม.<small>เมตรที่สูญเสีย ต่อความยาวท่อ 10 เมตร</small></dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="สารบัญ">
+  <ol>
+    <li><a href="#s1"><b>1</b>แรงเสียดทานคืออะไร</a></li>
+    <li><a href="#s2"><b>2</b>เกณฑ์การยอมรับ</a></li>
+    <li><a href="#s3"><b>3</b>ตารางแรงเสียดทาน</a></li>
+    <li><a href="#s4"><b>4</b>ค่าปรับแก้ทางออก</a></li>
+    <li><a href="#s5"><b>5</b>ตัวอย่างท่อเมน</a></li>
+    <li><a href="#s6"><b>6</b>ตัวอย่างท่อเมนย่อย</a></li>
+    <li><a href="#s7"><b>7</b>ออกแบบมินิสปริงเกลอร์</a></li>
+    <li><a href="#s8"><b>8</b>ปั๊มและกรอง</a></li>
+    <li><a href="#s9"><b>9</b>วางท่อเมนย่อยตรงไหน</a></li>
+    <li><a href="#s10"><b>10</b>เครื่องมือออกแบบ</a></li>
+    <li><a href="#s11"><b>11</b>แบบฝึกหัด</a></li>
+  </ol>
+</nav>
+
+<!-- ══ 1 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s1">
+  <div class="col">
+    <h2><span class="n">01 / แนวคิด</span>แรงเสียดทานคืออะไร</h2>
+    <p class="lead">เมื่อน้ำเคลื่อนที่ไปในท่อ อนุภาคของน้ำจะเสียดสีกับผนังท่อ เกิดเป็นแรงต้านการเคลื่อนที่
+      เรียกว่า <strong>แรงเสียดทาน</strong> ผลของมันคือน้ำ<strong>สูญเสียแรงดัน</strong>ไปเรื่อยๆ ระหว่างทาง</p>
+
+    <div class="body">
+      <p>แรงดันที่หายไปนี้วัดเป็น “เมตร” เช่นเดียวกับความสูงของน้ำ เพราะมันคือความสูงของลำน้ำที่เราเสียไป
+        น้ำ 10 เมตร ≈ 1 บาร์ ดังนั้นท่อที่กินแรงดัน 20 เมตร ก็คือกินไปประมาณ 2 บาร์</p>
+    </div>
+
+    <div class="callout">
+      <p>ท่อพลาสติกที่ใช้กันทุกวันนี้ผิวในเรียบมาก แรงเสียดทานจึงต่ำกว่าท่อเหล็กมาก
+        ค่าสัมประสิทธิ์แรงเสียดทานของท่อพลาสติกคือ <strong>C = 150</strong>
+        และสูตรที่นิยมใช้คำนวณคือ <strong>Hazen–Williams</strong>
+        — แต่ในทางปฏิบัติเราไม่ต้องแทนสูตรเอง เพราะมีตารางสำเร็จให้เปิดอยู่แล้ว (หัวข้อ 3)</p>
+    </div>
+
+    <h3>แรงเสียดทานมากหรือน้อย ขึ้นกับ 4 อย่าง</h3>
+    <div class="tscroll">
+      <table class="data" style="min-width:480px">
+        <thead><tr><th style="text-align:start">ปัจจัย</th><th style="text-align:start">เงื่อนไข</th><th style="text-align:start">ผล</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">ความเรียบ</th><td style="text-align:start">ผนังภายในท่อเรียบมาก</td><td style="text-align:start;color:var(--pass)">เสียดทาน ต่ำ</td></tr>
+          <tr><th style="text-align:start">อัตราการไหล</th><td style="text-align:start">ท่อเท่ากัน แต่น้ำไหลแรงขึ้น</td><td style="text-align:start;color:var(--fail)">เสียดทาน สูง</td></tr>
+          <tr><th style="text-align:start">ขนาดท่อ</th><td style="text-align:start">น้ำเท่ากัน แต่ท่อเล็กลง</td><td style="text-align:start;color:var(--fail)">เสียดทาน สูง</td></tr>
+          <tr><th style="text-align:start">ความยาวท่อ</th><td style="text-align:start">ท่อและน้ำเท่ากัน แต่ท่อยาวขึ้น</td><td style="text-align:start;color:var(--fail)">เสียดทาน สูง</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body" style="font-size:.94rem;color:var(--ink-2)">
+      ข้อที่ 3 เป็นข้อที่ทำให้คนออกแบบพลาดบ่อยที่สุด: ท่อเล็กลงหนึ่งขนาด แรงเสียดทานไม่ได้เพิ่มนิดเดียว
+      แต่เพิ่มเป็นเท่าตัว ลองดูในตารางหัวข้อ 3 — ที่ 420 ล/นาที ท่อ 3″ เสีย 0.20 ม. แต่ท่อ 2″ เสีย 1.41 ม. เจ็ดเท่า</p>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>บรรจุ → ไหลเร็ว<br>ท่อเล็ก → เสียดทานสูง<br>ท่อยาว → เสียดทานสูง</p>
+  </aside>
+</section>
+
+<!-- ══ 2 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s2">
+  <div class="col">
+    <h2><span class="n">02 / เกณฑ์</span>เกณฑ์การยอมรับ 10% และ 20%</h2>
+    <p class="lead">เป้าหมายของการวางระบบให้น้ำคือ <strong>กระจายน้ำให้ทั่วพื้นที่ในปริมาณที่ใกล้เคียงกัน</strong>
+      แต่น้ำจะสูญเสียแรงดันไประหว่างทางเสมอ จึงต้องมีเกณฑ์ควบคุมไม่ให้แรงดันต่างกันมากเกินไป</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เกณฑ์การยอมรับความแตกต่างในระบบให้น้ำแต่ละแปลง</h3></div>
+      <div class="panel-b">
+        <ul class="plain">
+          <li><strong>Q</strong> น้ำในแปลงเดียวกัน แตกต่างกัน<strong>ไม่เกิน 10%</strong></li>
+          <li><strong>H</strong> แรงดันในแปลงเดียวกัน แตกต่างกัน<strong>ไม่เกิน 20%</strong></li>
+        </ul>
+        <p style="margin-top:14px;font-size:.94rem;color:var(--ink-2)">
+          ทั้งสองข้อคือเรื่องเดียวกัน เพราะอัตราการไหลของหัวจ่ายแปรตามรากที่สองของแรงดัน
+          แรงดันต่างกัน 20% จึงทำให้น้ำต่างกันประมาณ 10% — <strong>คุมข้อ H ข้อเดียว ก็ได้ข้อ Q มาด้วย</strong></p>
+      </div>
+    </div>
+
+    <figure>
+      <svg viewBox="0 0 560 320" role="img" aria-label="ผังแปลง แสดงเส้นทางวิกฤต ก ไป ข ไป ค คือท่อเมนย่อยยาวที่สุดบวกท่อย่อยยาวที่สุด">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="6" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="currentColor"/>
+          </marker>
+          <marker id="arA" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="6" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="var(--accent)"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="var(--pvc)" stroke-width="2">
+          <line x1="120" y1="72" x2="470" y2="72"/>
+          <line x1="120" y1="112" x2="470" y2="112"/>
+          <line x1="120" y1="152" x2="470" y2="152"/>
+          <line x1="120" y1="192" x2="470" y2="192"/>
+          <line x1="120" y1="232" x2="470" y2="232"/>
+        </g>
+        <g fill="var(--pvc)">
+          <g>
+            <polygon points="160,66 164,72 156,72"/><polygon points="220,66 224,72 216,72"/>
+            <polygon points="280,66 284,72 276,72"/><polygon points="340,66 344,72 336,72"/>
+            <polygon points="400,66 404,72 396,72"/><polygon points="450,66 454,72 446,72"/>
+          </g>
+          <g>
+            <polygon points="160,106 164,112 156,112"/><polygon points="220,106 224,112 216,112"/>
+            <polygon points="280,106 284,112 276,112"/><polygon points="340,106 344,112 336,112"/>
+            <polygon points="400,106 404,112 396,112"/><polygon points="450,106 454,112 446,112"/>
+          </g>
+          <g>
+            <polygon points="160,146 164,152 156,152"/><polygon points="220,146 224,152 216,152"/>
+            <polygon points="280,146 284,152 276,152"/><polygon points="340,146 344,152 336,152"/>
+            <polygon points="400,146 404,152 396,152"/><polygon points="450,146 454,152 446,152"/>
+          </g>
+          <g>
+            <polygon points="160,186 164,192 156,192"/><polygon points="220,186 224,192 216,192"/>
+            <polygon points="280,186 284,192 276,192"/><polygon points="340,186 344,192 336,192"/>
+            <polygon points="400,186 404,192 396,192"/><polygon points="450,186 454,192 446,192"/>
+          </g>
+          <g>
+            <polygon points="160,226 164,232 156,232"/><polygon points="220,226 224,232 216,232"/>
+            <polygon points="280,226 284,232 276,232"/><polygon points="340,226 344,232 336,232"/>
+            <polygon points="400,226 404,232 396,232"/><polygon points="450,226 454,232 446,232"/>
+          </g>
+        </g>
+        <!-- critical path -->
+        <g fill="none" stroke="var(--accent)" stroke-width="4">
+          <line x1="120" y1="262" x2="120" y2="72"/>
+          <line x1="120" y1="72" x2="470" y2="72" marker-end="url(#arA)"/>
+        </g>
+        <g fill="none" stroke="var(--pvc)" stroke-width="4">
+          <line x1="40" y1="286" x2="120" y2="286"/>
+          <line x1="120" y1="286" x2="120" y2="262"/>
+        </g>
+        <polygon points="112,256 128,256 120,268" fill="var(--accent)"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor">
+          <text x="104" y="70" text-anchor="end" font-weight="500">ข</text>
+          <text x="480" y="70" font-weight="500">ค</text>
+          <text x="104" y="270" text-anchor="end" font-weight="500">ก</text>
+          <text x="40" y="302" font-size="11" fill="var(--ink-3)">ท่อเมน</text>
+          <text x="480" y="86" font-size="11" fill="var(--ink-3)">สุดท้าย</text>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11.5">
+          <text x="136" y="252" fill="var(--ink-3)">H1 = 100 · Q1 = 100</text>
+          <text x="470" y="46" text-anchor="end" fill="var(--accent)" font-weight="500">H2 &gt; 80 · Q2 &gt; 90</text>
+          <text x="60" y="176" fill="var(--ink-3)" transform="rotate(-90 60 176)" text-anchor="middle">ท่อเมนย่อย</text>
+          <text x="295" y="132" fill="var(--ink-3)" text-anchor="middle">ท่อย่อย</text>
+        </g>
+        <text x="295" y="24" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="12.5"
+              fill="var(--accent)" font-weight="600">เส้นทางวิกฤต ก → ข → ค</text>
+      </svg>
+      <figcaption>เกณฑ์ 20% ใช้กับ <strong>เส้นทางที่ยาวที่สุด</strong> เท่านั้น คือจากวาล์ว ก ขึ้นไปสุดท่อเมนย่อยที่ ข
+        แล้ววิ่งออกไปสุดท่อย่อยที่ ค ถ้าหัวสุดท้ายที่จุด ค ยังได้แรงดันเกิน 80% ของหัวแรก หัวอื่นทั้งแปลงก็ผ่านหมด</figcaption>
+    </figure>
+
+    <div class="callout">
+      <p><strong>สรุปเป็นประโยคเดียว:</strong> ต้องเลือกท่อในระบบ (ท่อเมนย่อย กข + ท่อย่อย ขค)
+        ที่เกิดแรงเสียดทาน<strong>รวมกันไม่เกิน 20% ของแรงดันที่ใช้ในระบบ</strong> (H ที่หัวจ่ายน้ำ)</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ท่อเมนไม่นับในเกณฑ์นี้</strong> — ท่อเมนตั้งแต่ปั๊มถึงวาล์ว ก ไม่มีหัวจ่ายอยู่บนนั้น
+        มันไม่ได้ทำให้น้ำในแปลงกระจายไม่เท่ากัน มันแค่ทำให้เราต้องปั๊มแรงขึ้น
+        แรงเสียดทานของท่อเมนจึงเอาไป<strong>บวกเพิ่มตอนเลือกปั๊ม</strong> (หัวข้อ 8) ไม่ใช่เอามาเทียบกับ 20%</p>
+    </div>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>Step: ดูแนวเส้นทาง ก – ข – ค<br>วัดโดยการนำ ก ชน ค มากาง</p>
+    <p class="note"><b>ลำดับการคิด</b>1. หา Q ให้ได้ก่อน<br>2. หาขนาดท่อ<br>3. หา (จากตาราง) แรงเสียดทาน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถ้า H ในระบบเปลี่ยนไป เกณฑ์ก็เปลี่ยนไปด้วย โดยยึดที่ 20% เหมือนเดิม</p>
+  </aside>
+</section>
+
+<!-- ══ 3 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s3">
+  <div class="col">
+    <h2><span class="n">03 / เครื่องมือ</span>ตารางค่าการสูญเสียแรงดัน</h2>
+    <p class="lead">ตารางเหล่านี้คือหัวใจของบททั้งบท ทุกตัวเลขมีหน่วยเป็น
+      <strong>เมตรที่สูญเสีย ต่อความยาวท่อ 10 เมตร</strong> เปิดหาจุดตัดของ “อัตราการไหล” กับ “ขนาดท่อ”
+      แล้วคูณตามความยาวจริง</p>
+
+    <div class="panel">
+      <div class="panel-h">
+        <h3>เปิดตาราง</h3>
+        <span>ป้อนค่าแล้วดูตารางไฮไลต์ให้</span>
+      </div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:18px">
+        <div class="ctrls">
+          <div class="fld">
+            <label for="lkType">ชนิดท่อ</label>
+            <select id="lkType">
+              <option value="pvc5">พีวีซี ชั้น 5 (PVC 5)</option>
+              <option value="pvc85">พีวีซี ชั้น 8.5 (PVC 8.5)</option>
+              <option value="ldpe25">พีอี LDPE PN 2.5</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="lkSize">ขนาดท่อ</label>
+            <select id="lkSize"></select>
+          </div>
+          <div class="fld">
+            <label for="lkQ">Q · ลิตร/นาที</label>
+            <input id="lkQ" type="number" value="420" min="0" step="1">
+          </div>
+          <div class="fld">
+            <label for="lkL">ความยาวท่อ · ม.</label>
+            <input id="lkL" type="number" value="1000" min="0" step="1">
+          </div>
+          <div class="fld">
+            <label for="lkN">จำนวนทางออก</label>
+            <input id="lkN" type="number" value="0" min="0" max="200" step="1">
+          </div>
+        </div>
+        <div class="steps" id="lkSteps"></div>
+        <div class="res">
+          <span class="num" id="lkOut">—</span>
+          <span class="lbl">เมตร &mdash; แรงดันที่สูญเสียไปในท่อเส้นนี้</span>
+        </div>
+        <p style="font-size:.86rem;color:var(--ink-3);margin:0">
+          ใส่ <strong>จำนวนทางออก = 0</strong> สำหรับท่อเมน (ไม่มีหัวจ่ายระหว่างทาง) ระบบจะไม่คูณค่าปรับแก้
+        </p>
+      </div>
+    </div>
+
+    <div id="lkTableWrap"></div>
+
+    <p class="body" style="font-size:.92rem;color:var(--ink-2)">
+      ถ้าอัตราการไหลของเราตกอยู่ระหว่างสองแถว ให้<strong>แทรกค่า (interpolate)</strong> เอา
+      หรือถ้าไม่อยากคิด ก็ใช้แถวที่ค่าสูงกว่าไว้ก่อน — ปลอดภัยกว่า เพราะเผื่อไว้มากกว่าความเป็นจริง</p>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ค่าระหว่าง interpolate เอาได้<br>ถ้าไม่ interpolate ก็ใช้ค่ามากไว้ก่อน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>กรณีนี้ 192 L/min เลือกของ 200 L/min มาใช้ — เลือกตัวเลขสูงกว่า หรือว่าเฉลี่ยออกมา</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>อย่าใช้ท่อหนาเกิน — เสียเงินแพง แล้วยังได้ท่อเล็กลง เพราะ PVC หนาเข้า ขอบนอกเท่าเดิม</p>
+  </aside>
+</section>
+
+<!-- ══ 4 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s4">
+  <div class="col">
+    <h2><span class="n">04 / กลไก</span>ค่าปรับแก้จำนวนทางออก</h2>
+    <p class="lead">ตารางในหัวข้อ 3 สมมติว่าน้ำไหลเต็มอัตราตลอดความยาวท่อ ซึ่งจริงสำหรับ<strong>ท่อเมน</strong>
+      แต่ไม่จริงสำหรับ<strong>ท่อเมนย่อยและท่อย่อย</strong> ที่มีหัวจ่ายน้ำแบ่งน้ำออกไปเรื่อยๆ</p>
+
+    <figure>
+      <svg viewBox="0 0 620 250" role="img" aria-label="เปรียบเทียบท่อเมนที่น้ำไหล 16 ลิตรต่อนาทีเท่ากันตลอดเส้น กับท่อย่อยที่จ่ายน้ำออก 8 จุด ทำให้น้ำในท่อลดลงเป็นขั้นจาก 16 เหลือ 2">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <text x="0" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">ท่อเมน — ไม่มีทางออกระหว่างทาง</text>
+        <line x1="30" y1="52" x2="560" y2="52" stroke="var(--pvc)" stroke-width="6" marker-end="url(#ar2)" color="var(--pvc)"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--ink-2)" text-anchor="middle">
+          <text x="100" y="44">16</text><text x="180" y="44">16</text><text x="260" y="44">16</text>
+          <text x="340" y="44">16</text><text x="420" y="44">16</text><text x="500" y="44">16</text>
+        </g>
+        <text x="30" y="76" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--ink-3)">น้ำเต็มอัตรา 16 ล/น ตลอด 100% ของความยาว → แรงเสียดทาน = A</text>
+
+        <line x1="0" y1="104" x2="620" y2="104" stroke="var(--rule)" stroke-width="1"/>
+
+        <text x="0" y="132" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">ท่อย่อย — จ่ายออก 8 จุด จุดละ 2 ล/น</text>
+        <g stroke="var(--accent)" fill="none">
+          <line x1="30" y1="182" x2="93"  y2="182" stroke-width="8"/>
+          <line x1="93" y1="182" x2="156" y2="182" stroke-width="7"/>
+          <line x1="156" y1="182" x2="219" y2="182" stroke-width="6"/>
+          <line x1="219" y1="182" x2="282" y2="182" stroke-width="5.2"/>
+          <line x1="282" y1="182" x2="345" y2="182" stroke-width="4.4"/>
+          <line x1="345" y1="182" x2="408" y2="182" stroke-width="3.6"/>
+          <line x1="408" y1="182" x2="471" y2="182" stroke-width="2.8"/>
+          <line x1="471" y1="182" x2="534" y2="182" stroke-width="2"/>
+        </g>
+        <g stroke="var(--accent)" stroke-width="1.6" fill="none">
+          <line x1="93" y1="176" x2="93" y2="158"/><line x1="156" y1="176" x2="156" y2="158"/>
+          <line x1="219" y1="176" x2="219" y2="158"/><line x1="282" y1="176" x2="282" y2="158"/>
+          <line x1="345" y1="176" x2="345" y2="158"/><line x1="408" y1="176" x2="408" y2="158"/>
+          <line x1="471" y1="176" x2="471" y2="158"/><line x1="534" y1="176" x2="534" y2="158"/>
+        </g>
+        <g fill="var(--accent)">
+          <polygon points="89,158 97,158 93,150"/><polygon points="152,158 160,158 156,150"/>
+          <polygon points="215,158 223,158 219,150"/><polygon points="278,158 286,158 282,150"/>
+          <polygon points="341,158 349,158 345,150"/><polygon points="404,158 412,158 408,150"/>
+          <polygon points="467,158 475,158 471,150"/><polygon points="530,158 538,158 534,150"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-3)" text-anchor="middle">
+          <text x="93" y="146">2</text><text x="156" y="146">2</text><text x="219" y="146">2</text>
+          <text x="282" y="146">2</text><text x="345" y="146">2</text><text x="408" y="146">2</text>
+          <text x="471" y="146">2</text><text x="534" y="146">2</text>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--ink-2)" text-anchor="middle">
+          <text x="61" y="204">16</text><text x="124" y="204">14</text><text x="187" y="204">12</text>
+          <text x="250" y="204">10</text><text x="313" y="204">8</text><text x="376" y="204">6</text>
+          <text x="439" y="204">4</text><text x="502" y="204">2</text>
+        </g>
+        <text x="30" y="230" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--accent)">น้ำลดลงทุกช่วง → แรงเสียดทาน = A × 0.371</text>
+      </svg>
+      <figcaption>ช่วงสุดท้ายของท่อย่อยมีน้ำเหลือแค่ 2 ล/น จาก 16 ล/น ที่ต้นท่อ
+        และแรงเสียดทานแปรตามอัตราการไหลยกกำลังประมาณ 1.85 ช่วงท้ายๆ จึงแทบไม่กินแรงดันเลย
+        รวมทั้งเส้นแล้วเหลือเพียงราว 37% ของท่อที่ไหลเต็มอัตรา</figcaption>
+    </figure>
+
+    <div class="callout">
+      <p><strong>วิธีใช้:</strong> เปิดค่าจากตารางตามปกติ โดยใช้อัตราการไหล<strong>ที่ต้นท่อ</strong>
+        แล้วคูณด้วย <strong>ค่าปรับแก้</strong> ที่ขึ้นอยู่กับจำนวนตำแหน่งทางออกจุดจ่ายน้ำ</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ตารางค่าปรับแก้ตามจำนวนตำแหน่งทางออก</h3><span>คูณกับค่าจากตาราง</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="tscroll">
+          <table class="data" style="min-width:420px">
+            <thead><tr><th>จำนวนตำแหน่ง</th><th>ค่าปรับแก้</th><th>จำนวนตำแหน่ง</th><th>ค่าปรับแก้</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>1</td><td>15</td><td>.358</td></tr>
+              <tr><td>2</td><td>.512</td><td>20</td><td>.354</td></tr>
+              <tr><td>3</td><td>.434</td><td>30</td><td>.350</td></tr>
+              <tr><td>4</td><td>.405</td><td>40</td><td>.349</td></tr>
+              <tr><td>5</td><td>.380</td><td>50</td><td>.348</td></tr>
+              <tr><td>10</td><td>.365</td><td>100</td><td>.347</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ctrls" style="grid-template-columns:minmax(140px,1fr) minmax(0,2fr)">
+          <div class="fld">
+            <label for="cfN">จำนวนทางออก</label>
+            <input id="cfN" type="number" value="8" min="1" max="200" step="1">
+          </div>
+          <div class="res" style="align-self:end">
+            <span class="num" id="cfOut">0.371</span>
+            <span class="lbl" id="cfNote">ค่าปรับแก้ (แทรกค่าระหว่าง 5 → .380 กับ 10 → .365)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="body" style="font-size:.94rem;color:var(--ink-2)">
+      สังเกตว่าพอทางออกเยอะขึ้น ค่าปรับแก้แทบไม่ลดแล้ว — จาก 30 จุดถึง 100 จุด ต่างกันแค่ .350 กับ .347
+      เพราะมันลู่เข้าหาค่าประมาณ 0.35 ที่เป็นขีดจำกัดทางทฤษฎี</p>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>อัตราการไหลน้อยลงในแต่ละช่วง ทำให้แรงเสียดทานน้อยลง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ค่าปรับแก้ของกรณีที่ตำแหน่งมากๆ ค่าไม่ค่อยต่าง</p>
+  </aside>
+</section>
+
+<!-- ══ 5 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s5">
+  <div class="col">
+    <h2><span class="n">05 / ตัวอย่าง</span>แรงเสียดทานในท่อเมน 3 กรณี</h2>
+    <p class="lead">สามตัวอย่างนี้ใช้โจทย์เดียวกัน — ส่งน้ำ 420 ล/นาที ไปตามท่อ 1,000 เมตร —
+      ต่างกันแค่ภูมิประเทศ: ราบ ลงเนิน และขึ้นเนิน</p>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างที่ 1</span><h3>การหาแรงเสียดทานในท่อเมน</h3></header>
+      <div class="given">ต้องการส่งน้ำ Q 420 ลิตร/นาที จากจุด 1 ไปยังจุด 2 โดยใช้ท่อ PVC ชั้น 5
+        ขนาด 3″ ยาว 1,000 ม. จะเกิดแรงเสียดทานเท่าไร</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">อัตราการไหล Q</span><span class="v">420 ล/นาที</span></div>
+          <div class="st"><span class="k">2</span><span class="d">เปิดตาราง PVC 5 · 420 ล/น · ท่อ 3″</span><span class="v">0.20 ม./10 ม.</span></div>
+          <div class="st"><span class="k">3</span><span class="d">คูณความยาวจริง 0.20 ÷ 10 × 1,000</span><span class="v">20 ม.</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">แรงดันที่สูญเสียไปในท่อเมน</span><span class="v">20 ม. ≈ 2 บาร์</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างที่ 2</span><h3>หาขนาดท่อเมน กรณีจ่ายน้ำลงเนิน</h3></header>
+      <div class="given">Q 420 ล/นาที · H1 = 35 ม. ที่จุด 1 ระดับ 0.0 → จุด 2 ระดับ −12.5
+        ท่อ PVC ยาว 1,000 ม. ต้องการ H ที่จุด 2 ไม่น้อยกว่า 25 ม. จะใช้ท่อขนาดเท่าไร</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">ลองท่อ 3″ · เปิดตาราง PVC 5</span><span class="v">0.20 ม./10 ม.</span></div>
+          <div class="st"><span class="k">2</span><span class="d">แรงเสียดทานตลอด 1,000 ม.</span><span class="v">20 ม.</span></div>
+          <div class="st"><span class="k">3</span><span class="d">H2 = H1 − เสียดทาน − ขึ้นเนิน + ลงเนิน</span><span class="v">35 − 20 − 0 + 12.5</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">คงเหลือ H2</span><span class="v">27.5 ม.</span></div>
+        </div>
+        <div class="verdict ok" style="margin-top:16px">
+          <span class="big">27.5 &gt; 25</span><span>จึงใช้ท่อ 3″ ได้</span>
+          <small>การลงเนิน 12.5 ม. คืนแรงดันกลับมาให้ฟรี</small>
+        </div>
+      </div>
+    </article>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างที่ 3</span><h3>หาขนาดท่อเมน กรณีจ่ายน้ำขึ้นเนิน</h3></header>
+      <div class="given">Q 420 ล/นาที · H1 = 60 ม. (≈ 6 บาร์) ที่จุด 1 ระดับ 0.0 → จุด 2 ระดับ +7.0
+        ท่อ PVC ยาว 1,000 ม. ต้องการ H ที่จุด 2 ไม่น้อยกว่า 25 ม.</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">แรงดันต้นทาง 60 ม. สูง จึงต้องใช้ท่อชั้นหนาขึ้น <span class="pill">PVC 8.5</span></span><span class="v">—</span></div>
+          <div class="st"><span class="k">2</span><span class="d">เปิดตาราง PVC 8.5 · 420 ล/น · ท่อ 3″</span><span class="v">0.25 ม./10 ม.</span></div>
+          <div class="st"><span class="k">3</span><span class="d">แรงเสียดทานตลอด 1,000 ม.</span><span class="v">25 ม.</span></div>
+          <div class="st"><span class="k">4</span><span class="d">H2 = 60 − 25 − 7.0 + 0</span><span class="v">28 ม.</span></div>
+        </div>
+        <div class="verdict ok" style="margin-top:16px">
+          <span class="big">28 &gt; 25</span><span>จึงใช้ท่อ 3″ ได้</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="callout warn">
+      <p><strong>ทำไมตัวอย่างที่ 3 ถึงเปลี่ยนไปใช้ PVC 8.5</strong> — เพราะแรงดันต้นทาง 60 เมตร (6 บาร์)
+        สูงเกินกว่าที่ท่อชั้น 5 จะรับไหวอย่างปลอดภัย “ชั้น” ของท่อพีวีซีคือ<strong>แรงดันที่ท่อทนได้</strong> ไม่ใช่คุณภาพ
+        และเมื่อผนังหนาขึ้นโดยที่ขนาดนอกเท่าเดิม <strong>รูในจึงเล็กลง แรงเสียดทานจึงสูงขึ้น</strong>
+        (0.25 แทน 0.20) — เลือกชั้นท่อให้พอดีกับแรงดัน อย่าเผื่อหนาเกินจำเป็น</p>
+    </div>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ตย. 1–3 เป็นแรงเสียดทานที่หาได้ในท่อเมน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>อย่าใช้ท่อหนาเกิน<br>— เสียเงินแพง<br>— ได้ท่อเล็กลง เพราะ PVC หนาเข้า ขอบนอกเท่าเดิม</p>
+  </aside>
+</section>
+
+<!-- ══ 6 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s6">
+  <div class="col">
+    <h2><span class="n">06 / ตัวอย่าง</span>แรงเสียดทานในท่อเมนย่อย</h2>
+    <p class="lead">ตัวอย่างแรกที่ต้องใช้ค่าปรับแก้ ขั้นตอนเหมือนเดิมทุกอย่าง เพิ่มมาแค่ขั้นสุดท้ายขั้นเดียว</p>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่าง</span><h3>ท่อเมนย่อย PVC 5 ขนาด 1½″</h3></header>
+      <div class="given">ท่อเมนย่อยพีวีซี ชั้น 5 ขนาด 1½″ ยาว 40 เมตร มีน้ำไหลผ่าน 160 ลิตร/นาที
+        จ่ายน้ำออก 8 จุดเท่าๆ กัน จุดละ 20 ลิตร/นาที จงหาแรงเสียดทานในท่อ</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">อัตราการไหล Q ที่ต้นท่อเมนย่อย</span><span class="v">160 ล/นาที</span></div>
+          <div class="st"><span class="k">2</span><span class="d">เปิดตาราง PVC 5 · 160 ล/น · ท่อ 1½″</span><span class="v">0.71 ม./10 ม.</span></div>
+          <div class="st"><span class="k">3</span><span class="d">คูณความยาวจริง 0.71 ÷ 10 × 40</span><span class="v">2.84 ม.</span></div>
+          <div class="st"><span class="k">4</span><span class="d">คูณค่าปรับแก้ 8 ทางออก (0.371)</span><span class="v">2.84 × 0.371</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">แรงเสียดทานในท่อเมนย่อย</span><span class="v">1.05 ม.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <p class="body">ถ้าลืมคูณค่าปรับแก้ เราจะได้ 2.84 เมตร แทนที่จะเป็น 1.05 เมตร คือ<strong>เกินความจริงเกือบสามเท่า</strong>
+      แล้วจะไปเลือกท่อใหญ่เกินจำเป็น เสียเงินเปล่า — แต่ในทางกลับกัน ถ้าเผลอเอาค่าปรับแก้ไปคูณกับ<strong>ท่อเมน</strong>
+      เราจะได้ตัวเลขที่<strong>น้อยกว่าความจริง</strong> แล้วเลือกปั๊มเล็กเกินไป ระบบจะจ่ายน้ำไม่ถึงปลายแปลง</p>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>สนใจที่กี่ตำแหน่ง</p>
+  </aside>
+</section>
+
+<!-- ══ 7 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s7">
+  <div class="col">
+    <h2><span class="n">07 / โจทย์ใหญ่</span>ออกแบบระบบมินิสปริงเกลอร์ แปลงไม้ผล 6×6 ม.</h2>
+    <p class="lead">ตัวอย่างนี้ร้อยทุกอย่างในบทเข้าด้วยกัน ตั้งแต่หัวจ่ายจนถึงปั๊ม
+      ตัวเลขในวงเล็บคือลำดับขั้นตอนบนสไลด์ต้นฉบับ</p>
+
+    <article class="ex">
+      <header><span class="tag">โจทย์</span><h3>เลือกหัวมินิสปริงเกลอร์ Q 90 ล/ชม. ที่ H 15 ม.</h3></header>
+      <div class="given">แปลงไม้ผลระยะปลูก 6×6 ม. · ท่อย่อยหนึ่งเส้นมีหัว 8 จุด · มีท่อย่อยทั้งหมด 12 แถว</div>
+      <div class="work">
+        <h4 style="font-family:var(--f-display);font-size:.92rem;color:var(--ink-2);margin-bottom:10px">ก. หาปริมาณน้ำและความยาวท่อ</h4>
+        <div class="steps">
+          <div class="st"><span class="k">(1)</span><span class="d">อัตราการไหลของหัว 90 ล/ชม.</span><span class="v">1.5 ล/นาที</span></div>
+          <div class="st"><span class="k">(2)</span><span class="d">แรงดันใช้งานของหัว H</span><span class="v">15 ม.</span></div>
+          <div class="st"><span class="k">(3)</span><span class="d">ท่อย่อย ขค · หัว 8 จุด @ 6 ม.</span><span class="v">ยาว 48 ม.</span></div>
+          <div class="st"><span class="k">(4)</span><span class="d">ท่อเมนย่อย กข · ท่อย่อย 12 แถว @ 6 ม.</span><span class="v">ยาว 72 ม.</span></div>
+          <div class="st"><span class="k">(5)</span><span class="d">Q ในท่อย่อย = 1.5 × 8</span><span class="v">12 ล/นาที</span></div>
+          <div class="st"><span class="k">(6)</span><span class="d">Q ในท่อเมนย่อย = 12 × 12</span><span class="v">144 ล/นาที</span></div>
+        </div>
+
+        <h4 style="font-family:var(--f-display);font-size:.92rem;color:var(--ink-2);margin:22px 0 10px">ข. ตั้งเกณฑ์</h4>
+        <div class="steps">
+          <div class="st"><span class="k">(7)</span><span class="d">สูญเสียได้ไม่เกิน 20% ของ H ใช้งาน = 20 ÷ 100 × 15</span><span class="v">3 ม.</span></div>
+        </div>
+        <div class="callout" style="margin-top:14px">
+          <p>ตัวเลข <strong>3 เมตร</strong> นี้คือ “งบประมาณแรงดัน” ที่เรามีให้ใช้
+            ท่อย่อยกับท่อเมนย่อยรวมกันต้องไม่กินเกินนี้</p>
+        </div>
+
+        <h4 style="font-family:var(--f-display);font-size:.92rem;color:var(--ink-2);margin:22px 0 10px">ค. เลือกท่อย่อย</h4>
+        <div class="steps">
+          <div class="st"><span class="k">(8)</span><span class="d">LDPE PN 2.5 ขนาด 20 มม. · 12 ล/น · 0.51 ÷ 10 × 48 = 2.45 × 0.371</span><span class="v" style="color:var(--pass)">0.91 ม. ✓</span></div>
+          <div class="st"><span class="k">✗</span><span class="d">LDPE PN 4 ขนาด 16 มม. · 1.98 ÷ 10 × 48 = 9.5 × 0.371</span><span class="v" style="color:var(--fail)">3.53 ม. เกิน</span></div>
+        </div>
+        <p style="font-size:.9rem;color:var(--ink-2);margin-top:10px">ท่อ 16 มม. เส้นเดียวก็กินงบหมดแล้ว ใช้ไม่ได้ ต้องขยับขึ้น 20 มม.</p>
+
+        <h4 style="font-family:var(--f-display);font-size:.92rem;color:var(--ink-2);margin:22px 0 10px">ง. เลือกท่อเมนย่อย แล้วรวมยอด</h4>
+        <div class="steps">
+          <div class="st"><span class="k">(9)</span><span class="d">PVC 5 ขนาด 1½″ · 144 ล/น · 0.59 ÷ 10 × 72 = 4.25 × 0.363</span><span class="v">1.55 ม.</span></div>
+          <div class="st"><span class="k">(10)</span><span class="d">ท่อย่อย LDPE PN 2.5 · 20 มม.</span><span class="v">0.91 ม.</span></div>
+          <div class="st"><span class="k">(11)</span><span class="d">ท่อเมนย่อย PVC 5 · 1½″</span><span class="v">1.55 ม.</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">สูญเสียรวม</span><span class="v">2.46 ม.</span></div>
+        </div>
+        <div class="verdict ok" style="margin-top:16px">
+          <span class="big">2.46 &lt; 3</span><span>ผ่านเกณฑ์ — ใช้ท่อชุดนี้ได้</span>
+        </div>
+
+        <h4 style="font-family:var(--f-display);font-size:.92rem;color:var(--ink-2);margin:22px 0 10px">จ. แรงดันที่วาล์วต้นแปลง</h4>
+        <div class="steps">
+          <div class="st tot" style="border-top:0;margin-top:0;padding-top:0">
+            <span class="k">(12)</span><span class="d">H ที่วาล์ว ก = 15 + 0.91 + 1.55</span><span class="v">17.46 ม.</span></div>
+        </div>
+        <p style="font-size:.9rem;color:var(--ink-2);margin-top:10px">
+          คือแรงดันที่หัวต้องการ บวกกับทุกอย่างที่หายไประหว่างวาล์วกับหัวที่ไกลที่สุด
+          ตัวเลขนี้คือ “เป้า” ที่ท่อเมนกับปั๊มต้องส่งมาให้ถึง</p>
+      </div>
+    </article>
+
+    <div class="callout warn">
+      <p><strong>ถ้าเลือกหัวใหญ่ขึ้นเป็น 120 ล/ชม.</strong> (บนสไลด์เป็นอีกรุ่นหนึ่งของโจทย์เดียวกัน)
+        น้ำในท่อเมนย่อยจะขึ้นเป็น 192 ล/น ท่อเมนย่อย 1½″ จะกิน 2.62 ม.
+        รวมกับท่อย่อย 1.54 ม. เป็น <strong>4.16 ม. เกิน 3 ใช้ไม่ได้</strong>
+        ต้องขยับท่อเมนย่อยเป็น 2″ ซึ่งกินแค่ 0.89 ม. รวมเป็น 2.43 ม. จึงผ่าน
+        — <strong>หัวจ่ายใหญ่ขึ้น ราคาท่อทั้งระบบก็ขึ้นตาม</strong></p>
+    </div>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ทุกระบบหัวจ่ายน้ำ ใช้หลักการเหมือนกัน<br>ท่อเมน — เมนย่อย — ย่อย</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>การหา H โดยเอา H ของหัว + กับแรงดันที่สูญเสียไปในท่อเมนย่อยแต่ละช่วง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เปิดน้ำนานขึ้น ลดปริมาณน้ำลง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ในการอบรมระดับเบื้องต้น ความลาดชันยังไม่นำเข้ามาเกี่ยวข้อง</p>
+  </aside>
+</section>
+
+<!-- ══ 8 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s8">
+  <div class="col">
+    <h2><span class="n">08 / ปลายทาง</span>ท่อเมน ปั๊ม และเครื่องกรอง</h2>
+    <p class="lead">จบจากวาล์วต้นแปลงแล้ว เดินย้อนกลับไปหาปั๊ม สามอย่างที่ต้องบวกเพิ่มคือ
+      แรงเสียดทานในท่อเมน ความต่างระดับ และเผื่อสำหรับข้อต่ออุปกรณ์</p>
+
+    <article class="ex">
+      <header><span class="tag">ต่อจากข้อ 7</span><h3>ท่อเมนยาว 70 ม. · จุด ก สูงกว่าปั๊ม 3 ม.</h3></header>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">(13)</span><span class="d">Q ในท่อเมน</span><span class="v">144 ล/นาที</span></div>
+          <div class="st"><span class="k">(14)</span><span class="d">ถ้าใช้ PVC 5 ขนาด <strong>2″</strong> · 0.20 ÷ 10 × 70</span><span class="v">1.40 ม.</span></div>
+          <div class="st"><span class="k">(14′)</span><span class="d">ถ้าใช้ PVC 5 ขนาด <strong>1½″</strong> · 0.59 ÷ 10 × 70</span><span class="v">4.13 ม.</span></div>
+          <div class="st"><span class="k">(15)</span><span class="d">H รวม ท่อ 2″ = 17.46 + 1.40 + 3</span><span class="v">21.86 ม.</span></div>
+          <div class="st"><span class="k">(15′)</span><span class="d">H รวม ท่อ 1½″ = 17.46 + 4.13 + 3</span><span class="v">24.59 ม.</span></div>
+          <div class="st"><span class="k">(16)</span><span class="d">ปั๊ม · Q = 144 ล/น = 8,640 ล/ชม.</span><span class="v">8.64 ม³/ชม.</span></div>
+          <div class="st"><span class="k">(16)</span><span class="d">ปั๊ม · H = 24.59 + 10% (เผื่ออุปกรณ์ ข้อต่อ)</span><span class="v">27.09 ม.</span></div>
+          <div class="st"><span class="k">(17)</span><span class="d">เครื่องกรอง · Q = 144 + 20%</span><span class="v">172.8 ล/น = 10.37 ม³/ชม.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="callout warn">
+      <p><strong>จุดที่วิทยากรขีดฆ่าบนสไลด์</strong> — สไลด์ต้นฉบับพิมพ์ว่าให้เอา 1.40 และ 4.13
+        ไป “× ปรับแก้ (0.38)” ได้ 0.23 และ 1.66 ม. แต่วิทยากร<strong>ขีดฆ่าทิ้งทั้งสองบรรทัด</strong>
+        แล้วใช้ 1.40 กับ 4.13 ตรงๆ เพราะ<strong>ท่อเมนไม่มีทางออกจ่ายน้ำระหว่างทาง จึงไม่ต้องคูณค่าปรับแก้</strong>
+        น้ำไหลเต็มอัตรา 144 ล/น ตลอดความยาว 70 เมตร ตรงตามหัวข้อ 4 ทุกประการ</p>
+    </div>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>เผื่อ 10% ให้ปั๊ม</h3></div>
+        <div class="panel-b"><p style="font-size:.93rem;color:var(--ink-2);margin:0">
+          ตัวเลขที่คำนวณได้เป็นแรงเสียดทานใน<strong>ท่อ</strong>อย่างเดียว
+          ยังไม่รวมข้อต่อ ข้องอ วาล์ว และหัวกรอง ซึ่งกินแรงดันด้วย จึงเผื่อไว้ 10%</p></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>เผื่อ 20% ให้เครื่องกรอง</h3></div>
+        <div class="panel-b"><p style="font-size:.93rem;color:var(--ink-2);margin:0">
+          เครื่องกรองต้อง<strong>รับน้ำได้มากกว่า</strong>ที่ปั๊มส่งมา 20% เพราะเมื่อไส้กรองเริ่มตัน
+          ความสามารถจะลดลง ถ้าเลือกพอดีเป๊ะ ใช้ไปสักพักจะกลายเป็นคอขวด</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เลือกรุ่นปั๊มจากตารางผู้ผลิต</h3><span>ต้องการ Q 144 ล/น · H 27.09 ม.</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:14px">
+        <p style="font-size:.93rem;color:var(--ink-2);margin:0">
+          หาคอลัมน์ Capacity ที่ใกล้ 144 ล/น ที่สุด (คือคอลัมน์ 150 ล/น = 9 ม³/ชม.)
+          แล้วไล่ลงมาหารุ่นแรกที่ Total head ถึง 27.09 เมตร</p>
+        <div class="tscroll">
+          <table class="data" style="min-width:560px">
+            <thead>
+              <tr><th rowspan="2" style="text-align:start">รุ่น</th><th rowspan="2">kW</th><th rowspan="2">HP</th>
+                  <th colspan="7">Capacity — Total head (ม.)</th></tr>
+              <tr><th>50</th><th class="hitcol">150</th><th>200</th><th>300</th><th>400</th><th>500</th><th>ล/น</th></tr>
+            </thead>
+            <tbody>
+              <tr><th style="text-align:start">SE 150</th><td>1.1</td><td>1.5</td><td>25</td><td class="hitcol">23.5</td><td>22.5</td><td>18.5</td><td>12.5</td><td>4</td><td class="nil">✗</td></tr>
+              <tr><th style="text-align:start">SE 200</th><td>1.5</td><td>2</td><td>28.5</td><td class="hitcol">26.5</td><td>25</td><td>21</td><td>15</td><td>5.5</td><td class="nil">✗</td></tr>
+              <tr><th style="text-align:start">SE 300</th><td>2.2</td><td>3</td><td>34</td><td class="hit">32.5</td><td>31.5</td><td>28</td><td>22.5</td><td>13.5</td><td style="color:var(--pass)">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="verdict ok"><span class="big">SE 300</span><span>2.2 kW · 3 แรงม้า</span>
+          <small>ให้ head 32.5 ม. ที่ 150 ล/น — เกิน 27.09 ที่ต้องการ</small></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>ขนาดรูน้ำออกของปั๊มไม่เกี่ยว</strong> — เราเลือกปั๊มจาก Q กับ H ที่ระบบต้องการเท่านั้น
+        ปั๊มจะมีรูออกกี่นิ้วก็เรื่องของมัน ต่อลดต่อเพิ่มเอาให้เข้ากับท่อที่เราออกแบบไว้
+        เช่นเดียวกับเครื่องกรอง ที่เลือกจากอัตราการไหล ไม่ใช่จากขนาดท่อ</p>
+    </div>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ไม่ได้เลือกตามขนาดท่อของปั๊ม</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ขนาดทางน้ำออกจากปั๊ม ขนาดเท่าไหร่ เราไม่สนใจ เราต่อตามที่ออกแบบระบบ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ไม่ใช่ซื้อกรองตามขนาดท่อ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ใส่ gauge วัดแรงดันได้ ใช้ตรวจสอบ</p>
+  </aside>
+</section>
+
+<!-- ══ 9 ═══════════════════════════════════════════════ -->
+<section class="sec" id="s9">
+  <div class="col">
+    <h2><span class="n">09 / การวางผัง</span>วางท่อเมนย่อยข้างแปลง หรือกลางแปลง</h2>
+    <p class="lead">ผังเดียวกัน จำนวนหัวเท่ากัน น้ำรวมเท่ากัน แต่ย้ายท่อเมนย่อยจากขอบแปลงมาไว้กลางแปลง
+      แล้วขนาดท่อย่อยที่ต้องใช้เล็กลงได้</p>
+
+    <figure>
+      <svg viewBox="0 0 620 300" role="img" aria-label="เปรียบเทียบการวางท่อเมนย่อยไว้ข้างแปลง ซึ่งท่อย่อยยาว 48 เมตรและรับน้ำ 12 ลิตรต่อนาที กับวางไว้กลางแปลง ซึ่งท่อย่อยแบ่งเป็นสองข้างยาวข้างละ 24 เมตรและรับน้ำข้างละ 6 ลิตรต่อนาที">
+        <!-- LEFT: edge -->
+        <text x="0" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">วางข้างแปลง</text>
+        <g stroke="var(--pvc)" stroke-width="2" fill="none">
+          <line x1="34" y1="46" x2="270" y2="46"/><line x1="34" y1="82" x2="270" y2="82"/>
+          <line x1="34" y1="118" x2="270" y2="118"/><line x1="34" y1="154" x2="270" y2="154"/>
+          <line x1="34" y1="190" x2="270" y2="190"/><line x1="34" y1="226" x2="270" y2="226"/>
+        </g>
+        <line x1="34" y1="40" x2="34" y2="232" stroke="var(--accent)" stroke-width="5"/>
+        <g fill="var(--pvc)">
+          <polygon points="86,40 90,46 82,46"/><polygon points="138,40 142,46 134,46"/><polygon points="190,40 194,46 186,46"/><polygon points="242,40 246,46 238,46"/>
+          <polygon points="86,76 90,82 82,82"/><polygon points="138,76 142,82 134,82"/><polygon points="190,76 194,82 186,82"/><polygon points="242,76 246,82 238,82"/>
+          <polygon points="86,112 90,118 82,118"/><polygon points="138,112 142,118 134,118"/><polygon points="190,112 194,118 186,118"/><polygon points="242,112 246,118 238,118"/>
+          <polygon points="86,148 90,154 82,154"/><polygon points="138,148 142,154 134,154"/><polygon points="190,148 194,154 186,154"/><polygon points="242,148 246,154 238,154"/>
+          <polygon points="86,184 90,190 82,190"/><polygon points="138,184 142,190 134,190"/><polygon points="190,184 194,190 186,190"/><polygon points="242,184 246,190 238,190"/>
+          <polygon points="86,220 90,226 82,226"/><polygon points="138,220 142,226 134,226"/><polygon points="190,220 194,226 186,226"/><polygon points="242,220 246,226 238,226"/>
+        </g>
+        <polygon points="26,236 42,236 34,248" fill="var(--accent)"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">
+          <text x="52" y="270">ท่อย่อย 48 ม. · 12 ล/น</text>
+          <text x="52" y="286" fill="var(--ink-3)">ทางออกบนเมนย่อย = 6</text>
+        </g>
+
+        <line x1="300" y1="30" x2="300" y2="290" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- RIGHT: middle -->
+        <text x="330" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">วางกลางแปลง</text>
+        <g stroke="var(--pvc)" stroke-width="2" fill="none">
+          <line x1="330" y1="46" x2="566" y2="46"/><line x1="330" y1="82" x2="566" y2="82"/>
+          <line x1="330" y1="118" x2="566" y2="118"/><line x1="330" y1="154" x2="566" y2="154"/>
+          <line x1="330" y1="190" x2="566" y2="190"/><line x1="330" y1="226" x2="566" y2="226"/>
+        </g>
+        <line x1="448" y1="40" x2="448" y2="232" stroke="var(--accent)" stroke-width="5"/>
+        <g fill="var(--pvc)">
+          <polygon points="356,40 360,46 352,46"/><polygon points="400,40 404,46 396,46"/><polygon points="496,40 500,46 492,46"/><polygon points="540,40 544,46 536,46"/>
+          <polygon points="356,76 360,82 352,82"/><polygon points="400,76 404,82 396,82"/><polygon points="496,76 500,82 492,82"/><polygon points="540,76 544,82 536,82"/>
+          <polygon points="356,112 360,118 352,118"/><polygon points="400,112 404,118 396,118"/><polygon points="496,112 500,118 492,118"/><polygon points="540,112 544,118 536,118"/>
+          <polygon points="356,148 360,154 352,154"/><polygon points="400,148 404,154 396,154"/><polygon points="496,148 500,154 492,154"/><polygon points="540,148 544,154 536,154"/>
+          <polygon points="356,184 360,190 352,190"/><polygon points="400,184 404,190 396,190"/><polygon points="496,184 500,190 492,190"/><polygon points="540,184 544,190 536,190"/>
+          <polygon points="356,220 360,226 352,226"/><polygon points="400,220 404,226 396,226"/><polygon points="496,220 500,226 492,226"/><polygon points="540,220 544,226 536,226"/>
+        </g>
+        <polygon points="440,236 456,236 448,248" fill="var(--accent)"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">
+          <text x="330" y="270">ท่อย่อย 24 ม. × 2 ข้าง · ข้างละ 6 ล/น</text>
+          <text x="330" y="286" fill="var(--ink-3)">ทางออกบนเมนย่อย = 6 (เท่าเดิม)</text>
+        </g>
+      </svg>
+      <figcaption>ย้ายท่อเมนย่อยมากลางแปลง ท่อย่อยแต่ละเส้นสั้นลงครึ่งหนึ่งและรับน้ำน้อยลงครึ่งหนึ่ง
+        แรงเสียดทานในท่อย่อยจึงลดลงมาก ส่วนท่อเมนย่อยยังรับน้ำเท่าเดิมและใช้ขนาดเดิม</figcaption>
+    </figure>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:480px">
+        <thead><tr><th style="text-align:start"></th><th style="text-align:start">วางข้างแปลง</th><th style="text-align:start">วางกลางแปลง</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">ท่อย่อย</th><td style="text-align:start">ยาวและน้ำมาก</td><td style="text-align:start">สั้นลงครึ่งหนึ่ง · น้ำลดครึ่งหนึ่ง</td></tr>
+          <tr><th style="text-align:start">ผลต่อขนาดท่อย่อย</th><td style="text-align:start;color:var(--fail)">อาจต้องใช้ขนาดใหญ่กว่า</td><td style="text-align:start;color:var(--pass)">ใช้ขนาดเล็กกว่าได้</td></tr>
+          <tr><th style="text-align:start">ผลต่อท่อเมนย่อย</th><td style="text-align:start">—</td><td style="text-align:start">น้ำเท่าเดิม ขนาดอาจเท่าเดิม</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body">ทั้งสองแบบต้องผ่านเกณฑ์เดียวกัน — H loss ของท่อ กข + ท่อ ขค ต้องไม่เกิน 20% ของ H ในระบบ
+      สิ่งที่เปลี่ยนไปคือ<strong>ขนาดของท่อย่อย</strong> ซึ่งเป็นท่อที่ต้องซื้อเยอะที่สุดในแปลง จึงเป็นจุดที่ประหยัดเงินได้จริง</p>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ท่อย่อยกลางแปลงช่วยได้!</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>สิ่งที่เปลี่ยนไปคือขนาดของ “ท่อย่อย”</p>
+  </aside>
+</section>
+
+<!-- ══ 10 ══════════════════════════════════════════════ -->
+<section class="sec" id="s10">
+  <div class="col">
+    <h2><span class="n">10 / เครื่องมือ</span>ลองออกแบบแปลงของคุณเอง</h2>
+    <p class="lead">ค่าตั้งต้นคือโจทย์ในหัวข้อ 7 ลองเปลี่ยนตัวเลขดู แล้วสังเกตว่าผลรวมข้ามเส้น 20% เมื่อไร</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>แปลงและหัวจ่ายน้ำ</h3></div>
+      <div class="panel-b">
+        <div class="ctrls">
+          <div class="fld"><label for="dQh">หัวจ่าย · ล/ชม.</label><input id="dQh" type="number" value="90" min="1" step="5"></div>
+          <div class="fld"><label for="dH">H ใช้งาน · ม.</label><input id="dH" type="number" value="15" min="1" step="1"></div>
+          <div class="fld"><label for="dSp">ระยะปลูก · ม.</label><input id="dSp" type="number" value="6" min="0.5" step="0.5"></div>
+          <div class="fld"><label for="dNe">หัว/ท่อย่อย 1 เส้น</label><input id="dNe" type="number" value="8" min="1" step="1"></div>
+          <div class="fld"><label for="dNl">จำนวนแถวท่อย่อย</label><input id="dNl" type="number" value="12" min="1" step="1"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ท่อที่เลือก</h3><span>ท่อเมนไม่คูณค่าปรับแก้</span></div>
+      <div class="panel-b">
+        <div class="ctrls">
+          <div class="fld"><label for="dLatT">ท่อย่อย · ชนิด</label>
+            <select id="dLatT"><option value="ldpe25">LDPE PN 2.5</option><option value="pvc5">PVC 5</option><option value="pvc85">PVC 8.5</option></select></div>
+          <div class="fld"><label for="dLatS">ท่อย่อย · ขนาด</label><select id="dLatS"></select></div>
+          <div class="fld"><label for="dSubT">ท่อเมนย่อย · ชนิด</label>
+            <select id="dSubT"><option value="pvc5">PVC 5</option><option value="pvc85">PVC 8.5</option><option value="ldpe25">LDPE PN 2.5</option></select></div>
+          <div class="fld"><label for="dSubS">ท่อเมนย่อย · ขนาด</label><select id="dSubS"></select></div>
+          <div class="fld"><label for="dMainS">ท่อเมน · ขนาด (PVC 5)</label><select id="dMainS"></select></div>
+          <div class="fld"><label for="dMainL">ท่อเมน · ยาว ม.</label><input id="dMainL" type="number" value="70" min="0" step="1"></div>
+          <div class="fld"><label for="dLift">ปั๊มถึงวาล์ว สูงขึ้น ม.</label><input id="dLift" type="number" value="3" min="-50" step="0.5"></div>
+          <div class="fld"><label for="dRead">วิธีอ่านค่าตาราง</label>
+            <select id="dRead"><option value="interp">แทรกค่า (interpolate)</option><option value="up">ใช้แถวที่สูงกว่า</option></select></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ผลการคำนวณ</h3><span id="dBudgetTag">งบแรงดัน 3.00 ม.</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="steps" id="dSteps"></div>
+        <div id="dVerdict" class="verdict ok"></div>
+        <div class="steps" id="dPump"></div>
+      </div>
+    </div>
+
+    <p class="body" style="font-size:.88rem;color:var(--ink-3)">
+      เครื่องมือนี้อ่านค่าจากตารางในหัวข้อ 3 และแทรกค่าให้อัตโนมัติ ตัวเลขจึงอาจต่างจากในเอกสารต้นฉบับราว ±0.1 ม.
+      เพราะวิทยากรปัดเศษระหว่างทาง ใช้ประกอบการเรียนเท่านั้น การออกแบบจริงควรตรวจสอบกับวิศวกร</p>
+  </div>
+
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ออกแบบท่อให้มีความประหยัด เหมาะสม คำนวณได้ ไม่ต้องลอง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>H 20% → Q ราว 10%<br>2 : 1<br>เรายอมให้น้ำต่างกันได้ Q = 10%</p>
+  </aside>
+</section>
+
+<!-- ══ 11 ══════════════════════════════════════════════ -->
+<section class="sec" id="s11" style="border-bottom:0">
+  <div class="col">
+    <h2><span class="n">11 / แบบฝึกหัด</span>การบ้าน</h2>
+    <p class="lead">โจทย์เดียวกับหัวข้อ 7 แต่เว้นตัวเลขไว้ให้เติมเอง ลองทำด้วยมือก่อน
+      แล้วค่อยเอาไปตรวจกับเครื่องมือในหัวข้อ 10</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>จงหาขนาดท่อในการติดตั้งระบบมินิสปริงเกลอร์ แปลงไม้ผลระยะปลูก 6×6 ม.</h3></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:14px">
+        <p style="margin:0;font-size:.95rem">กำหนดให้ เลือกใช้หัวมินิสปริงเกลอร์ <strong>Q 90 ล/ชม. ที่ H 15 ม.</strong></p>
+        <div class="steps">
+          <div class="st"><span class="k">(1)</span><span class="d">Q ของหัว 90 ล/ชม. คิดเป็นกี่ ล/นาที</span><span class="v">_____ ล/น</span></div>
+          <div class="st"><span class="k">(3)</span><span class="d">ท่อย่อย ขค มีหัวกี่จุด ยาวกี่เมตร</span><span class="v">_____ ม.</span></div>
+          <div class="st"><span class="k">(4)</span><span class="d">ท่อเมนย่อย กข มีท่อย่อยกี่แถว ยาวกี่เมตร</span><span class="v">_____ ม.</span></div>
+          <div class="st"><span class="k">(5)</span><span class="d">Q ในท่อย่อย</span><span class="v">_____ ล/น</span></div>
+          <div class="st"><span class="k">(6)</span><span class="d">Q ในท่อเมนย่อย</span><span class="v">_____ ล/น</span></div>
+          <div class="st"><span class="k">(7)</span><span class="d">เกณฑ์การยอมรับ 20% ของ 15 ม.</span><span class="v">3 ม.</span></div>
+          <div class="st"><span class="k">(8)</span><span class="d">ท่อย่อย LDPE PN 2.5 · ค่าปรับแก้ 0.38</span><span class="v">_____ ม.</span></div>
+          <div class="st"><span class="k">(9)</span><span class="d">ท่อเมนย่อย PVC 5 · ค่าปรับแก้ 0.365</span><span class="v">_____ ม.</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">สูญเสียรวม ต้องน้อยกว่า 3 ม.</span><span class="v">_____ ม.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>คำใบ้:</strong> ทำตามลำดับสามข้อจากหัวข้อ 2 เสมอ — หา Q ให้ได้ก่อน แล้วจึงเลือกขนาดท่อ
+        แล้วค่อยเปิดตารางหาแรงเสียดทาน ถ้าลองท่อขนาดแรกแล้วเกิน 3 ม. ให้ขยับขึ้นอีกขนาดแล้วคิดใหม่</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>การบ้าน</p>
+  </aside>
+</section>
+
+<section class="sec" style="border-bottom:0;padding-top:0">
+  <div class="col">
+    <nav class="pager" aria-label="บทก่อนหน้าและบทถัดไป">
+      <a class="prev" href="ch3-pipes.html"><small>← บทที่ 3</small><span>ท่อสำหรับระบบให้น้ำ</span></a>
+      <a class="next" href="ch5-layout.html"><small>บทที่ 5 →</small><span>การแบ่งแปลงและวางแนวท่อ</span></a>
+    </nav>
+    <div class="callout">
+      <p><strong>บทอื่นในหลักสูตร</strong> — <a href="./">หน้าแรก</a> ·
+        <a href="ch1-water-need.html">บทที่ 1 · ความต้องการน้ำของพืช</a> ·
+        <a href="ch2-systems.html">บทที่ 2 · ระบบให้น้ำพืช</a> ·
+        <a href="ch3-pipes.html">บทที่ 3 · ท่อสำหรับระบบให้น้ำ</a> ·
+        <a href="ch5-layout.html">บทที่ 5 · การแบ่งแปลงและวางแนวท่อ</a> ·
+        <a href="ch6-pumps.html">บทที่ 6 · เครื่องสูบน้ำเพื่อการเกษตร</a></p>
+    </div>
+  </div>
+  <aside class="rail"></aside>
+</section>
+
+<footer class="end">
+  <p>เรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” บทที่ 4 หน้า 53–68
+     ของสมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+  <p>ข้อความในกรอบลายมือคือบันทึกที่จดไว้ระหว่างการอบรม เก็บไว้ตามตำแหน่งเดิมในเอกสาร</p>
+</footer>
+
+</div>
+
+<script>
+/* ═════ data ═════ */
+const SIZES = {
+  pvc5 : {label:'PVC 5',   cols:['1 1/4','1 1/2','2','2 1/2','3','4','5'], id:[39,45,56.4,71.6,84,107.6,132.2], unit:'นิ้ว'},
+  pvc85: {label:'PVC 8.5', cols:['1 1/4','1 1/2','2','2 1/2','3','4','5'], id:[39,45,56.4,71.6,84,107.6,132.2], unit:'นิ้ว'},
+  ldpe25:{label:'LDPE PN 2.5', cols:['16','20','25','32','40','50','63'], id:[null,18,22.6,29,36,45.2,57], unit:'มม.'}
+};
+const N = null;
+const TABLES = {
+  pvc5: [
+    [60,0.23,0.12,0.04,N,N,N,N],[65,0.27,0.13,0.04,0.01,N,N,N],[70,0.31,0.15,0.05,0.02,N,N,N],
+    [75,0.35,0.17,0.06,0.02,N,N,N],[80,0.39,0.20,0.07,0.02,N,N,N],[85,0.44,0.22,0.07,0.02,N,N,N],
+    [90,0.49,0.24,0.08,0.03,N,N,N],[95,0.54,0.27,0.09,0.03,N,N,N],[100,0.60,0.30,0.10,0.03,0.01,N,N],
+    [110,0.71,0.35,0.12,0.04,0.02,N,N],[120,0.84,0.42,0.14,0.04,0.02,N,N],[130,0.97,0.48,0.16,0.05,0.02,N,N],
+    [140,1.11,0.55,0.18,0.06,0.03,N,N],[150,1.26,0.63,0.21,0.07,0.03,N,N],[160,1.42,0.71,0.24,0.07,0.03,N,N],
+    [170,1.59,0.79,0.26,0.08,0.04,N,N],[180,1.77,0.88,0.29,0.09,0.04,N,N],[190,1.96,0.98,0.33,0.10,0.05,0.01,N],
+    [200,2.15,1.07,0.36,0.11,0.05,0.02,N],[220,2.57,1.28,0.43,0.13,0.06,0.02,N],[240,3.02,1.50,0.50,0.16,0.07,0.02,N],
+    [260,3.50,1.74,0.58,0.18,0.08,0.03,N],[280,4.01,2.00,0.67,0.21,0.10,0.03,N],[300,4.56,2.27,0.76,0.24,0.11,0.03,N],
+    [320,N,2.56,0.85,0.27,0.12,0.04,0.01],[340,N,2.87,0.96,0.30,0.14,0.04,0.02],[360,N,3.19,1.06,0.33,0.15,0.05,0.02],
+    [380,N,3.52,1.17,0.37,0.17,0.05,0.02],[400,N,3.87,1.29,0.40,0.19,0.06,0.02],[420,N,4.24,1.41,0.44,0.20,0.06,0.02],
+    [440,N,4.62,1.54,0.48,0.22,0.07,0.02],[460,N,5.02,1.67,0.52,0.24,0.07,0.03],[480,N,N,1.81,0.57,0.26,0.08,0.03],
+    [500,N,N,1.95,0.61,0.28,0.08,0.03]
+  ],
+  pvc85: [
+    [180,2.01,1.05,0.36,0.11,0.05,0.02,N],[190,2.22,1.16,0.39,0.12,0.06,0.02,N],[200,2.44,1.28,0.43,0.13,0.06,0.02,N],
+    [220,2.91,1.53,0.52,0.16,0.07,0.02,N],[240,3.42,1.79,0.61,0.19,0.09,0.03,N],[260,3.97,2.08,0.71,0.22,0.10,0.03,N],
+    [280,4.55,2.39,0.81,0.25,0.12,0.03,N],[300,N,2.71,0.92,0.28,0.13,0.04,0.01],[320,N,3.05,1.04,0.32,0.15,0.04,0.02],
+    [340,N,3.42,1.16,0.36,0.17,0.05,0.02],[360,N,3.80,1.29,0.40,0.18,0.06,0.02],[380,N,4.20,1.42,0.44,0.20,0.06,0.02],
+    [400,N,4.62,1.57,0.48,0.22,0.07,0.02],[420,N,5.05,1.71,0.53,0.25,0.07,0.03],[440,N,N,1.87,0.58,0.27,0.08,0.03],
+    [460,N,N,2.03,0.63,0.29,0.09,0.03],[480,N,N,2.20,0.68,0.31,0.09,0.03],[500,N,N,2.37,0.73,0.34,0.10,0.04]
+  ],
+  ldpe25: [
+    [1,N,0.01,N,N,N,N,N],[2,N,0.02,N,N,N,N,N],[3,N,0.04,0.01,N,N,N,N],[4,N,0.07,0.02,N,N,N,N],
+    [5,N,0.10,0.03,N,N,N,N],[6,N,0.14,0.05,0.01,N,N,N],[7,N,0.19,0.06,0.02,N,N,N],[8,N,0.24,0.08,0.02,N,N,N],
+    [9,N,0.30,0.10,0.03,N,N,N],[10,N,0.36,0.12,0.04,0.01,N,N],[12,N,0.51,0.17,0.05,0.02,N,N],
+    [14,N,0.67,0.22,0.07,0.02,N,N],[16,N,0.86,0.28,0.08,0.03,N,N],[18,N,1.07,0.35,0.11,0.04,N,N],
+    [20,N,1.30,0.43,0.13,0.04,0.01,N]
+  ]
+};
+const CF = [[1,1],[2,.512],[3,.434],[4,.405],[5,.380],[10,.365],[15,.358],[20,.354],[30,.350],[40,.349],[50,.348],[100,.347]];
+const PUMPS = [
+  {name:'SE 150', kw:1.1, hp:1.5, head:[[50,25],[100,24.5],[150,23.5],[200,22.5],[300,18.5],[400,12.5],[500,4]]},
+  {name:'SE 200', kw:1.5, hp:2,   head:[[50,28.5],[100,28],[150,26.5],[200,25],[300,21],[400,15],[500,5.5]]},
+  {name:'SE 300', kw:2.2, hp:3,   head:[[50,34],[100,33.5],[150,32.5],[200,31.5],[300,28],[400,22.5],[500,13.5]]}
+];
+
+/* ═════ helpers ═════ */
+const $ = s => document.querySelector(s);
+const fmt = (v,d=2) => (v===null||v===undefined||!isFinite(v)) ? '—' : v.toFixed(d);
+
+function cf(n){
+  n = Math.max(1, Math.round(n));
+  if(n >= 100) return .347;
+  for(let i=0;i<CF.length-1;i++){
+    const [a,fa]=CF[i], [b,fb]=CF[i+1];
+    if(n===a) return fa;
+    if(n>a && n<b) return fa + (n-a)/(b-a)*(fb-fa);
+  }
+  return 1;
+}
+function cfNote(n){
+  n = Math.max(1, Math.round(n));
+  if(n>=100) return 'ค่าคงที่สำหรับ 100 ทางออกขึ้นไป';
+  for(let i=0;i<CF.length-1;i++){
+    const [a,fa]=CF[i], [b,fb]=CF[i+1];
+    if(n===a) return 'ค่าตรงจากตาราง';
+    if(n>a && n<b) return `ค่าปรับแก้ (แทรกค่าระหว่าง ${a} → ${fa.toFixed(3)} กับ ${b} → ${fb.toFixed(3)})`;
+  }
+  return 'ค่าตรงจากตาราง';
+}
+
+/* look up m/10m for a flow + column index. mode: 'interp' | 'up' */
+function lookup(type, colIdx, q, mode){
+  const rows = TABLES[type];
+  const avail = rows.filter(r => r[colIdx+1] !== null);
+  if(!avail.length) return {v:null, why:'ตารางไม่มีค่าสำหรับท่อขนาดนี้'};
+  const lo = avail[0][0], hi = avail[avail.length-1][0];
+  if(q < lo) return {v:null, why:`อัตราการไหลต่ำกว่าช่วงของตาราง (เริ่มที่ ${lo} ล/น)`};
+  if(q > hi) return {v:null, why:`อัตราการไหลเกินช่วงของตาราง (สูงสุด ${hi} ล/น) — ท่อเล็กเกินไป`};
+  for(let i=0;i<avail.length;i++){
+    if(avail[i][0] === q) return {v:avail[i][colIdx+1], why:'ค่าตรงจากตาราง', rows:[avail[i][0]]};
+  }
+  for(let i=0;i<avail.length-1;i++){
+    const a = avail[i], b = avail[i+1];
+    if(q > a[0] && q < b[0]){
+      if(mode === 'up') return {v:b[colIdx+1], why:`ใช้แถว ${b[0]} ล/น (สูงกว่า)`, rows:[b[0]]};
+      const t = (q-a[0])/(b[0]-a[0]);
+      const v = a[colIdx+1] + t*(b[colIdx+1]-a[colIdx+1]);
+      return {v, why:`แทรกค่าระหว่าง ${a[0]} → ${a[colIdx+1].toFixed(2)} กับ ${b[0]} → ${b[colIdx+1].toFixed(2)}`, rows:[a[0],b[0]]};
+    }
+  }
+  return {v:null, why:'หาค่าไม่ได้'};
+}
+
+function fillSizes(sel, type, keep){
+  const s = SIZES[type];
+  sel.innerHTML = s.cols.map((c,i) =>
+    `<option value="${i}">${c} ${s.unit}${s.id[i]?` · ID ${s.id[i]}`:''}</option>`).join('');
+  if(keep !== undefined && keep < s.cols.length) sel.value = keep;
+}
+
+/* ═════ §3 lookup tool ═════ */
+const lkType=$('#lkType'), lkSize=$('#lkSize'), lkQ=$('#lkQ'), lkL=$('#lkL'), lkN=$('#lkN');
+
+function renderTable(type, hitCol, hitRows){
+  const s = SIZES[type], rows = TABLES[type];
+  let h = `<p class="tcap">ค่าการสูญเสียแรงดันของน้ำเนื่องจากความเสียดทานในท่อ · <strong>${s.label}</strong> · หน่วย เมตรต่อความยาวท่อ 10 เมตร · เลื่อนดูได้ในกรอบ</p><div class="tscroll tall"><table class="data">`;
+  h += `<thead><tr><th rowspan="2">อัตราการไหล<br>ล/นาที</th><th colspan="${s.cols.length}">ขนาดท่อ (${s.unit}) / ID (มม.)</th></tr><tr>`;
+  s.cols.forEach((c,i) => { h += `<th class="${i===hitCol?'hitcol':''}">${c}${s.id[i]?`<br><span style="color:var(--ink-3);font-weight:400">${s.id[i]}</span>`:''}</th>`; });
+  h += `</tr></thead><tbody>`;
+  rows.forEach(r => {
+    const isHit = hitRows && hitRows.includes(r[0]);
+    h += `<tr class="${isHit?'hitrow':''}"><th>${r[0]}</th>`;
+    for(let i=0;i<s.cols.length;i++){
+      const v = r[i+1];
+      const cls = (isHit && i===hitCol) ? 'hit' : (i===hitCol ? 'hitcol' : (v===null?'nil':''));
+      h += `<td class="${cls}">${v===null?'·':v.toFixed(2)}</td>`;
+    }
+    h += `</tr>`;
+  });
+  return h + `</tbody></table></div>`;
+}
+
+function runLookup(){
+  const type = lkType.value, col = +lkSize.value;
+  const q = +lkQ.value || 0, L = +lkL.value || 0, n = Math.max(0, Math.round(+lkN.value||0));
+  const r = lookup(type, col, q, 'interp');
+  const steps = $('#lkSteps');
+  if(r.v === null){
+    steps.innerHTML = `<div class="st"><span class="k">!</span><span class="d" style="color:var(--fail)">${r.why}</span><span class="v">—</span></div>`;
+    $('#lkOut').textContent = '—';
+    $('#lkTableWrap').innerHTML = renderTable(type, col, null);
+    return;
+  }
+  const perLen = r.v/10*L;
+  const F = n >= 2 ? cf(n) : 1;
+  const total = perLen * F;
+  let h = '';
+  h += `<div class="st"><span class="k">1</span><span class="d">ค่าจากตาราง — ${r.why}</span><span class="v">${fmt(r.v)} ม./10 ม.</span></div>`;
+  h += `<div class="st"><span class="k">2</span><span class="d">คูณความยาวจริง ${fmt(r.v)} ÷ 10 × ${L}</span><span class="v">${fmt(perLen)} ม.</span></div>`;
+  if(n >= 2){
+    h += `<div class="st"><span class="k">3</span><span class="d">คูณค่าปรับแก้ ${n} ทางออก</span><span class="v">× ${F.toFixed(3)}</span></div>`;
+  } else {
+    h += `<div class="st"><span class="k">3</span><span class="d">ไม่มีทางออกระหว่างทาง — ไม่ต้องคูณค่าปรับแก้</span><span class="v">× 1</span></div>`;
+  }
+  h += `<div class="st tot"><span class="k">=</span><span class="d">แรงดันที่สูญเสีย</span><span class="v">${fmt(total)} ม.</span></div>`;
+  steps.innerHTML = h;
+  $('#lkOut').textContent = fmt(total);
+  $('#lkTableWrap').innerHTML = renderTable(type, col, r.rows);
+}
+lkType.addEventListener('change', () => { fillSizes(lkSize, lkType.value, 4); runLookup(); });
+[lkSize,lkQ,lkL,lkN].forEach(el => el.addEventListener('input', runLookup));
+fillSizes(lkSize, 'pvc5', 4);
+runLookup();
+
+/* ═════ §4 correction factor ═════ */
+const cfN = $('#cfN');
+function runCF(){
+  const n = Math.max(1, Math.round(+cfN.value||1));
+  $('#cfOut').textContent = cf(n).toFixed(3);
+  $('#cfNote').textContent = cfNote(n);
+}
+cfN.addEventListener('input', runCF);
+runCF();
+
+/* ═════ §10 designer ═════ */
+const D = {
+  Qh:$('#dQh'), H:$('#dH'), Sp:$('#dSp'), Ne:$('#dNe'), Nl:$('#dNl'),
+  LatT:$('#dLatT'), LatS:$('#dLatS'), SubT:$('#dSubT'), SubS:$('#dSubS'),
+  MainS:$('#dMainS'), MainL:$('#dMainL'), Lift:$('#dLift'), Read:$('#dRead')
+};
+fillSizes(D.LatS,'ldpe25',1);
+fillSizes(D.SubS,'pvc5',1);
+fillSizes(D.MainS,'pvc5',2);
+
+function runDesign(){
+  const mode = D.Read.value;
+  const qh = +D.Qh.value||0, H = +D.H.value||0, sp = +D.Sp.value||0;
+  const ne = Math.max(1,Math.round(+D.Ne.value||1)), nl = Math.max(1,Math.round(+D.Nl.value||1));
+
+  const qHead = qh/60;
+  const qLat  = qHead*ne;
+  const qSub  = qLat*nl;
+  const lLat  = ne*sp;
+  const lSub  = nl*sp;
+  const budget = H*0.20;
+
+  const rLat = lookup(D.LatT.value, +D.LatS.value, qLat, mode);
+  const rSub = lookup(D.SubT.value, +D.SubS.value, qSub, mode);
+  const rMain= lookup('pvc5', +D.MainS.value, qSub, mode);
+
+  const fLat = cf(ne), fSub = cf(nl);
+  const hLat = rLat.v===null ? null : rLat.v/10*lLat*fLat;
+  const hSub = rSub.v===null ? null : rSub.v/10*lSub*fSub;
+  const hSum = (hLat===null||hSub===null) ? null : hLat+hSub;
+
+  $('#dBudgetTag').textContent = `งบแรงดัน ${fmt(budget)} ม.`;
+
+  const row=(k,d,v,c)=>`<div class="st"><span class="k">${k}</span><span class="d">${d}</span><span class="v"${c?` style="color:${c}"`:''}>${v}</span></div>`;
+  let h='';
+  h+=row('(1)',`อัตราการไหลของหัว ${qh} ล/ชม.`,`${fmt(qHead)} ล/นาที`);
+  h+=row('(3)',`ท่อย่อย · หัว ${ne} จุด @ ${sp} ม.`,`ยาว ${fmt(lLat,1)} ม.`);
+  h+=row('(4)',`ท่อเมนย่อย · ท่อย่อย ${nl} แถว @ ${sp} ม.`,`ยาว ${fmt(lSub,1)} ม.`);
+  h+=row('(5)','Q ในท่อย่อย',`${fmt(qLat)} ล/นาที`);
+  h+=row('(6)','Q ในท่อเมนย่อย',`${fmt(qSub)} ล/นาที`);
+  h+=row('(7)',`เกณฑ์ 20% ของ H ${H} ม.`,`${fmt(budget)} ม.`);
+  h+=rLat.v===null
+      ? row('(8)',`ท่อย่อย — <span style="color:var(--fail)">${rLat.why}</span>`,'—')
+      : row('(8)',`ท่อย่อย · ${fmt(rLat.v)} ÷ 10 × ${fmt(lLat,1)} × ปรับแก้ ${ne} ทางออก (${fLat.toFixed(3)})`,
+            `${fmt(hLat)} ม.`, hLat<=budget?'var(--pass)':'var(--fail)');
+  h+=rSub.v===null
+      ? row('(9)',`ท่อเมนย่อย — <span style="color:var(--fail)">${rSub.why}</span>`,'—')
+      : row('(9)',`ท่อเมนย่อย · ${fmt(rSub.v)} ÷ 10 × ${fmt(lSub,1)} × ปรับแก้ ${nl} ทางออก (${fSub.toFixed(3)})`,
+            `${fmt(hSub)} ม.`);
+  h+=`<div class="st tot"><span class="k">=</span><span class="d">สูญเสียรวมในแปลง</span><span class="v">${hSum===null?'—':fmt(hSum)+' ม.'}</span></div>`;
+  $('#dSteps').innerHTML = h;
+
+  const vd = $('#dVerdict');
+  if(hSum===null){
+    vd.className='verdict no';
+    vd.innerHTML=`<span class="big">คำนวณไม่ได้</span><span>เลือกขนาดท่อให้อยู่ในช่วงของตาราง</span>`;
+  } else if(hSum <= budget){
+    vd.className='verdict ok';
+    vd.innerHTML=`<span class="big">${fmt(hSum)} ≤ ${fmt(budget)}</span><span>ผ่านเกณฑ์ 20% — ใช้ท่อชุดนี้ได้</span>
+      <small>เหลืองบอีก ${fmt(budget-hSum)} ม.</small>`;
+  } else {
+    vd.className='verdict no';
+    vd.innerHTML=`<span class="big">${fmt(hSum)} &gt; ${fmt(budget)}</span><span>เกินเกณฑ์ — ต้องขยับขนาดท่อขึ้น</span>
+      <small>เกินอยู่ ${fmt(hSum-budget)} ม.</small>`;
+  }
+
+  /* main line + pump */
+  const mainL = +D.MainL.value||0, lift = +D.Lift.value||0;
+  let p='';
+  if(hSum===null || rMain.v===null){
+    p = row('!', rMain.v===null ? `ท่อเมน — <span style="color:var(--fail)">${rMain.why}</span>` : 'รอผลจากในแปลง','—');
+  } else {
+    const hValve = H + hSum;
+    const hMain  = rMain.v/10*mainL;
+    const hTotal = hValve + hMain + lift;
+    const hPump  = hTotal*1.10;
+    const qFilter= qSub*1.20;
+    p+=row('(12)','H ที่วาล์วต้นแปลง = H หัว + สูญเสียในแปลง',`${fmt(hValve)} ม.`);
+    p+=row('(14)',`ท่อเมน · ${fmt(rMain.v)} ÷ 10 × ${mainL} <span style="color:var(--ink-3)">(ไม่คูณค่าปรับแก้)</span>`,`${fmt(hMain)} ม.`);
+    p+=row('(15)',`H รวม = ${fmt(hValve)} + ${fmt(hMain)} + ระดับ ${fmt(lift,1)}`,`${fmt(hTotal)} ม.`);
+    p+=row('(16)','ปั๊ม · H เผื่ออุปกรณ์ 10%',`${fmt(hPump)} ม.`);
+    p+=row('(16)','ปั๊ม · Q',`${fmt(qSub)} ล/น = ${fmt(qSub*60/1000)} ม³/ชม.`);
+    p+=row('(17)','เครื่องกรอง · Q เผื่อ 20%',`${fmt(qFilter)} ล/น = ${fmt(qFilter*60/1000)} ม³/ชม.`);
+    /* pick a pump */
+    let pick=null;
+    for(const pm of PUMPS){
+      let head=null;
+      const hs=pm.head;
+      if(qSub<=hs[0][0]) head=hs[0][1];
+      else if(qSub>=hs[hs.length-1][0]) head=hs[hs.length-1][1];
+      else for(let i=0;i<hs.length-1;i++){
+        if(qSub>=hs[i][0] && qSub<=hs[i+1][0]){
+          const t=(qSub-hs[i][0])/(hs[i+1][0]-hs[i][0]);
+          head=hs[i][1]+t*(hs[i+1][1]-hs[i][1]); break;
+        }
+      }
+      if(head!==null && head>=hPump){ pick={...pm, head}; break; }
+    }
+    p+=`<div class="st tot"><span class="k">=</span><span class="d">รุ่นปั๊มที่เล็กที่สุดที่ไหว (จากตารางตัวอย่าง SE)</span><span class="v">${
+      pick ? `${pick.name} · ${pick.hp} HP` : 'เกินตารางตัวอย่าง'}</span></div>`;
+  }
+  $('#dPump').innerHTML = p;
+}
+D.LatT.addEventListener('change',()=>{fillSizes(D.LatS,D.LatT.value,1);runDesign();});
+D.SubT.addEventListener('change',()=>{fillSizes(D.SubS,D.SubT.value,1);runDesign();});
+Object.values(D).forEach(el=>el.addEventListener('input',runDesign));
+runDesign();
+</script>
+
+</body>
+</html>

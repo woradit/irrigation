@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การแบ่งแปลงและวางแนวท่อ · บทที่ 5</title>
+<meta name="description" content="บทที่ 5 ระบบให้น้ำเพื่อการเกษตร — แบ่งแปลงเป็นโซน วางท่อเมนย่อยข้างหรือกลางแปลง วาล์ว ความลาดชัน และกฎ 2%">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mali:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* word keys in the step lists (โซน, เมนย่อย, เพิ่มเติม) need a wider key column */
+.steps .st{grid-template-columns:4.6rem 1fr auto}
+@media (max-width:560px){ .steps .st{grid-template-columns:3.8rem 1fr auto} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <a class="home" href="./">← หลักสูตรทั้งหมด</a>
+  <div class="ch">บทที่ 5</div>
+  <h1><span class="nb">การแบ่งแปลงและวางแนวท่อ</span></h1>
+  <p class="sub">บทที่ 4 บอกว่าท่อควรใหญ่แค่ไหน บทนี้บอกว่าควรวาง<strong>ตรงไหน</strong>
+     — แบ่งแปลงเป็นกี่โซน ท่อเมนย่อยอยู่ข้างหรือกลาง วาล์วอยู่จุดไหน
+     และพื้นที่ลาดเอียงเปลี่ยนคำตอบทั้งหมดอย่างไร</p>
+  <p class="by">เอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” · สมาคมวิศวกรรมเกษตรแห่งประเทศไทย · ชีรวรรธก์ มั่นกิจ</p>
+
+  <dl class="rules">
+    <div><dt>ขนาดที่ต้องแบ่งโซน</dt><dd>5–20 ไร่<small>แปลงให้น้ำขนาดนี้ จำเป็นต้องแบ่งแปลง</small></dd></div>
+    <div><dt>วาล์วควรอยู่ที่</dt><dd>ท่อเมนย่อย<small>ไม่ใช่ที่ท่อย่อย — แข็งแรงกว่า จำนวนน้อยกว่า</small></dd></div>
+    <div><dt>เส้นแบ่งความลาดชัน</dt><dd>2%<small>ต่ำกว่านี้กับสูงกว่านี้ วางท่อคนละแนวกัน</small></dd></div>
+    <div><dt>ความลาดชัน</dt><dd>ต่างระดับ ÷ ระยะราบ<small>คูณ 100 ได้เป็นเปอร์เซ็นต์</small></dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="สารบัญ">
+  <ol>
+    <li><a href="#s1"><b>1</b>ทำไมต้องแบ่งแปลง</a></li>
+    <li><a href="#s2"><b>2</b>ท่อเมนย่อยอยู่ข้างหรือกลาง</a></li>
+    <li><a href="#s3"><b>3</b>ข้อผิดพลาดที่พบบ่อย</a></li>
+    <li><a href="#s4"><b>4</b>ความลาดชัน</a></li>
+    <li><a href="#s5"><b>5</b>วัดความลาดชันเอง</a></li>
+    <li><a href="#s6"><b>6</b>วางแนวท่อตามความลาด</a></li>
+    <li><a href="#s7"><b>7</b>ควบคุมแรงดันในเมนย่อย</a></li>
+    <li><a href="#s8"><b>8</b>เครื่องช่วยวางผัง</a></li>
+  </ol>
+</nav>
+
+<!-- ══ 1 ══ -->
+<section class="sec" id="s1">
+  <div class="col">
+    <h2><span class="n">01 / หลักการ</span>ทำไมต้องแบ่งแปลง</h2>
+    <p class="lead">แปลงให้น้ำขนาด <strong>5–20 ไร่ จำเป็นต้องแบ่งแปลง</strong>
+      เพราะการเปิดน้ำทั้งแปลงพร้อมกันหมายถึงต้องมีปั๊มและท่อที่ใหญ่พอสำหรับทุกหัวพร้อมกัน
+      ซึ่งแพงกว่ามาก</p>
+
+    <div class="callout">
+      <p><strong>แบ่งโซนแล้วได้อะไร</strong> — เปิดน้ำทีละโซน ปริมาณน้ำสูงสุดที่ระบบต้องรับในเวลาเดียวกันลดลงตามจำนวนโซน
+        จึงใช้<strong>เครื่องสูบน้ำและท่อขนาดเล็กลง ลงทุนน้อย ประหยัดค่าใช้จ่าย</strong>
+        แลกกับการที่ต้องรดน้ำนานขึ้นเพราะรดทีละโซน</p>
+    </div>
+
+    <figure>
+      <svg viewBox="0 0 620 250" role="img" aria-label="ผังแปลงแบ่งเป็นสามโซน ท่อเมนวิ่งตามขอบล่าง มีประตูน้ำคุมแต่ละโซน น้ำมาจากแหล่งน้ำผ่านเครื่องสูบและเครื่องกรอง">
+        <g stroke="var(--rule-strong)" fill="var(--surface-2)" stroke-width="1">
+          <rect x="192" y="26" width="126" height="148" rx="2"/>
+          <rect x="330" y="26" width="126" height="148" rx="2"/>
+          <rect x="468" y="26" width="126" height="148" rx="2"/>
+        </g>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11.5" fill="var(--ink-3)" text-anchor="middle">
+          <text x="255" y="18">โซนที่ 1</text><text x="393" y="18">โซนที่ 2</text><text x="531" y="18">โซนที่ 3</text>
+        </g>
+        <!-- laterals inside zones -->
+        <g stroke="var(--accent)" stroke-width="1.6" fill="none">
+          <line x1="206" y1="36" x2="206" y2="164"/><line x1="234" y1="36" x2="234" y2="164"/>
+          <line x1="262" y1="36" x2="262" y2="164"/><line x1="290" y1="36" x2="290" y2="164"/>
+          <line x1="344" y1="36" x2="344" y2="164"/><line x1="372" y1="36" x2="372" y2="164"/>
+          <line x1="400" y1="36" x2="400" y2="164"/><line x1="428" y1="36" x2="428" y2="164"/>
+          <line x1="482" y1="36" x2="482" y2="164"/><line x1="510" y1="36" x2="510" y2="164"/>
+          <line x1="538" y1="36" x2="538" y2="164"/><line x1="566" y1="36" x2="566" y2="164"/>
+        </g>
+        <!-- submain per zone -->
+        <g stroke="var(--pvc)" stroke-width="4" fill="none">
+          <line x1="196" y1="174" x2="314" y2="174"/>
+          <line x1="334" y1="174" x2="452" y2="174"/>
+          <line x1="472" y1="174" x2="590" y2="174"/>
+        </g>
+        <!-- main -->
+        <line x1="80" y1="204" x2="596" y2="204" stroke="var(--pvc)" stroke-width="6"/>
+        <g stroke="var(--pvc)" stroke-width="4">
+          <line x1="200" y1="204" x2="200" y2="176"/>
+          <line x1="338" y1="204" x2="338" y2="176"/>
+          <line x1="476" y1="204" x2="476" y2="176"/>
+        </g>
+        <!-- gate valves -->
+        <g fill="var(--accent)">
+          <polygon points="192,192 208,192 200,204"/><polygon points="330,192 346,192 338,204"/><polygon points="468,192 484,192 476,204"/>
+        </g>
+        <!-- pump + filter + source -->
+        <rect x="96" y="192" width="26" height="24" rx="3" fill="var(--pvc)"/>
+        <rect x="138" y="188" width="18" height="32" rx="3" fill="none" stroke="var(--pvc)" stroke-width="2.5"/>
+        <ellipse cx="52" cy="204" rx="26" ry="15" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="78" y1="204" x2="94" y2="204" stroke="var(--pvc)" stroke-width="3"/>
+        <line x1="122" y1="204" x2="136" y2="204" stroke="var(--pvc)" stroke-width="3"/>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)" text-anchor="middle">
+          <text x="52" y="234">แหล่งน้ำ</text><text x="109" y="234">ปั๊ม</text><text x="147" y="234">กรอง</text>
+          <text x="200" y="234" fill="var(--accent)">ประตูน้ำ</text>
+          <text x="400" y="234">ท่อเมน</text>
+        </g>
+        <text x="322" y="168" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)" text-anchor="start">ท่อเมนย่อย</text>
+      </svg>
+      <figcaption>ปั๊มตัวเดียว ท่อเมนเส้นเดียว แต่มีประตูน้ำคุมทางเข้าแต่ละโซน
+        เปิดทีละโซน ระบบจึงออกแบบให้รับน้ำแค่หนึ่งในสามของทั้งแปลง</figcaption>
+    </figure>
+
+    <div class="tscroll">
+      <table class="data" style="min-width:600px">
+        <thead><tr><th style="text-align:start">แบบการวาง</th><th style="text-align:start">วาล์วอยู่ที่</th><th style="text-align:start">ผลที่ตามมา</th></tr></thead>
+        <tbody>
+          <tr>
+            <th style="text-align:start;color:var(--fail)">ไม่แบ่งแปลง · เมนย่อยข้างแปลง · ไม่มีวาล์วคุมแปลง</th>
+            <td style="text-align:start">ท่อย่อยทุกเส้น</td>
+            <td style="text-align:start;color:var(--fail)">วาล์วจำนวนมาก ไม่สะดวก และชำรุดง่าย</td>
+          </tr>
+          <tr>
+            <th style="text-align:start;color:var(--pass)">แบ่งแปลง · เมนย่อยข้างแปลง · มีวาล์วคุมแปลง</th>
+            <td style="text-align:start">ท่อเมนย่อย</td>
+            <td style="text-align:start;color:var(--pass)">วาล์วแข็งแรง จำนวนน้อย สะดวก</td>
+          </tr>
+          <tr>
+            <th style="text-align:start;color:var(--pass)">แบ่งแปลง · เมนย่อย<strong>กลางแปลง</strong> · มีวาล์วคุมแปลง</th>
+            <td style="text-align:start">ท่อเมนย่อย</td>
+            <td style="text-align:start;color:var(--pass)">ท่อย่อยสั้นลง น้ำในท่อย่อยน้อยลง ใช้ท่อย่อยเล็กลงได้</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>วาล์วที่ท่อย่อยคือปัญหา</strong> — ท่อย่อยเป็นท่อพีอีเส้นเล็ก
+        วาล์วที่ต่อกับมันจึงเป็นวาล์วพลาสติกตัวเล็กๆ จำนวนเท่ากับจำนวนแถว
+        ซึ่ง<strong>ไม่ได้ออกแบบมาให้เปิดปิดบ่อยๆ</strong> ใช้ไม่นานก็ชำรุด
+        ย้ายจุดควบคุมไปไว้ที่ท่อเมนย่อยแทน จะได้วาล์วตัวใหญ่ที่แข็งแรงกว่าและมีจำนวนน้อยกว่ามาก</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>วาล์วย่อยไม่ได้ออกแบบมาให้เปิด/ปิดบ่อยๆ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>จะเหมือนมีท่อ 2 เส้น</p>
+  </aside>
+</section>
+
+<!-- ══ 2 ══ -->
+<section class="sec" id="s2">
+  <div class="col">
+    <h2><span class="n">02 / ตำแหน่ง</span>ท่อเมนย่อยอยู่ข้างแปลง หรือกลางแปลง</h2>
+    <p class="lead">โซนเดียวกัน จำนวนหัวเท่ากัน น้ำรวมเท่ากัน
+      แต่ย้ายท่อเมนย่อยจากขอบมาไว้กลาง แล้ว<strong>ท่อย่อยสั้นลงครึ่งหนึ่งและรับน้ำน้อยลงครึ่งหนึ่ง</strong></p>
+
+    <figure>
+      <svg viewBox="0 0 620 300" role="img" aria-label="เปรียบเทียบท่อเมนย่อยข้างแปลงซึ่งท่อย่อยยาวเต็มความกว้าง กับท่อเมนย่อยกลางแปลงซึ่งท่อย่อยแบ่งเป็นสองข้างสั้นลงครึ่งหนึ่ง">
+        <text x="0" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">เมนย่อยข้างแปลง</text>
+        <g stroke="var(--accent)" stroke-width="2" fill="none">
+          <line x1="34" y1="48" x2="268" y2="48"/><line x1="34" y1="84" x2="268" y2="84"/>
+          <line x1="34" y1="120" x2="268" y2="120"/><line x1="34" y1="156" x2="268" y2="156"/>
+          <line x1="34" y1="192" x2="268" y2="192"/><line x1="34" y1="228" x2="268" y2="228"/>
+        </g>
+        <line x1="34" y1="42" x2="34" y2="234" stroke="var(--pvc)" stroke-width="6"/>
+        <polygon points="26,238 42,238 34,250" fill="var(--accent)"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">
+          <text x="52" y="272">ท่อย่อย 1 เส้น = เต็มความกว้าง</text>
+          <text x="52" y="288" fill="var(--fail)">น้ำเต็มอัตรา · ต้องใช้ท่อย่อยใหญ่</text>
+        </g>
+
+        <line x1="300" y1="30" x2="300" y2="292" stroke="var(--rule)" stroke-width="1"/>
+
+        <text x="330" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">เมนย่อยกลางแปลง</text>
+        <g stroke="var(--accent)" stroke-width="2" fill="none">
+          <line x1="330" y1="48" x2="564" y2="48"/><line x1="330" y1="84" x2="564" y2="84"/>
+          <line x1="330" y1="120" x2="564" y2="120"/><line x1="330" y1="156" x2="564" y2="156"/>
+          <line x1="330" y1="192" x2="564" y2="192"/><line x1="330" y1="228" x2="564" y2="228"/>
+        </g>
+        <line x1="447" y1="42" x2="447" y2="234" stroke="var(--pvc)" stroke-width="6"/>
+        <polygon points="439,238 455,238 447,250" fill="var(--accent)"/>
+        <g stroke="var(--mark-line)" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+          <line x1="447" y1="36" x2="447" y2="42"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">
+          <text x="330" y="272">ท่อย่อยแยกซ้าย-ขวา · ยาวครึ่งเดียว</text>
+          <text x="330" y="288" fill="var(--pass)">น้ำครึ่งเดียว · ใช้ท่อย่อยเล็กลงได้</text>
+        </g>
+      </svg>
+      <figcaption>ท่อเมนย่อยยังรับน้ำเท่าเดิมและใช้ขนาดเดิม สิ่งที่เปลี่ยนคือ<strong>ขนาดของท่อย่อย</strong>
+        ซึ่งเป็นท่อที่ต้องซื้อยาวรวมกันมากที่สุดในแปลง จึงเป็นจุดที่ประหยัดเงินได้จริง</figcaption>
+    </figure>
+
+    <div class="callout">
+      <p><strong>แปลงที่ยาวมาก ควรวางท่อเมนย่อยไว้กลางแปลง</strong>
+        ผลคือแบ่งท่อย่อยให้สั้นลง ลดภาระปริมาณน้ำในท่อย่อย ทำให้ใช้ท่อย่อยขนาดเล็กลง
+        และการแยกท่อแบบนี้ข้อต่อก็ทำได้ง่ายมาก</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ท่อ Layflat เป็นอีกทางเลือกของท่อเมนย่อย</strong> — เป็นสายผ้าใบแบนที่ม้วนเก็บได้
+        ตัวอย่างในเอกสารเป็นขนาด 3 นิ้ว ทนแรงดันใช้งาน 2 บาร์ (แรงดันแตก 6 บาร์)
+        ใช้คู่กับท่อย่อย LDPE PN 4 ขนาด 20 มม. ข้อดีคือย้ายง่ายและถูก
+        ข้อควรระวังคือ<strong>รอยต่อมีน้ำรั่วซึมได้เล็กน้อย</strong> และทนแรงดันต่ำกว่าท่อแข็งมาก</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เมนย่อยไว้กลางแปลง</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>การแยกแบบนี้ ข้อต่อง่ายมากๆ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>น้ำรั่วซึมนิดหน่อย</p>
+  </aside>
+</section>
+
+<!-- ══ 3 ══ -->
+<section class="sec" id="s3">
+  <div class="col">
+    <h2><span class="n">03 / วินิจฉัย</span>ข้อผิดพลาดที่พบบ่อยในแปลงจริง</h2>
+    <p class="lead">อาการที่เห็นในแปลงบอกได้ว่าผังผิดตรงไหน ลองเลือกอาการที่ตรงกับแปลงของคุณ</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ตัววินิจฉัยผังแปลง</h3><span>เลือกอาการที่พบ</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls" style="grid-template-columns:minmax(240px,1fr)">
+          <div class="fld">
+            <label for="dxSym">อาการที่พบในแปลง</label>
+            <select id="dxSym">
+              <option value="head">น้ำมากบริเวณหัวแถว น้ำน้อยบริเวณปลายแถว</option>
+              <option value="far">น้ำอ่อนเฉพาะแถวที่อยู่ไกลจากประตูน้ำ</option>
+              <option value="valve">วาล์วเสียบ่อย ต้องเดินเปิดปิดหลายจุด</option>
+              <option value="pump">ปั๊มกับท่อใหญ่และแพงเกินจำเป็น</option>
+            </select>
+          </div>
+        </div>
+        <div id="dxOut"></div>
+      </div>
+    </div>
+
+    <p class="body" style="font-size:.94rem;color:var(--ink-2)">
+      สังเกตว่าสองอาการแรกฟังดูคล้ายกันแต่คนละสาเหตุ —
+      <strong>“หัวแถวแรง ปลายแถวอ่อน” เป็นปัญหาในแนวท่อย่อย</strong> (ตามแถวเดียวกัน) ส่วน
+      <strong>“แถวไกลอ่อนทั้งแถว” เป็นปัญหาในแนวท่อเมนย่อย</strong> (ข้ามแถว)
+      แยกให้ออกก่อนแก้ ไม่งั้นจะเปลี่ยนท่อผิดเส้น</p>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ท่อย่อยยาวเกิน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เมนย่อย เล็กไป</p>
+  </aside>
+</section>
+
+<!-- ══ 4 ══ -->
+<section class="sec" id="s4">
+  <div class="col">
+    <h2><span class="n">04 / ภูมิประเทศ</span>ความลาดชัน (Slope)</h2>
+    <p class="lead">ความลาดชันของพื้นที่ คือ<strong>อัตราส่วนระหว่างความแตกต่างของความสูงระหว่างจุด 2 จุดในแปลง
+      หารด้วยระยะทางในแนวราบระหว่างจุดทั้งสอง</strong></p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>สูตรและตัวอย่างจากเอกสาร</h3></div>
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">หาความแตกต่างของความสูงระหว่างจุด ก และ ข</span><span class="v">3 เมตร</span></div>
+          <div class="st"><span class="k">2</span><span class="d">หาระยะทางในแนวราบระหว่างจุด ก และ ข</span><span class="v">1,000 เมตร</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">ความลาดชัน (%) = ความต่างระดับ ÷ ระยะแนวราบ × 100</span><span class="v">0.3%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>เครื่องคำนวณความลาดชัน</h3><span>ใส่ค่าที่วัดได้จากแปลง</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="slRise">ความต่างระดับ · ม.</label><input id="slRise" type="number" value="3" min="0" step="0.1"></div>
+          <div class="fld"><label for="slRun">ระยะในแนวราบ · ม.</label><input id="slRun" type="number" value="1000" min="1" step="1"></div>
+        </div>
+        <div class="res">
+          <span class="num" id="slOut">0.30</span>
+          <span class="lbl">% &mdash; ความลาดชันของพื้นที่</span>
+        </div>
+        <div id="slVerdict"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>น้อย!</p>
+    <p class="note"><b>โยงกับบทที่ 4</b>ความลาดชันคือตัว “ขึ้นเนิน / ลงเนิน” ในสมการ H2 = H1 − เสียดทาน − ขึ้นเนิน + ลงเนิน</p>
+  </aside>
+</section>
+
+<!-- ══ 5 ══ -->
+<section class="sec" id="s5">
+  <div class="col">
+    <h2><span class="n">05 / ภาคสนาม</span>วัดความลาดชันเอง</h2>
+    <p class="lead">เอกสารให้สองวิธี วิธีหนึ่งใช้กล้องระดับ อีกวิธีใช้ของที่หาได้ในไร่</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>วิธีที่ 1 · ใช้กล้องระดับ</h3><span>5 ขั้นตอน</span></div>
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">ใช้กล้องระดับอ่านค่าจากแท่งไม้ซึ่งตั้งบนพื้นที่สูงกว่า</span><span class="v">ได้ ~0.5 ม.</span></div>
+          <div class="st"><span class="k">2</span><span class="d">เลื่อนแท่งไม้ลงตามทางลาดประมาณ 20 เมตร แล้วอ่านค่า</span><span class="v">ได้ ~1.5 ม.</span></div>
+          <div class="st"><span class="k">3</span><span class="d">ลบค่าที่อ่านครั้งที่ 2 ด้วยค่าครั้งแรก · 1.5 − 0.5</span><span class="v">1 ม.</span></div>
+          <div class="st"><span class="k">4</span><span class="d">หารด้วยระยะทางในแนวราบ · 1 ÷ 20</span><span class="v">0.05</span></div>
+          <div class="st tot"><span class="k">5</span><span class="d">คูณด้วย 100 คือค่าความลาดชัน</span><span class="v">5%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>วิธีที่ 2 · แผ่นไม้กับสายยางระดับน้ำ</h3><span>ไม่ต้องใช้กล้อง</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <figure>
+          <svg viewBox="-46 0 620 240" role="img" aria-label="วิธีวัดระดับด้วยแผ่นไม้สองแผ่นและสายยางใส่น้ำ ระดับน้ำในสายยางทั้งสองข้างอยู่เท่ากันเสมอ ความต่างของขีดบนแผ่นไม้คือความต่างระดับของพื้น">
+            <!-- ground -->
+            <line x1="20" y1="196" x2="250" y2="196" stroke="var(--rule-strong)" stroke-width="2"/>
+            <line x1="270" y1="196" x2="500" y2="196" stroke="var(--rule-strong)" stroke-width="2"/>
+            <rect x="330" y="166" width="70" height="30" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.5"/>
+            <!-- boards -->
+            <rect x="72" y="46" width="16" height="150" fill="none" stroke="var(--pvc)" stroke-width="2"/>
+            <rect x="150" y="46" width="16" height="150" fill="none" stroke="var(--pvc)" stroke-width="2"/>
+            <rect x="352" y="16" width="16" height="150" fill="none" stroke="var(--pvc)" stroke-width="2"/>
+            <rect x="440" y="46" width="16" height="150" fill="none" stroke="var(--pvc)" stroke-width="2"/>
+            <!-- water level marks -->
+            <g stroke="var(--accent)" stroke-width="3">
+              <line x1="68" y1="104" x2="92" y2="104"/><line x1="146" y1="104" x2="170" y2="104"/>
+              <line x1="348" y1="104" x2="372" y2="104"/><line x1="436" y1="104" x2="460" y2="104"/>
+            </g>
+            <!-- hose -->
+            <path d="M80 196 q0 20 24 20 q30 0 30 -20 L158 196" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M360 166 q0 44 24 46 q40 4 44 -16 L448 196" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <!-- dimension -->
+            <line x1="42" y1="46" x2="42" y2="196" stroke="var(--ink-3)" stroke-width="1"/>
+            <g fill="var(--ink-3)"><polygon points="38,50 46,50 42,42"/><polygon points="38,192 46,192 42,200"/></g>
+            <text x="34" y="126" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-3)">200 ซม.</text>
+            <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">
+              <text x="180" y="108">ระดับน้ำ</text>
+              <text x="120" y="224" text-anchor="middle">พื้นราบ — ขีดตรงกัน</text>
+              <text x="390" y="224" text-anchor="middle">พื้นต่างระดับ — ขีดต่างกัน</text>
+            </g>
+            <g stroke="var(--mark-line)" stroke-width="1.2" stroke-dasharray="4 3">
+              <line x1="368" y1="104" x2="440" y2="104"/>
+              <line x1="400" y1="166" x2="486" y2="166"/>
+              <line x1="400" y1="196" x2="486" y2="196"/>
+            </g>
+            <line x1="478" y1="166" x2="478" y2="196" stroke="var(--mark-line)" stroke-width="1.4"/>
+            <g fill="var(--mark-line)"><polygon points="474,170 482,170 478,162"/><polygon points="474,192 482,192 478,200"/></g>
+            <text x="490" y="185" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--mark-line)">ต่างระดับ</text>
+          </svg>
+          <figcaption>ระดับน้ำในสายยางสองปลายอยู่ในระดับเดียวกันเสมอ ไม่ว่าพื้นจะเอียงแค่ไหน
+            ความต่างของตำแหน่งขีดบนแผ่นไม้สองแผ่น จึงเท่ากับความต่างระดับของพื้นพอดี</figcaption>
+        </figure>
+        <ul class="plain">
+          <li>ใช้แผ่นไม้วัดระดับสองแผ่นและสายยางระดับน้ำแทนกล้อง</li>
+          <li><strong>เติมน้ำเข้าไปในสายยางให้ระดับน้ำต่ำกว่าปลายท่อข้างละประมาณ 1 เมตร</strong>
+            แล้ว<strong>ไล่ฟองอากาศออกให้หมด</strong></li>
+          <li>ถ้าลองยกแผ่นไม้ข้างหนึ่งขึ้น จะเห็นว่าระดับน้ำยังอยู่ในระดับเดียวกันเสมอ</li>
+        </ul>
+        <div class="callout warn">
+          <p><strong>ฟองอากาศคือจุดที่พลาดกันมากที่สุด</strong> — ฟองอากาศค้างในสายยางจะดันระดับน้ำสองข้างให้ไม่ตรงกัน
+            ทำให้อ่านค่าผิดโดยไม่รู้ตัว ไล่ให้หมดก่อนเสมอ และตรวจซ้ำโดยวางแผ่นไม้ทั้งสองบนพื้นราบเดียวกัน
+            ขีดต้องตรงกันพอดี</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail"></aside>
+</section>
+
+<!-- ══ 6 ══ -->
+<section class="sec" id="s6">
+  <div class="col">
+    <h2><span class="n">06 / กฎ 2%</span>วางแนวท่อตามความลาดชัน</h2>
+    <p class="lead">ความลาดชันเกิน 2% เมื่อไร แนวการวางท่อกับแถวปลูกพืช<strong>สลับกันทั้งหมด</strong></p>
+
+    <figure>
+      <svg viewBox="0 0 620 290" role="img" aria-label="เปรียบเทียบแนวการวางท่อ ในแปลงลาดไม่เกินสองเปอร์เซ็นต์วางท่อย่อยลงตามแนวลาดและท่อเมนย่อยขวาง ในแปลงลาดเกินสองเปอร์เซ็นต์วางท่อย่อยขวางและท่อเมนย่อยลงตามแนวลาด">
+        <defs>
+          <marker id="c5dn" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="6" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="var(--mark-line)"/>
+          </marker>
+        </defs>
+        <!-- LEFT: <= 2% -->
+        <text x="0" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">ลาดชัน ≤ 2%</text>
+        <line x1="14" y1="34" x2="14" y2="234" stroke="var(--mark-line)" stroke-width="2" marker-end="url(#c5dn)"/>
+        <text x="8" y="140" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--mark-line)" transform="rotate(-90 8 140)">ทางลาด</text>
+        <line x1="40" y1="44" x2="268" y2="44" stroke="var(--pvc)" stroke-width="6"/>
+        <g stroke="var(--accent)" stroke-width="2" fill="none">
+          <line x1="62" y1="48" x2="62" y2="230"/><line x1="96" y1="48" x2="96" y2="230"/>
+          <line x1="130" y1="48" x2="130" y2="230"/><line x1="164" y1="48" x2="164" y2="230"/>
+          <line x1="198" y1="48" x2="198" y2="230"/><line x1="232" y1="48" x2="232" y2="230"/>
+        </g>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">
+          <text x="40" y="34">ท่อเมนย่อย — แนวขวาง</text>
+          <text x="40" y="252" fill="var(--accent)">ท่อย่อยและแถวปลูกพืช — ลงตามแนวลาด</text>
+          <text x="40" y="272" fill="var(--ink-3)">น้ำไหลลงเนินช่วยชดเชยแรงเสียดทาน</text>
+        </g>
+
+        <line x1="300" y1="26" x2="300" y2="280" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- RIGHT: > 2% -->
+        <text x="330" y="16" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="currentColor">ลาดชัน &gt; 2%</text>
+        <line x1="314" y1="34" x2="314" y2="234" stroke="var(--mark-line)" stroke-width="2" marker-end="url(#c5dn)"/>
+        <text x="308" y="140" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--mark-line)" transform="rotate(-90 308 140)">ทางลาด</text>
+        <line x1="344" y1="40" x2="344" y2="234" stroke="var(--pvc)" stroke-width="6"/>
+        <g stroke="var(--accent)" stroke-width="2" fill="none">
+          <line x1="348" y1="62" x2="580" y2="62"/><line x1="348" y1="96" x2="580" y2="96"/>
+          <line x1="348" y1="130" x2="580" y2="130"/><line x1="348" y1="164" x2="580" y2="164"/>
+          <line x1="348" y1="198" x2="580" y2="198"/><line x1="348" y1="228" x2="580" y2="228"/>
+        </g>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">
+          <text x="330" y="34">ท่อเมนย่อย — ลงตามแนวลาด</text>
+          <text x="330" y="252" fill="var(--accent)">ท่อย่อยและแถวปลูกพืช — แนวขวาง</text>
+          <text x="330" y="272" fill="var(--fail)">อาจต้องมีตัวควบคุมแรงดันที่แต่ละแถว</text>
+        </g>
+      </svg>
+      <figcaption>ที่ลาดชันน้อย ให้ท่อย่อยวิ่งลงเนินเพื่อให้แรงโน้มถ่วงช่วยชดเชยแรงเสียดทาน
+        แต่พอลาดเกิน 2% แรงโน้มถ่วงจะแรงเกินไปจนหัวปลายแถวได้แรงดันมากกว่าหัวต้นแถวมาก
+        จึงต้องหันท่อย่อยมาขวางเนินให้ทุกหัวในแถวอยู่ระดับเดียวกัน แล้วปล่อยให้ท่อเมนย่อยรับความต่างระดับแทน</figcaption>
+    </figure>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>ลาดชันไม่เกิน 2%</h3></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ควรวางท่อย่อยและแถวปลูกพืช<strong>ลงตามแนวลาดชัน</strong></li>
+          <li>ท่อเมนย่อยอยู่<strong>ในแนวขวาง</strong></li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>ลาดชันมากกว่า 2%</h3><span>กลับกัน</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>ควรวางท่อย่อยและแถวปลูกพืชอยู่<strong>ในแนวขวาง</strong></li>
+          <li>ท่อเมนย่อยวาง<strong>ลงตามแนวลาดชัน</strong></li>
+          <li>อาจต้องมี<strong>ตัวควบคุมแรงดัน</strong>เพื่อที่จะให้อัตราการไหลอยู่ในระดับที่ต้องการ</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <h3>ขนาดและแนวท่อในพื้นที่ลาดชัน</h3>
+    <ul class="plain">
+      <li><strong>ท่อเมนต้องส่งน้ำขึ้นไปถึงจุดสูงสุดของเนิน</strong> ท่อเมนย่อยและท่อย่อยจ่ายน้ำลงเนิน</li>
+      <li>ท่อเมนและท่อเมนย่อยต้องมีขนาดใหญ่พอ เพื่อให้มีแรงดันเหลือเพียงพอที่จะใช้ในระบบ</li>
+      <li>การใช้ท่อขนาดเล็กประหยัดกว่า แต่จะสูญเสียแรงดันมาก ทำให้ต้องใช้เครื่องสูบน้ำขนาดใหญ่ขึ้น
+        และมี<strong>ค่าใช้จ่ายค่าพลังงานที่ต้องเพิ่มในแต่ละปี</strong></li>
+      <li>เปรียบเทียบค่าใช้จ่ายที่ต้องเพิ่มขึ้น ถ้าต้องมีตัวควบคุมแรงดัน หรือใช้ท่อที่ขนาดใหญ่ขึ้น</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>ท่อถูกลง แต่ค่าไฟแพงขึ้นทุกปี</strong> — นี่คือการเปรียบเทียบที่เอกสารเน้น
+        ค่าท่อจ่ายครั้งเดียว แต่ค่าพลังงานจากการที่ปั๊มต้องทำงานหนักขึ้นจ่ายทุกปีตลอดอายุระบบ
+        ประหยัดค่าท่อวันนี้จึงอาจแพงกว่าในระยะยาว</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>(กลับกัน)</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>วาล์วอยู่ข้างบน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ในการอบรมระดับเบื้องต้น ความลาดชันยังไม่นำเข้ามาเกี่ยวข้องในการคำนวณ</p>
+  </aside>
+</section>
+
+<!-- ══ 7 ══ -->
+<section class="sec" id="s7">
+  <div class="col">
+    <h2><span class="n">07 / อุปกรณ์</span>ควบคุมแรงดันในท่อเมนย่อย</h2>
+    <p class="lead">การจัดวางเพื่อให้สามารถควบคุมแรงดันในท่อเมนย่อยได้ มี 2 แบบ</p>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>แบบที่ 1 · วาล์ว 2 ตัว + เกจวัดแรงดัน</h3><span>ถูกกว่า</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>วาล์วตัวแรกจะถูกปรับจนกระทั่งได้แรงดันในท่อเมนย่อยอยู่ในระดับที่ต้องการ</li>
+          <li><strong>ถอดมือหมุนออก</strong> เพื่อไม่ให้แรงดันเปลี่ยนแปลงไปอีกจากที่ตั้งไว้</li>
+          <li>ควบคุมการปิด-เปิดของท่อเมนย่อยโดยวาล์วตัวที่ 2</li>
+          <li>อาจจะติดตั้งวาล์วไว้เหนือพื้นดิน หรืออาจใส่ไว้ในกล่องบนพื้นดินก็ได้</li>
+        </ul></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>แบบที่ 2 · ประตูน้ำ 1 ตัว + วาล์วควบคุมแรงดัน</h3><span>ดีกว่า แต่แพงกว่า</span></div>
+        <div class="panel-b"><ul class="plain">
+          <li>วาล์วควบคุมแรงดันใช้กับปริมาณน้ำในช่วง <strong>0.11–3.0 ลูกบาศก์เมตรต่อชั่วโมง</strong></li>
+          <li>ดีกว่าแบบแรกเนื่องจาก<strong>ได้แรงดันที่แน่นอน</strong> สามารถป้องกันแรงดันที่ขึ้นลงในท่อเมนได้</li>
+          <li>แต่มี<strong>ราคาแพง</strong> โดยเฉพาะที่ต้องใช้กับปริมาณน้ำมากๆ</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ข้อจำกัดที่ต้องดูก่อนซื้อ</strong> — วาล์วควบคุมแรงดันรุ่นที่เอกสารอ้างถึงรับน้ำได้แค่
+        0.11–3.0 ม³/ชม. ซึ่งคิดเป็นราว <strong>2–50 ลิตร/นาที</strong> เท่านั้น
+        ระบบในตัวอย่างของบทที่ 4 ใช้น้ำ 144 ลิตร/นาที ที่ท่อเมนย่อย — <strong>เกินพิกัดนี้ไปมาก</strong>
+        ถ้าจะใช้วิธีนี้ต้องหาวาล์วรุ่นที่รับน้ำได้พอ ซึ่งราคาสูงขึ้นตาม
+        หรือใช้แบบที่ 1 ซึ่งไม่มีข้อจำกัดนี้</p>
+    </div>
+
+    <ul class="plain">
+      <li>วาล์วควบคุมแรงดัน (Pressure Regulator) มีหลายขนาดให้เลือกตามอัตราการไหล</li>
+      <li>ควร<strong>ติดตั้งวาล์วของท่อเมนย่อยให้อยู่กลุ่มเดียวกัน</strong> เดินไปเปิดปิดที่เดียวจบ ไม่ต้องเดินทั้งแปลง</li>
+      <li>เกจวัดแรงดันมีทั้งแบบติดถาวรและ<strong>แบบจิ้มวัดชั่วคราว</strong> ซึ่งซื้อตัวเดียวไล่วัดได้ทั้งแปลง</li>
+    </ul>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>Pressure gauge แบบจิ้มวัดก็มีเหมือนกัน</p>
+  </aside>
+</section>
+
+<!-- ══ 8 ══ -->
+<section class="sec" id="s8" style="border-bottom:0">
+  <div class="col">
+    <h2><span class="n">08 / เครื่องมือ</span>ช่วยวางผังแปลง</h2>
+    <p class="lead">รวมกฎทั้งบทเป็นคำแนะนำเดียว ใส่ข้อมูลแปลงของคุณดู</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ผังที่แนะนำ</h3></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="pnArea">ขนาดแปลง · ไร่</label><input id="pnArea" type="number" value="12" min="0.5" step="0.5"></div>
+          <div class="fld"><label for="pnLen">ความยาวแถวปลูก · ม.</label><input id="pnLen" type="number" value="96" min="5" step="1"></div>
+          <div class="fld"><label for="pnRise">ความต่างระดับ · ม.</label><input id="pnRise" type="number" value="1" min="0" step="0.1"></div>
+          <div class="fld"><label for="pnRun">ระยะแนวราบ · ม.</label><input id="pnRun" type="number" value="200" min="1" step="1"></div>
+        </div>
+        <div id="pnOut"></div>
+      </div>
+    </div>
+
+    <p class="body" style="font-size:.88rem;color:var(--ink-3)">
+      คำแนะนำนี้อิงกฎในเอกสารอบรมเท่านั้น (ขนาด 5–20 ไร่ · เส้นแบ่ง 2% · วาล์วที่ท่อเมนย่อย)
+      การออกแบบจริงยังต้องดูรูปร่างแปลง ตำแหน่งแหล่งน้ำ และผลการคำนวณแรงเสียดทานในบทที่ 4 ประกอบด้วย</p>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>ลำดับการทำงาน</b>วางผังก่อน แล้วค่อยคำนวณขนาดท่อ เพราะผังเป็นตัวกำหนดความยาวและปริมาณน้ำในแต่ละเส้น</p>
+  </aside>
+</section>
+
+<section class="sec" style="border-bottom:0;padding-top:0">
+  <div class="col">
+    <nav class="pager" aria-label="บทก่อนหน้าและบทถัดไป">
+      <a class="prev" href="ch4-friction.html"><small>← บทที่ 4</small><span>แรงเสียดทานกับขนาดท่อ</span></a>
+      <a class="next" href="ch6-pumps.html"><small>บทที่ 6 →</small><span>เครื่องสูบน้ำเพื่อการเกษตร</span></a>
+    </nav>
+    <div class="callout">
+      <p><strong>บทอื่นในหลักสูตร</strong> — <a href="./">หน้าแรก</a> ·
+        <a href="ch1-water-need.html">บทที่ 1 · ความต้องการน้ำของพืช</a> ·
+        <a href="ch2-systems.html">บทที่ 2 · ระบบให้น้ำพืช</a> ·
+        <a href="ch3-pipes.html">บทที่ 3 · ท่อสำหรับระบบให้น้ำ</a> ·
+        <a href="ch4-friction.html">บทที่ 4 · แรงเสียดทานกับขนาดท่อ</a> ·
+        <a href="ch6-pumps.html">บทที่ 6 · เครื่องสูบน้ำเพื่อการเกษตร</a></p>
+    </div>
+  </div>
+  <aside class="rail"></aside>
+</section>
+
+<footer class="end">
+  <p>เรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” บทที่ 5 หน้า 69–76
+     ของสมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+  <p>ข้อความในกรอบลายมือคือบันทึกที่จดไว้ระหว่างการอบรม เก็บไว้ตามตำแหน่งเดิมในเอกสาร</p>
+</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const f2 = v => v.toFixed(2);
+
+/* ═════ §3 diagnostic ═════ */
+const DX = {
+  head: {
+    cause: 'ท่อย่อยยาวเกินไป แรงเสียดทานสะสมตลอดแถวจึงสูง',
+    detail: 'ปัญหาอยู่ในแนวท่อย่อย คือตามความยาวของแถวเดียวกัน หัวต้นแถวได้แรงดันเต็ม หัวปลายแถวเหลือน้อย',
+    fix: 'แบ่งท่อย่อยให้สั้นลง โดยย้ายท่อเมนย่อยไว้กลางแปลง',
+    gain: 'ท่อย่อยสั้นลงครึ่งหนึ่งและรับน้ำน้อยลงครึ่งหนึ่ง แรงเสียดทานจึงลดลงมาก',
+    ref: 'ดูหัวข้อ 2'
+  },
+  far: {
+    cause: 'จำนวนแถวท่อย่อยมากเกินไป และท่อเมนย่อยขนาดเล็กเกินไป',
+    detail: 'ปัญหาอยู่ในแนวท่อเมนย่อย คือข้ามแถว แถวใกล้ประตูน้ำปกติดี แต่ทั้งแถวที่อยู่ไกลอ่อนหมดทั้งเส้น',
+    fix: 'ตัดท่อเมนย่อยให้สั้นลง โดยแบ่งโซนเพิ่ม',
+    gain: 'ท่อเมนย่อยแต่ละเส้นรับน้ำน้อยลงและสั้นลง แรงดันถึงแถวปลายได้',
+    ref: 'ดูหัวข้อ 1 — หรือขยับขนาดท่อเมนย่อยขึ้นตามตารางในบทที่ 4'
+  },
+  valve: {
+    cause: 'ควบคุมการเปิดปิดด้วยวาล์วที่ท่อย่อย ซึ่งมีจำนวนมาก',
+    detail: 'วาล์วพลาสติกตัวเล็กที่ต่อกับท่อย่อยไม่ได้ออกแบบมาให้เปิดปิดบ่อยๆ จึงชำรุดง่าย และมีจำนวนเท่ากับจำนวนแถว',
+    fix: 'แบ่งแปลงเป็นโซน แล้วย้ายจุดควบคุมไปไว้ที่ท่อเมนย่อย',
+    gain: 'ได้วาล์วที่แข็งแรงกว่า จำนวนน้อยกว่ามาก และสะดวกกว่า',
+    ref: 'ติดตั้งวาล์วของท่อเมนย่อยให้อยู่กลุ่มเดียวกัน จะได้เดินไปเปิดปิดที่เดียว'
+  },
+  pump: {
+    cause: 'ไม่ได้แบ่งแปลง จึงต้องเปิดน้ำทั้งแปลงพร้อมกัน',
+    detail: 'ระบบต้องออกแบบให้รองรับปริมาณน้ำสูงสุดของทุกหัวพร้อมกัน ปั๊มและท่อจึงต้องใหญ่ตามไปด้วย',
+    fix: 'แบ่งแปลงเป็นโซน แล้วเปิดน้ำทีละโซน',
+    gain: 'ใช้เครื่องสูบน้ำและท่อขนาดเล็กลง ลงทุนน้อย ประหยัดค่าใช้จ่าย แลกกับการรดน้ำนานขึ้น',
+    ref: 'แปลงให้น้ำขนาด 5–20 ไร่ จำเป็นต้องแบ่งแปลง'
+  }
+};
+const dxSym = $('#dxSym');
+function runDx(){
+  const d = DX[dxSym.value];
+  $('#dxOut').innerHTML =
+    `<div class="verdict no" style="margin-bottom:16px"><span class="big">สาเหตุ</span><span>${d.cause}</span></div>` +
+    `<div class="steps">` +
+      `<div class="st"><span class="k">อ่าน</span><span class="d">${d.detail}</span><span class="v">—</span></div>` +
+      `<div class="st"><span class="k">แก้</span><span class="d">${d.fix}</span><span class="v" style="color:var(--pass)">การแก้ไข</span></div>` +
+      `<div class="st"><span class="k">ผล</span><span class="d">${d.gain}</span><span class="v">—</span></div>` +
+      `<div class="st tot"><span class="k">→</span><span class="d">${d.ref}</span><span class="v">อ้างอิง</span></div>` +
+    `</div>`;
+}
+dxSym.addEventListener('change', runDx);
+runDx();
+
+/* ═════ §4 slope ═════ */
+const slRise = $('#slRise'), slRun = $('#slRun');
+function slopeVerdict(pct, target){
+  if(pct <= 2){
+    target.className = 'verdict ok';
+    target.innerHTML = `<span class="big">≤ 2%</span><span>วางท่อย่อยและแถวปลูกพืชลงตามแนวลาดชัน · ท่อเมนย่อยอยู่ในแนวขวาง</span>
+      <small>แรงโน้มถ่วงช่วยชดเชยแรงเสียดทานในท่อย่อยพอดี</small>`;
+  } else {
+    target.className = 'verdict no';
+    target.innerHTML = `<span class="big">&gt; 2%</span><span>กลับกัน — ท่อย่อยและแถวปลูกพืชอยู่ในแนวขวาง · ท่อเมนย่อยวางลงตามแนวลาดชัน</span>
+      <small>อาจต้องมีตัวควบคุมแรงดันเพื่อให้อัตราการไหลอยู่ในระดับที่ต้องการ</small>`;
+  }
+}
+function runSlope(){
+  const rise = +slRise.value || 0, run = +slRun.value || 0;
+  if(run <= 0){ $('#slOut').textContent = '—'; return; }
+  const pct = rise/run*100;
+  $('#slOut').textContent = pct.toFixed(2);
+  slopeVerdict(pct, $('#slVerdict'));
+}
+[slRise, slRun].forEach(el => el.addEventListener('input', runSlope));
+runSlope();
+
+/* ═════ §8 layout planner ═════ */
+const pn = {area:$('#pnArea'), len:$('#pnLen'), rise:$('#pnRise'), run:$('#pnRun')};
+function runPlan(){
+  const area = +pn.area.value || 0;
+  const len  = +pn.len.value  || 0;
+  const rise = +pn.rise.value || 0;
+  const run  = +pn.run.value  || 0;
+  const pct  = run > 0 ? rise/run*100 : 0;
+
+  /* zones — the document's rule is "5–20 ไร่ จำเป็นต้องแบ่งแปลง"; keep each zone under ~5 ไร่ */
+  const needZones = area >= 5;
+  const zones = needZones ? Math.max(2, Math.ceil(area/5)) : 1;
+
+  /* submain position — the document says long plots should put the submain in the middle */
+  const mid = len > 60;
+
+  const row = (k,d,v,c) => `<div class="st"><span class="k">${k}</span><span class="d">${d}</span>` +
+    `<span class="v"${c?` style="color:${c}"`:''}>${v}</span></div>`;
+
+  let h = '';
+  h += row('โซน', needZones
+      ? `แปลง ${area} ไร่ อยู่ในช่วง 5–20 ไร่ที่เอกสารระบุว่าจำเป็นต้องแบ่งแปลง`
+      : `แปลง ${area} ไร่ เล็กกว่า 5 ไร่ ยังไม่จำเป็นต้องแบ่ง แต่แบ่งได้ถ้าอยากใช้ปั๊มเล็กลง`,
+      needZones ? `แบ่ง ${zones} โซน` : 'ไม่บังคับ', needZones ? 'var(--accent)' : 'var(--ink-3)');
+  h += row('เมนย่อย', mid
+      ? `แถวยาว ${len} ม. ถือว่ายาว — วางกลางแปลงจะแบ่งท่อย่อยเหลือข้างละ ${f2(len/2)} ม.`
+      : `แถวยาว ${len} ม. ไม่ยาวมาก วางข้างแปลงก็พอ ถ้าอยากลดขนาดท่อย่อยอีกค่อยย้ายมากลาง`,
+      mid ? 'กลางแปลง' : 'ข้างแปลงได้', mid ? 'var(--accent)' : null);
+  h += row('วาล์ว', 'ควบคุมการเปิดปิดที่ท่อเมนย่อย ไม่ใช่ที่ท่อย่อย และติดตั้งให้อยู่กลุ่มเดียวกัน',
+      'ที่ท่อเมนย่อย', 'var(--pass)');
+  h += row('ลาดชัน', `ความต่างระดับ ${rise} ม. ÷ ระยะราบ ${run} ม. × 100`, `${pct.toFixed(2)}%`);
+  h += row('แนวท่อ', pct <= 2
+      ? 'ท่อย่อยและแถวปลูกพืชลงตามแนวลาดชัน · ท่อเมนย่อยอยู่ในแนวขวาง'
+      : 'ท่อย่อยและแถวปลูกพืชอยู่ในแนวขวาง · ท่อเมนย่อยวางลงตามแนวลาดชัน',
+      pct <= 2 ? 'ลงตามลาด' : 'ขวางลาด', pct <= 2 ? 'var(--pass)' : 'var(--fail)');
+  if(pct > 2){
+    h += row('เพิ่มเติม', 'ลาดชันเกิน 2% อาจต้องมีตัวควบคุมแรงดันเพื่อให้อัตราการไหลอยู่ในระดับที่ต้องการ',
+      'พิจารณาตัวควบคุมแรงดัน', 'var(--fail)');
+  }
+  h += `<div class="st tot"><span class="k">→</span><span class="d">ได้ผังแล้ว ขั้นต่อไปคือหาขนาดท่อจากตารางแรงเสียดทาน</span><span class="v">ไปบทที่ 4</span></div>`;
+
+  const summary = `${needZones ? `${zones} โซน` : 'โซนเดียว'} · เมนย่อย${mid ? 'กลางแปลง' : 'ข้างแปลง'} · ${pct <= 2 ? 'ท่อย่อยลงตามลาด' : 'ท่อย่อยขวางลาด'}`;
+  $('#pnOut').innerHTML =
+    `<div class="verdict ok" style="margin-bottom:16px"><span class="big">ผังที่แนะนำ</span><span>${summary}</span></div>` +
+    `<div class="steps">${h}</div>`;
+}
+Object.values(pn).forEach(el => el.addEventListener('input', runPlan));
+runPlan();
+</script>
+
+</body>
+</html>

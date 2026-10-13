@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ความต้องการน้ำของพืช · บทที่ 1</title>
+<meta name="description" content="บทที่ 1 ระบบให้น้ำเพื่อการเกษตร — จากน้ำฝนถึงสูตร ETcrop = Kc × Kp × Ep พร้อมเครื่องคำนวณและตาราง Kc 40 พืช Ep 77 สถานี">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mali:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ── chapter-specific ── */
+/* suspect cells in the Ep table — flagged as unreliable source data */
+table.data td.bad{
+  background:var(--fail-soft);color:var(--fail);
+  text-decoration:line-through;text-decoration-thickness:1px;
+}
+/* sortable header buttons */
+button.sortbtn{
+  font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;
+  text-decoration:underline dotted;text-underline-offset:3px;
+}
+button.sortbtn:hover{color:var(--accent)}
+
+/* this chapter uses word keys (Ep, Kp, Kc, ETcrop) rather than step numbers,
+   so the key column needs more room than the shared default */
+.steps .st{grid-template-columns:4.4rem 1fr auto}
+@media (max-width:560px){ .steps .st{grid-template-columns:3.6rem 1fr auto} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <a class="home" href="./">← หลักสูตรทั้งหมด</a>
+  <div class="ch">บทที่ 1</div>
+  <h1><span class="nb">ความต้องการน้ำของพืช</span></h1>
+  <p class="sub">ก่อนจะออกแบบระบบให้น้ำ ต้องตอบให้ได้ก่อนว่า<strong>พืชต้องการน้ำวันละเท่าไร</strong>
+     บทนี้พาไปจากเม็ดฝนที่ตกลงดิน ผ่านเขตรากพืช ไปจนถึงตัวเลขลิตรต่อต้นต่อวัน
+     ที่จะใช้เป็นโจทย์ตั้งต้นของทุกบทถัดไป</p>
+  <p class="by">เอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” · สมาคมวิศวกรรมเกษตรแห่งประเทศไทย · ชีรวรรธก์ มั่นกิจ</p>
+
+  <dl class="rules">
+    <div><dt>สูตรหลักของบทนี้</dt><dd>ETcrop = Kc × Kp × Ep<small>อัตราการใช้น้ำของพืช · หน่วย มม./วัน</small></dd></div>
+    <div><dt>ฝน 1 มม. บน 1 ไร่</dt><dd>1,600 ลิตร<small>1 ไร่ = 1,600 ตร.ม. · ฝน 1 มม. บน 1 ตร.ม. = 1 ลิตร</small></dd></div>
+    <div><dt>Kp สำหรับประเทศไทย</dt><dd>0.75<small>สัมประสิทธิ์ถาดวัดการระเหย เมื่อไม่มีข้อมูลเฉพาะพื้นที่</small></dd></div>
+    <div><dt>ตารางอ้างอิงในบทนี้</dt><dd>40 พืช · 77 สถานี<small>ค่า Kc และค่า Ep รายเดือนทั่วประเทศ</small></dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="สารบัญ">
+  <ol>
+    <li><a href="#s1"><b>1</b>น้ำฝนและการวัด</a></li>
+    <li><a href="#s2"><b>2</b>ฝนใช้การ</a></li>
+    <li><a href="#s3"><b>3</b>เขตรากพืช</a></li>
+    <li><a href="#s4"><b>4</b>การคายระเหย</a></li>
+    <li><a href="#s5"><b>5</b>ถาดวัดการระเหย</a></li>
+    <li><a href="#s6"><b>6</b>สูตร ETcrop</a></li>
+    <li><a href="#s7"><b>7</b>เครื่องคำนวณ</a></li>
+    <li><a href="#s8"><b>8</b>ตัวอย่างจากเอกสาร</a></li>
+    <li><a href="#s9"><b>9</b>ตารางอ้างอิง</a></li>
+  </ol>
+</nav>
+
+<!-- ══ 1 ══ -->
+<section class="sec" id="s1">
+  <div class="col">
+    <h2><span class="n">01 / แหล่งน้ำ</span>น้ำฝนและการวัด</h2>
+    <p class="lead">ฝนเป็นแหล่งน้ำสำคัญที่สุดของเกษตรกร ส่วนน้ำค้าง หมอก และลูกเห็บ
+      จะมีความสำคัญในบางพื้นที่และในช่วงฤดูสั้นๆ</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>วัดน้ำฝนอย่างไร</h3></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:14px">
+        <ul class="plain">
+          <li><strong>ขณะฝนตก</strong> — นำกล่องสี่เหลี่ยมทรงตรงฝาเปิด กว้าง 1 เมตร ยาว 1 เมตร สูง 0.5 เมตร
+            วางในแนวราบบนที่โล่งในแปลงเพาะปลูก (กล่องมีพื้นที่ 1 ตารางเมตร)</li>
+          <li><strong>เมื่อฝนหยุดตก</strong> — กล่องจะรับน้ำฝนไว้ วัดความลึกของน้ำในกล่องได้ 10 มม.</li>
+          <li>นั่นคือพื้นที่ตกลงในกล่องรับน้ำฝนวัดได้ 10 มม. ประมาณว่า<strong>พื้นที่บริเวณนั้นรับน้ำฝนไว้ 10 มม. เช่นกัน</strong></li>
+        </ul>
+        <div class="callout">
+          <p><strong>จริงๆ แล้วกล่องทรงใดก็ได้</strong> เพราะเราวัด “ความลึก” ไม่ใช่ปริมาตร
+            ฝนตกลงมาเท่ากันทุกตารางเมตร ภาชนะที่ปากกว้างกว่าก็รับน้ำได้มากกว่าตามสัดส่วนพอดี
+            ความลึกของน้ำในภาชนะจึงออกมาเท่ากันเสมอ ขอเพียงผนังตั้งตรง</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>จากมิลลิเมตร เป็นลิตร</h3></div>
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">ปริมาตรน้ำในกล่อง = กว้าง × ยาว × ลึก = 1 ม. × 1 ม. × (10÷1000) ม.</span><span class="v">0.01 ม³</span></div>
+          <div class="st"><span class="k">2</span><span class="d">แปลงเป็นลิตร · 0.01 ม³ × 1,000 (1 ม³ = 1,000 ลิตร)</span><span class="v">10 ลิตร</span></div>
+          <div class="st"><span class="k">3</span><span class="d">ฝน 10 มม. ลงบนพื้นที่ 1 ตารางเมตร</span><span class="v">10 ลิตร</span></div>
+          <div class="st"><span class="k">4</span><span class="d">ฝน <strong>1 มม.</strong> ลงบนพื้นที่ 1 ตารางเมตร</span><span class="v">1 ลิตร</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">ฝน 1 มม. ลงบนพื้นที่ 1 ไร่ (1,600 ตร.ม.)</span><span class="v">1,600 ลิตร</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ลองคิดเอง</h3><span>ปรับตัวเลขได้</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:14px">
+        <div class="ctrls">
+          <div class="fld"><label for="rnMm">ฝนตก · มม.</label><input id="rnMm" type="number" value="15" min="0" step="1"></div>
+          <div class="fld"><label for="rnRai">พื้นที่ · ไร่</label><input id="rnRai" type="number" value="15" min="0" step="1"></div>
+        </div>
+        <div class="res"><span class="num" id="rnOut">360,000</span><span class="lbl">ลิตร &mdash; <span id="rnCu">360</span> ลูกบาศก์เมตร</span></div>
+        <p style="margin:0;font-size:.9rem;color:var(--ink-3)">
+          น้ำฝนที่วัดเป็น มิลลิเมตรต่อวัน (มม./วัน) หมายถึงความลึกของน้ำฝนที่ตกทั้งหมดใน 24 ชั่วโมง</p>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>จริงๆ กล่องทรงใดก็ได้</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ฝนตกในบริเวณกว้าง ได้น้ำมาก!</p>
+  </aside>
+</section>
+
+<!-- ══ 2 ══ -->
+<section class="sec" id="s2">
+  <div class="col">
+    <h2><span class="n">02 / บัญชีน้ำ</span>ฝนใช้การ</h2>
+    <p class="lead">ฝนที่ตกลงมาไม่ได้เป็นของพืชทั้งหมด มีทางหายไปหลายทาง
+      ส่วนที่เหลืออยู่จริงในเขตรากพืชเท่านั้นที่เรียกว่า <strong>ฝนใช้การ</strong></p>
+
+    <figure>
+      <svg viewBox="0 0 600 250" role="img" aria-label="แผนภาพบัญชีน้ำฝน จากฝนที่ตกลงมาทั้งหมด หักน้ำไหลตามความลาดชัน น้ำระเหย และน้ำที่ซึมลึกเกินเขตรากพืช เหลือเป็นฝนใช้การ">
+        <defs>
+          <marker id="c1a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="6" orient="auto">
+            <polygon points="0,0 10,4 0,8" fill="currentColor"/>
+          </marker>
+        </defs>
+        <!-- total bar -->
+        <rect x="30" y="30" width="540" height="30" rx="3" fill="var(--accent)"/>
+        <text x="300" y="50" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="13" font-weight="600" fill="var(--surface)">(1) ฝนที่ตกลงบนพื้นดินทั้งหมด</text>
+        <!-- losses -->
+        <g>
+          <rect x="30"  y="104" width="120" height="28" rx="3" fill="var(--fail-soft)" stroke="var(--fail)" stroke-width="1.2"/>
+          <rect x="162" y="104" width="120" height="28" rx="3" fill="var(--fail-soft)" stroke="var(--fail)" stroke-width="1.2"/>
+          <rect x="294" y="104" width="120" height="28" rx="3" fill="var(--fail-soft)" stroke="var(--fail)" stroke-width="1.2"/>
+          <rect x="426" y="104" width="144" height="28" rx="3" fill="var(--pass-soft)" stroke="var(--pass)" stroke-width="1.6"/>
+        </g>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11.5" text-anchor="middle">
+          <text x="90"  y="123" fill="var(--fail)">(4) ไหลตามความลาดชัน</text>
+          <text x="222" y="123" fill="var(--fail)">(5) ระเหยสู่บรรยากาศ</text>
+          <text x="354" y="123" fill="var(--fail)">(7) ซึมลึกเกินเขตราก</text>
+          <text x="498" y="123" fill="var(--pass)" font-weight="600">(8) ฝนใช้การ</text>
+        </g>
+        <g stroke="currentColor" stroke-width="1.2" fill="none" opacity=".55">
+          <line x1="90"  y1="62" x2="90"  y2="100" marker-end="url(#c1a)"/>
+          <line x1="222" y1="62" x2="222" y2="100" marker-end="url(#c1a)"/>
+          <line x1="354" y1="62" x2="354" y2="100" marker-end="url(#c1a)"/>
+          <line x1="498" y1="62" x2="498" y2="100" marker-end="url(#c1a)"/>
+        </g>
+        <!-- root zone band -->
+        <rect x="426" y="164" width="144" height="46" rx="3" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1"/>
+        <text x="498" y="184" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="11.5" fill="currentColor">เก็บไว้ในเขตรากพืช</text>
+        <text x="498" y="201" text-anchor="middle" font-family="IBM Plex Sans Thai, sans-serif" font-size="11" fill="var(--ink-3)">พืชใช้ได้จริง</text>
+        <line x1="498" y1="134" x2="498" y2="160" stroke="var(--pass)" stroke-width="1.6" fill="none" marker-end="url(#c1a)" color="var(--pass)"/>
+        <text x="30" y="236" font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor">(8) = (1) − (4) − (5) − (7)</text>
+      </svg>
+      <figcaption>สามกล่องแดงคือน้ำที่หายไป กล่องเขียวคือฝนใช้การ — น้ำส่วนที่เหลือเก็บไว้อยู่ในบริเวณเขตรากพืชทั้งหมด</figcaption>
+    </figure>
+
+    <ul class="plain">
+      <li><strong>เมื่อฝนตก</strong> ลงบนพื้นดิน (1) — น้ำฝนบางส่วนซึมลงไปในดิน (2)
+        บางส่วนขังอยู่บนผิวดิน (3) บางส่วนไหลไปตามความลาดชัน (4) และเกิดการกัดเซาะ</li>
+      <li><strong>เมื่อฝนหยุด</strong> — น้ำที่ขังบนผิวดิน (3) เกิดการระเหยไปในบรรยากาศ (5)
+        ส่วนที่เหลือค่อยๆ ซึมอย่างช้าๆ ลงไปในดิน (6) บางส่วนซึมลงไปลึกเกินเขตรากพืช (7)</li>
+      <li><strong>ฝนใช้การ</strong> คือน้ำส่วนที่เหลือเก็บไว้อยู่ในบริเวณเขตรากพืชทั้งหมด</li>
+    </ul>
+
+    <div class="callout warn">
+      <p><strong>ให้น้ำมากเกินไป = จ่ายค่าไฟฟรี</strong> — น้ำที่ซึมลึกเกินเขตรากพืช (7) เป็นน้ำที่เสียไปเปล่าๆ
+        รากดูดไม่ถึงแล้ว แต่เราจ่ายค่าพลังงานสูบมันขึ้นมาแล้ว
+        นี่คือเหตุผลที่ต้องรู้ว่าพืชต้องการน้ำเท่าไรจริงๆ ไม่ใช่ให้เผื่อไว้ก่อน</p>
+    </div>
+
+    <h3>การกระจายของฝนสำคัญกว่าปริมาณรวม</h3>
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>กระจายไม่ดี</h3><span>100 มม./เดือน</span></div>
+        <div class="panel-b"><p style="margin:0;font-size:.94rem;color:var(--ink-2)">
+          ถ้าใน 1 เดือนฝนตก 100 มม. มากเป็น 2 ช่วงๆ ละ 50 มม. ตอนต้นเดือนและปลายเดือน
+          ในระหว่างช่วงดังกล่าว<strong>พืชจะแล้งเป็นเวลานาน อาจถึงจุดเหี่ยวเฉา</strong>
+          และต้องการการให้น้ำในช่วงนี้</p></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>กระจายดี</h3><span>100 มม./เดือน</span></div>
+        <div class="panel-b"><p style="margin:0;font-size:.94rem;color:var(--ink-2)">
+          ถ้าใน 1 เดือนฝนตก 100 มม. แต่กระจายสม่ำเสมอทั้งเดือน (เช่น 30/20/40/10)
+          ในระหว่างช่วงดังกล่าว<strong>ดินจะมีความชื้นต่อเนื่องและไม่ต้องการการให้น้ำ</strong></p></div>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ให้น้ำมากเกินเขตราก (7) เป็นน้ำที่เสียไป สูญเสียโดยเฉพาะค่าพลังงาน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ฝนทิ้งช่วง</p>
+  </aside>
+</section>
+
+<!-- ══ 3 ══ -->
+<section class="sec" id="s3">
+  <div class="col">
+    <h2><span class="n">03 / ดินและราก</span>เขตรากพืช (Root Zone)</h2>
+    <p class="lead">เขตรากพืชคือ “ถังเก็บน้ำ” ของแปลง ขนาดของมันเป็นตัวกำหนดว่าให้น้ำครั้งหนึ่งได้เท่าไร
+      และต้องให้บ่อยแค่ไหน</p>
+
+    <ul class="plain">
+      <li>รากพืชมีหน้าที่ยึดลำต้นให้ติดแน่น</li>
+      <li>ในบริเวณใกล้ๆ กับปลายรากมี<strong>รากขน</strong>จำนวนมาก แทรกไปตามช่องว่างระหว่างเม็ดดิน</li>
+      <li>รากขนทำหน้าที่<strong>ดูดน้ำและอาหาร</strong>ที่เกาะอยู่รอบๆ เม็ดดิน
+        หรือในช่องว่างระหว่างเม็ดดิน ด้วยแรง Osmotic</li>
+      <li>น้ำที่เกาะอยู่รอบๆ เม็ดดินนี้คือ <strong>น้ำซับ (Capillary Water)</strong> ซึ่งเป็นน้ำที่พืชใช้ได้จริง</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>รากใหญ่ไม่ได้ดูดน้ำ</strong> — รากใหญ่ทำหน้าที่ค้ำจุนต้นเท่านั้น
+        ตัวที่ดูดน้ำคือรากขนที่ปลายราก นี่คือเหตุผลที่หัวจ่ายน้ำควรวางให้น้ำกระจายไปทั่วทรงพุ่ม
+        ไม่ใช่จ่อไว้ที่โคนต้น</p>
+    </div>
+
+    <h3>การแผ่กระจายของรากพืช</h3>
+    <ul class="plain">
+      <li>พืชควรมีรากลึกและแผ่กระจายไปทั่ว บางชนิดรากแผ่กระจายกว้างในแนวราบระดับไม่ลึก
+        บางชนิดรากหยั่งลงลึกแต่แผ่กระจายในแนวราบน้อย</li>
+      <li>พืชชนิดเดียวกันมีการแผ่กระจายของรากไม่เหมือนกัน <strong>ขึ้นอยู่กับชนิดของดินและความลึกของดิน</strong></li>
+    </ul>
+
+    <h3>ปัจจัยที่จำกัดการงอกของรากลงสู่ระดับที่ลึก</h3>
+    <div class="tscroll">
+      <table class="data" style="min-width:560px">
+        <thead><tr><th style="text-align:start">ปัจจัย</th><th style="text-align:start">เกิดอะไรขึ้น</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">ชั้นดินแน่นทึบ</th><td style="text-align:start">เช่น <strong>ดินดาน</strong> ดินเนื้อแน่น ที่แทรกในชั้นดินในเขตรากพืช ทำให้รากพืชไม่สามารถงอกผ่านลงลึกไปได้</td></tr>
+          <tr><th style="text-align:start">ดินแห้งเกินไป</th><td style="text-align:start">ดินที่มีความชื้นต่ำกว่าจุดเหี่ยวเฉาถาวร (Permanent Wilting Point) รากพืชไม่สามารถงอกลึกลงไปได้</td></tr>
+          <tr><th style="text-align:start">ระดับน้ำใต้ดิน</th><td style="text-align:start">ทำให้มีออกซิเจนและแร่ธาตุที่เป็นประโยชน์ต่อพืชอยู่น้อยมาก รากพืชต้องการออกซิเจนในการหายใจ จึงไม่ขยายตัวลงต่ำกว่าระดับน้ำใต้ดิน</td></tr>
+          <tr><th style="text-align:start">ปริมาณน้ำที่ให้แต่ละครั้ง</th><td style="text-align:start">การให้น้ำแค่ในระดับผิวดิน รากก็จะแผ่กระจายอยู่แต่ในบริเวณผิวดินที่สามารถดูดน้ำไปใช้ได้ จึงดูดธาตุอาหารจากดินชั้นบนตลอด ทำให้ดินจืดอย่างรวดเร็วจนต้องใช้ปุ๋ยมากขึ้น</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ปัจจัยข้อสุดท้ายอยู่ในมือเราคนเดียว</strong> — อีกสามข้อเป็นเรื่องของพื้นที่
+        แต่ “ให้น้ำทีละน้อยบ่อยๆ แค่ผิวดิน” เป็นสิ่งที่เราเลือกเอง และมันฝึกให้รากตื้น
+        พืชจึงทนแล้งไม่ได้และกินปุ๋ยมากขึ้น</p>
+    </div>
+
+    <h3>ดินดาน</h3>
+    <ul class="plain">
+      <li>ในดินที่มีชั้นดินดานทำให้ไม่สามารถไถเตรียมดินลงได้ลึกมากพอ และรากพืชก็ไม่สามารถงอกลึกลงไปได้</li>
+      <li><strong>การใช้ไถระเบิดดินดาน</strong> เพื่อไถทำลายชั้นดินดานก่อน จากนั้นทำการไถตามปกติ
+        จะทำให้สามารถไถลงได้ลึกมากกว่าเดิม <strong>เพิ่มเขตรากพืชและความสามารถในการอุ้มน้ำของดิน</strong></li>
+    </ul>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>รากใหญ่ๆ ทำหน้าที่ค้ำจุน ไม่ได้ดูดน้ำ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ช่องว่างระหว่างเม็ดดินเล็ก เก็บน้ำดีกว่า — ดินเหนียว</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ดินดาน = เกิดจากการใช้เครื่องจักรกลเกษตรบ่อยๆ ซ้ำๆ มานาน เช่น พืชไร่ · ได้แค่ 30 ซม.</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ดินดานเป็นแผ่นบางๆ ไม่ได้ลึก · เป็น tractor พิเศษ ไถ 50–60 ซม.</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>รากพืชไม่ลงระดับน้ำใต้ดิน ดังนั้นน้ำใต้ดินสูงไม่ได้ดีเสมอไป</p>
+  </aside>
+</section>
+
+<!-- ══ 4 ══ -->
+<section class="sec" id="s4">
+  <div class="col">
+    <h2><span class="n">04 / นิยาม</span>การคายระเหย (Evapotranspiration)</h2>
+    <p class="lead">ปริมาณน้ำที่พืชต้องการ คือปริมาณน้ำที่พืชใช้<strong>เพื่อทดแทนน้ำที่สูญเสียจากพื้นที่เพาะปลูก
+      สู่อากาศในรูปของไอน้ำ</strong> ซึ่งเรียกว่าการคายระเหย</p>
+
+    <div class="sbs">
+      <div class="panel">
+        <div class="panel-h"><h3>การคายน้ำ</h3><span>Transpiration</span></div>
+        <div class="panel-b"><p style="margin:0;font-size:.94rem;color:var(--ink-2)">
+          ปริมาณน้ำที่<strong>พืชดูดจากดิน</strong>นำไปใช้สร้างเซลล์และเนื้อเยื่อ
+          แล้วคายออกทางปากใบสู่อากาศ</p></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h3>การระเหย</h3><span>Evaporation</span></div>
+        <div class="panel-b"><p style="margin:0;font-size:.94rem;color:var(--ink-2)">
+          ปริมาณน้ำที่ระเหย<strong>จากผิวดิน</strong>รอบๆ ต้นพืช จากผิวน้ำในขณะที่ให้น้ำ
+          หรือน้ำที่ขังอยู่ และน้ำที่เกาะอยู่ตามต้น ใบ สู่อากาศ</p></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>รวมสองอย่างเข้าด้วยกันเรียกว่า <strong>อัตราการใช้น้ำ</strong>
+        เพราะมีหน่วยเป็น <strong>มม./วัน · มม./เดือน · หรือ มม./ฤดู</strong>
+        — หน่วยเดียวกับน้ำฝนพอดี จึงเอามาหักลบกันได้โดยตรง</p>
+    </div>
+
+    <h3>ปัจจัยที่มีผลต่อความต้องการน้ำของพืช</h3>
+    <p class="body">สภาพแวดล้อมและสภาพภูมิอากาศรอบๆ ต้นพืช เป็นองค์ประกอบที่สำคัญที่สุด ได้แก่</p>
+    <div class="tscroll">
+      <table class="data" style="min-width:420px">
+        <thead><tr><th style="text-align:start">ปัจจัย</th><th style="text-align:start">คือ</th></tr></thead>
+        <tbody>
+          <tr><th style="text-align:start">แสงแดด</th><td style="text-align:start">พลังงานความร้อนหรือรังสีที่ได้รับจากดวงอาทิตย์</td></tr>
+          <tr><th style="text-align:start">อุณหภูมิ</th><td style="text-align:start">Temperature</td></tr>
+          <tr><th style="text-align:start">ความชื้นสัมพัทธ์ของอากาศ</th><td style="text-align:start">RH — Relative Humidity</td></tr>
+          <tr><th style="text-align:start">ความเร็วลม</th><td style="text-align:start">พาไอน้ำออกจากผิวใบและผิวดิน</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body">ภูมิอากาศรอบๆ ต้นพืชมีผลต่ออัตราการคายน้ำของพืช และมีผลต่ออัตราการระเหยของน้ำจากแหล่งน้ำ
+      <strong>อัตราการใช้น้ำของพืชจึงเปลี่ยนแปลงไปตามสภาพภูมิอากาศ</strong></p>
+
+    <div class="callout warn">
+      <p><strong>พืชชนิดเดียวกัน ปลูกต่างพื้นที่ ใช้น้ำไม่เท่ากัน</strong>
+        จึงใช้เลขตายตัวสำหรับพืชแต่ละชนิดไม่ได้ ต้องเอาสภาพภูมิอากาศของพื้นที่นั้นเข้ามาคิดด้วยเสมอ
+        — นั่นคือที่มาของค่า Ep ในหัวข้อถัดไป</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เราให้น้ำทดแทนการคายระเหย</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ออกทางปากใบ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>พืชชนิดเดียวกัน ปลูกต่างพื้นที่ ใช้น้ำไม่เท่ากัน · ใช้เลขตายตัวสำหรับน้ำแต่ละชนิดไม่ได้</p>
+  </aside>
+</section>
+
+<!-- ══ 5 ══ -->
+<section class="sec" id="s5">
+  <div class="col">
+    <h2><span class="n">05 / เครื่องมือ</span>ถาดวัดการระเหย (Pan Evaporation)</h2>
+    <p class="lead">แทนที่จะวัดการคายระเหยของพืชโดยตรงซึ่งทำยาก เราวัด<strong>การระเหยของน้ำจากถาด</strong>
+      แล้วแปลงกลับมาเป็นความต้องการน้ำของพืช</p>
+
+    <ul class="plain">
+      <li>เครื่องมือวัดการระเหยแบบถาดบรรจุน้ำ เป็นแบบที่ยอมรับและใช้กันทั่วไปของ
+        <strong>World Meteorological Organization</strong> คือถาด U.S. Weather Bureau Class A
+        หรือเรียกสั้นๆ ว่า <strong>Class A Pan</strong></li>
+      <li>มีขนาดเส้นผ่านศูนย์กลางภายใน <strong>47.5 นิ้ว ลึก 10 นิ้ว</strong>
+        ทำด้วยเหล็กอาบสังกะสี หรือโลหะผสมที่ทนทานต่อการผุกร่อน</li>
+      <li>ถาดนี้จะวางอยู่บนแผงไม้บนดิน โดยให้ก้นถาดอยู่เหนือจากระดับดินเดิมประมาณ <strong>4 นิ้ว</strong>
+        เติมน้ำไว้ตามระดับที่กำหนด</li>
+    </ul>
+
+    <h3>ข้อดีข้อเสียของวิธีนี้</h3>
+    <ul class="plain">
+      <li>ถาดวัดการระเหย<strong>ใช้ง่ายและราคาถูก</strong> แต่ต้องได้รับการติดตั้งอย่างถูกต้อง</li>
+      <li>วิธีการนี้<strong>ละเอียดและถูกต้องดีกว่าการใช้สูตร</strong>จากการทดลองที่มีหลายวิธี
+        เพราะเป็นการวัดโดยตรง</li>
+      <li>อัตราการใช้น้ำที่หาได้นี้เป็นเพียง<strong>ค่าที่ใช้เพื่อเป็นแนวทางการออกแบบและวางระบบให้น้ำเท่านั้น</strong>
+        สามารถปรับลดได้จากการสังเกตพืชในแปลงปลูกจริงต่อไป</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>ปรับด้วยการเพิ่ม–ลดเวลา ไม่ใช่เปลี่ยนท่อ</strong> — ระบบออกแบบไว้จ่ายน้ำได้เท่าไรก็เท่านั้น
+        เมื่อลงแปลงจริงแล้วพบว่าให้น้ำมากหรือน้อยไป วิธีปรับคือเปลี่ยน<strong>ระยะเวลาที่เปิดน้ำ</strong>
+        ซึ่งทำได้ทันทีและฟรี</p>
+    </div>
+
+    <h3>จากถาดสู่พืชอ้างอิง</h3>
+    <div class="panel">
+      <div class="panel-b">
+        <div class="steps">
+          <div class="st"><span class="k">Ep</span><span class="d">การระเหยจากถาดวัดการระเหย — วัดได้โดยตรง</span><span class="v">มม./วัน</span></div>
+          <div class="st"><span class="k">Kp</span><span class="d">สัมประสิทธิ์ของถาดวัดการระเหย (Pan Coefficient)</span><span class="v">0.75</span></div>
+          <div class="st tot"><span class="k">ETp</span><span class="d">อัตราการใช้น้ำของพืชอ้างอิง = Kp × Ep</span><span class="v">มม./วัน</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:.94rem;color:var(--ink-2)">
+          การระเหยของน้ำจากถาดวัดการระเหย กับการคายน้ำของพืช เป็นกระบวนการที่ไม่เหมือนกัน
+          แต่ค่อนข้างคล้ายคลึงกัน คือเป็นการแพร่กระจายของไอน้ำสู่อากาศ
+          <strong>อัตราการใช้น้ำของพืชอ้างอิง (ETp)</strong> คือการคายน้ำที่ควบคุมโดยการปิดเปิดของรูใบ
+          ของพืชอ้างอิงที่มักใช้เป็น<strong>พืชตระกูลหญ้า</strong> สูง 8–15 ซม.
+          ทั้งนี้หากไม่มีข้อมูลประกอบเพื่อหาค่า Kp <strong>สามารถใช้ค่าเฉลี่ยสำหรับประเทศไทย Kp = 0.75 ได้</strong></p>
+      </div>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เก็บข้อมูลสภาพภูมิอากาศ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ปรับโดยการเพิ่ม – ลด เวลา</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>Kp ถ้าอยากได้ละเอียด ไปหาตารางเพิ่มเติมได้</p>
+  </aside>
+</section>
+
+<!-- ══ 6 ══ -->
+<section class="sec" id="s6">
+  <div class="col">
+    <h2><span class="n">06 / สูตร</span>จาก ETp เป็น ETcrop ด้วยค่า Kc</h2>
+    <p class="lead">พืชอ้างอิงคือหญ้า แต่เราไม่ได้ปลูกหญ้า จึงต้องมีค่าปรับอีกตัวคือ <strong>Kc</strong></p>
+
+    <figure>
+      <svg viewBox="0 0 620 150" role="img" aria-label="ลำดับการแปลงค่า จากการระเหยจากถาด Ep คูณ Kp ได้พืชอ้างอิง ETp แล้วคูณ Kc ได้อัตราการใช้น้ำของพืชจริง ETcrop">
+        <g>
+          <rect x="12"  y="46" width="132" height="52" rx="4" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.2"/>
+          <rect x="232" y="46" width="132" height="52" rx="4" fill="var(--surface-2)" stroke="var(--rule-strong)" stroke-width="1.2"/>
+          <rect x="452" y="46" width="156" height="52" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="15" font-weight="500" text-anchor="middle">
+          <text x="78"  y="70" fill="currentColor">Ep</text>
+          <text x="298" y="70" fill="currentColor">ETp</text>
+          <text x="530" y="70" fill="var(--accent)">ETcrop</text>
+        </g>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="11" text-anchor="middle" fill="var(--ink-3)">
+          <text x="78"  y="88">ระเหยจากถาด</text>
+          <text x="298" y="88">พืชอ้างอิง (หญ้า)</text>
+          <text x="530" y="88">พืชที่ปลูกจริง</text>
+        </g>
+        <g stroke="currentColor" stroke-width="1.6" fill="none">
+          <line x1="146" y1="72" x2="228" y2="72"/>
+          <line x1="366" y1="72" x2="448" y2="72"/>
+          <polygon points="228,66 240,72 228,78" fill="currentColor" stroke="none"/>
+          <polygon points="448,66 460,72 448,78" fill="currentColor" stroke="none"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="13" text-anchor="middle" fill="var(--accent)" font-weight="500">
+          <text x="187" y="64">× Kp</text>
+          <text x="407" y="64">× Kc</text>
+        </g>
+        <g font-family="IBM Plex Sans Thai, sans-serif" font-size="10.5" text-anchor="middle" fill="var(--ink-3)">
+          <text x="187" y="92">0.75</text>
+          <text x="407" y="92">ตามชนิดพืช</text>
+        </g>
+        <text x="310" y="132" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="currentColor">ETcrop = Kc × Kp × Ep</text>
+      </svg>
+      <figcaption>สองขั้นตอน: ปรับจากถาดมาเป็นหญ้าด้วย Kp แล้วปรับจากหญ้ามาเป็นพืชของเราด้วย Kc</figcaption>
+    </figure>
+
+    <ul class="plain">
+      <li>อัตราการใช้น้ำของพืชอ้างอิง (ETp) ยังแตกต่างกับอัตราการใช้น้ำของพืชต่างๆ (ETcrop) ด้วยค่า Kc</li>
+      <li>ค่า Kc เรียกว่า <strong>สัมประสิทธิ์การใช้น้ำของพืช</strong> ซึ่งจัดเป็นกลุ่มใหญ่ๆ ตามการคายน้ำ
+        เช่น พืชทั่วไป · พืชที่ปากใบปิดเวลากลางวัน (สับปะรด) · และพืชที่ใบมีไข (ส้ม)</li>
+    </ul>
+
+    <div class="callout warn">
+      <p><strong>ถ้าไม่มีพืชของเราในตาราง</strong> — ให้เทียบกับพืชที่มี<strong>ลักษณะและระบบการปลูกใกล้เคียงกัน</strong>
+        ในตาราง เช่น เอกสารนี้ใช้ Kc ของ<strong>อ้อย</strong> (0.92) แทนมันสำปะหลัง
+        และใช้ Kc ของ<strong>ไม้ผลทั่วไปเท่ากับ 1</strong> เมื่อไม่มีค่าเฉพาะ
+        การเทียบเคียงพืชให้ดูประเภท ระยะการเก็บเกี่ยว และระบบการปลูก</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>ฤดูแล้งควรปลูกพืช Kc ต่ำ</strong> เพื่อประหยัดน้ำ — Kc คือตัวคูณตรงๆ
+        พืช Kc 0.74 (คะน้า) กับ Kc 2.17 (กล้วยน้ำว้า) ใช้น้ำต่างกันเกือบสามเท่าบนพื้นที่เท่ากัน
+        และถ้าจะใช้ข้อมูลของต่างประเทศต้องระวัง ใช้ของไทยดีกว่า</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>พืชตระกูลหญ้า</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ใช้ข้อมูลของต่างประเทศต้องระวัง ใช้ของไทยดีกว่า</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ตย. ฤดูแล้งปลูกพืช Kc ต่ำ ประหยัดน้ำ</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>การเทียบเคียงพืช ใช้ดูประเภท ระยะการเก็บเกี่ยว ระบบการปลูก</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เราเลือกค่า Kp เลือกค่าสูงสุดมาใช้</p>
+  </aside>
+</section>
+
+<!-- ══ 7 ══ -->
+<section class="sec" id="s7">
+  <div class="col">
+    <h2><span class="n">07 / เครื่องมือ</span>คำนวณความต้องการน้ำของแปลงคุณ</h2>
+    <p class="lead">รวมทุกอย่างในบทเป็นเครื่องคิดเลขเดียว ค่าตั้งต้นคือตัวอย่างที่ 3 ในเอกสาร</p>
+
+    <div class="panel">
+      <div class="panel-h"><h3>ข้อมูลแปลง</h3><span id="etTag">ETcrop = Kc × Kp × Ep</span></div>
+      <div class="panel-b" style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrls">
+          <div class="fld"><label for="etStn">สถานีตรวจอากาศใกล้ที่สุด</label><select id="etStn"></select></div>
+          <div class="fld"><label for="etMon">เดือน</label><select id="etMon"></select></div>
+          <div class="fld"><label for="etCrop">พืชที่ปลูก</label><select id="etCrop"></select></div>
+          <div class="fld"><label for="etKp">Kp</label><input id="etKp" type="number" value="0.75" min="0.1" max="1.2" step="0.05"></div>
+          <div class="fld"><label for="etMode">คิดเป็น</label>
+            <select id="etMode">
+              <option value="tree">ลิตร/ต้น/วัน (ไม้ผล)</option>
+              <option value="rai">ลิตร/ไร่/วัน (พืชคลุมพื้นที่)</option>
+            </select></div>
+          <div class="fld" id="etSpFld"><label for="etSp">ระยะปลูก · ม. × ม.</label><input id="etSp" type="number" value="8" min="0.5" step="0.5"></div>
+        </div>
+        <div class="steps" id="etSteps"></div>
+        <div class="res">
+          <span class="num" id="etOut">—</span>
+          <span class="lbl" id="etUnit">ลิตร/ต้น/วัน</span>
+        </div>
+        <div id="etWarn"></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>ค่านี้คือความต้องการ “สูงสุด”</strong> เพราะเราเลือกเดือนที่ระเหยมากที่สุด
+        และคิดที่ทรงพุ่มโตเต็มที่ ระบบต้องออกแบบให้จ่ายไหวที่ค่านี้
+        ส่วนวันธรรมดาก็แค่เปิดน้ำสั้นลง</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>ถ้าพืชยังโตไม่เต็มที่</strong> ให้น้ำตามขนาดทรงพุ่มจริง ไม่ใช่ตามระยะปลูก
+        เช่น ไม้ผลปลูก 8×8 ม. แต่ทรงพุ่มยังกว้างแค่ 3 ม. ก็คิดพื้นที่ 3×3 = 9 ตร.ม. แทน 64 ตร.ม.
+        — ต่างกันเจ็ดเท่า</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ต้นใหญ่ ใบมาก คายน้ำมาก</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ถ้าพืชยังโตไม่เต็มที่ ก็ให้น้ำตามทรงพุ่ม (ขนาด)</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>สำหรับมันสำปะหลัง ให้น้ำเป็นรายต้นไม่ได้</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>นิยมรดน้ำวันเว้นวัน</p>
+  </aside>
+</section>
+
+<!-- ══ 8 ══ -->
+<section class="sec" id="s8">
+  <div class="col">
+    <h2><span class="n">08 / ตัวอย่าง</span>สามตัวอย่างจากเอกสาร</h2>
+    <p class="lead">ต่างกันที่หน่วยของคำตอบ — ไร่ ต้น และต้นที่ระยะปลูกต่างกัน</p>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างที่ 1</span><h3>มันสำปะหลัง · กำแพงเพชร · ลบ.ม./ไร่/วัน</h3></header>
+      <div class="given">ต้องการหาการใช้น้ำสูงสุดเป็นลูกบาศก์เมตรต่อไร่ ของมันสำปะหลังที่ปลูกในพื้นที่จังหวัดกำแพงเพชร
+        กำหนดให้ค่าสัมประสิทธิ์ของถาดวัดการระเหย (Kp) มีค่าเท่ากับ 0.75</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">หาค่า Ep — ที่กำแพงเพชร ค่าการระเหยสูงสุดอยู่ที่<strong>เดือนเมษายน</strong></span><span class="v">4.93 มม./วัน</span></div>
+          <div class="st"><span class="k">2</span><span class="d">หาค่า Kp — จากโจทย์</span><span class="v">0.75</span></div>
+          <div class="st"><span class="k">3</span><span class="d">หาค่า Kc — ตารางไม่มีมันสำปะหลัง จึงเทียบกับพืชที่มีลักษณะและระบบการปลูกใกล้เคียงกันคือ<strong>อ้อย</strong></span><span class="v">0.92</span></div>
+          <div class="st"><span class="k">4</span><span class="d">ETcrop = 0.92 × 0.75 × 4.93</span><span class="v">3.4 มม./วัน</span></div>
+          <div class="st"><span class="k">5</span><span class="d">พื้นที่ 1 ไร่ = 1,600 ตร.ม. · 3.4 มม./วัน × 1,600 ตร.ม.</span><span class="v">5,440 ลิตร/ไร่/วัน</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">การใช้น้ำของมันสำปะหลัง</span><span class="v">5.44 ลบ.ม./ไร่/วัน</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างที่ 2</span><h3>ไม้ผล 6×6 ม. · นครราชสีมา · ลิตร/ต้น/วัน</h3></header>
+      <div class="given">ต้องการหาการใช้น้ำสูงสุดของไม้ผลเป็นลิตรต่อต้นต่อวัน ระยะปลูกไม้ผล 6 ม. × 6 ม.
+        ปลูกที่จังหวัดนครราชสีมา</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">Ep ที่นครราชสีมา สูงสุดที่<strong>เดือนมีนาคม</strong></span><span class="v">5.60 มม./วัน</span></div>
+          <div class="st"><span class="k">2</span><span class="d">Kp สำหรับประเทศไทย</span><span class="v">0.75</span></div>
+          <div class="st"><span class="k">3</span><span class="d">Kc — ตารางไม่มีไม้ผลทั่วไป แต่มักใช้ค่าไม้ผลทั่วไป</span><span class="v">1</span></div>
+          <div class="st"><span class="k">4</span><span class="d">ETcrop = 1 × 0.75 × 5.6</span><span class="v">4.2 มม./วัน</span></div>
+          <div class="st"><span class="k">5</span><span class="d">พื้นที่ทรงพุ่มของแต่ละต้นที่โตเต็มที่ = ระยะปลูก 6×6 = 36 ตร.ม.</span><span class="v">4.2 × 36</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">การใช้น้ำสูงสุดของไม้ผล</span><span class="v">151.2 ลิตร/ต้น/วัน</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ex">
+      <header><span class="tag">ตัวอย่างที่ 3</span><h3>ส้มโอ 8×8 ม. · ชัยนาท · ลิตร/ต้น/วัน</h3></header>
+      <div class="given">ต้องการหาการใช้น้ำสูงสุดของส้มโอเป็น ลิตร/ต้น/วัน ระยะปลูก 8 ม. × 8 ม.
+        ปลูกในพื้นที่จังหวัดชัยนาท</div>
+      <div class="work">
+        <div class="steps">
+          <div class="st"><span class="k">1</span><span class="d">ตารางไม่มีชัยนาท จึงใช้<strong>สุพรรณบุรี</strong>ที่อยู่ใกล้เคียง สูงสุดที่<strong>เดือนเมษายน</strong></span><span class="v">5.92 มม./วัน</span></div>
+          <div class="st"><span class="k">2</span><span class="d">Kp สำหรับประเทศไทย</span><span class="v">0.75</span></div>
+          <div class="st"><span class="k">3</span><span class="d">Kc ของส้มโอ — มีในตารางโดยตรง</span><span class="v">1.77</span></div>
+          <div class="st"><span class="k">4</span><span class="d">ETcrop = 1.77 × 0.75 × 5.92</span><span class="v">7.86 มม./วัน</span></div>
+          <div class="st"><span class="k">5</span><span class="d">พื้นที่ทรงพุ่ม 8×8 = 64 ตร.ม.</span><span class="v">7.86 × 64</span></div>
+          <div class="st tot"><span class="k">=</span><span class="d">ปริมาณน้ำที่ต้องการสูงสุดของส้มโอ (ต้นโตเต็มที่ ในเดือนที่ใช้น้ำสูงสุด)</span><span class="v">502.96 ลิตร/ต้น/วัน</span></div>
+        </div>
+        <div class="callout warn" style="margin-top:16px">
+          <p><strong>เกร็ดการคำนวณ</strong> — 7.86 × 64 ได้ 503.04 ไม่ใช่ 502.96
+            เพราะเอกสารใช้ค่า ETcrop เต็มทศนิยม (7.8588) ในขั้นสุดท้าย ไม่ได้ใช้ 7.86 ที่ปัดแล้ว
+            ต่างกัน 0.08 ลิตร ไม่มีนัยสำคัญ แต่เป็นนิสัยที่ดี: <strong>ปัดเศษตอนท้ายครั้งเดียว</strong></p>
+        </div>
+      </div>
+    </article>
+
+    <div class="callout">
+      <p><strong>ทำไมไม่นิยมให้น้ำทุกวัน</strong> — เอกสารระบุว่านิยมรดน้ำวันเว้นวัน
+        เพราะดินเก็บน้ำไว้ได้ระยะหนึ่ง การให้ครั้งละมากขึ้นแต่ห่างขึ้นช่วยให้น้ำซึมลงลึก
+        รากจึงหยั่งลึกตาม (ตรงข้ามกับปัญหาในหัวข้อ 3) และประหยัดค่าไฟจากการเปิดปั๊มน้อยครั้งลง
+        ถ้าให้วันเว้นวัน ก็คูณตัวเลขข้างบนด้วย 2 ในการให้น้ำแต่ละครั้ง</p>
+    </div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เอาของอ้อยมาแทน</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>เป็นน้ำที่ต้องใช้ตอนโตเต็มที่</p>
+    <p class="note"><b>บันทึกจากห้องเรียน</b>4.2 มม. × 36 ม² / วัน</p>
+  </aside>
+</section>
+
+<!-- ══ 9 ══ -->
+<section class="sec" id="s9" style="border-bottom:0">
+  <div class="col">
+    <h2><span class="n">09 / อ้างอิง</span>ตาราง Kc และ Ep</h2>
+
+    <div class="callout warn">
+      <p><strong>ข้อบกพร่องในตาราง Ep ของต้นฉบับ</strong> — คอลัมน์<strong>เดือนสิงหาคม</strong>ของสถานีลำดับ
+        <strong>43 ถึง 60</strong> (สุพรรณบุรี ลพบุรี บัวชุม กาญจนบุรี ทองผาภูมิ กรุงเทพ ปราจีนบุรี กบินทร์บุรี
+        อรัญประเทศ สระแก้ว ชลบุรี พัทยา ระยอง จันทบุรี คลองใหญ่ เพชรบุรี ประจวบคีรีขันธ์ หัวหิน)
+        พิมพ์เป็น <strong>3.24 เหมือนกันหมดทั้ง 18 สถานี</strong> ซึ่งเป็นไปไม่ได้ทางภูมิอากาศ
+        น่าจะเกิดจากการคัดลอกค่าลงมาทั้งคอลัมน์ตอนทำตาราง
+        เมื่อเทียบกับค่าเฉลี่ยของเดือนกรกฎาคมและกันยายนของสถานีเดียวกัน ค่าจริงน่าจะสูงกว่านี้ราว
+        <strong>0.7 มม./วัน</strong> โดยเฉลี่ย
+        เครื่องคำนวณในหัวข้อ 7 จะเตือนเมื่อคุณเลือกช่องเหล่านี้ — <strong>อย่าใช้ค่าเดือนสิงหาคมของสถานีกลุ่มนี้</strong>
+        ให้ใช้เดือนอื่นหรือหาข้อมูลจากกรมอุตุนิยมวิทยาโดยตรง</p>
+    </div>
+
+    <h3>ค่าสัมประสิทธิ์การใช้น้ำของพืช (Kc) 40 ชนิด</h3>
+    <p class="body" style="font-size:.9rem;color:var(--ink-3);margin-top:-8px">ข้อมูล Pan Method กรมชลประทาน · เรียงจากน้อยไปมากได้โดยกดหัวตาราง</p>
+    <div id="tabKC"></div>
+
+    <h3 style="margin-top:8px">ค่าเฉลี่ยอัตราการระเหยจากถาดวัดการระเหย (Ep) มม./วัน</h3>
+    <p class="body" style="font-size:.9rem;color:var(--ink-3);margin-top:-8px">ค่าเฉลี่ย 30 ปี · กรมอุตุนิยมวิทยา · 77 สถานี · พิมพ์ชื่อเพื่อกรอง</p>
+    <div class="ctrls" style="grid-template-columns:minmax(200px,320px);margin-bottom:4px">
+      <div class="fld"><label for="epFilter">ค้นหาสถานี</label><input id="epFilter" type="text" placeholder="เช่น เชียงใหม่"></div>
+    </div>
+    <div id="tabEP"></div>
+  </div>
+  <aside class="rail">
+    <p class="note"><b>บันทึกจากห้องเรียน</b>ค่าเฉลี่ย 30 ปี</p>
+  </aside>
+</section>
+
+<section class="sec" style="border-bottom:0;padding-top:0">
+  <div class="col">
+    <nav class="pager" aria-label="บทถัดไป">
+      <a class="next" href="ch2-systems.html"><small>บทที่ 2 →</small><span>ระบบให้น้ำพืช</span></a>
+    </nav>
+    <div class="callout">
+      <p><strong>บทอื่นในหลักสูตร</strong> — <a href="./">หน้าแรก</a> ·
+        <a href="ch2-systems.html">บทที่ 2 · ระบบให้น้ำพืช</a> ·
+        <a href="ch3-pipes.html">บทที่ 3 · ท่อสำหรับระบบให้น้ำ</a> ·
+        <a href="ch4-friction.html">บทที่ 4 · แรงเสียดทานกับขนาดท่อ</a> ·
+        <a href="ch5-layout.html">บทที่ 5 · การแบ่งแปลงและวางแนวท่อ</a> ·
+        <a href="ch6-pumps.html">บทที่ 6 · เครื่องสูบน้ำเพื่อการเกษตร</a></p>
+    </div>
+  </div>
+  <aside class="rail"></aside>
+</section>
+
+<footer class="end">
+  <p>เรียบเรียงจากเอกสารอบรม “ระบบให้น้ำเพื่อการเกษตร ระดับเบื้องต้น” บทที่ 1 หน้า 3–18
+     ของสมาคมวิศวกรรมเกษตรแห่งประเทศไทย · วิทยากร ชีรวรรธก์ มั่นกิจ</p>
+  <p>ข้อความในกรอบลายมือคือบันทึกที่จดไว้ระหว่างการอบรม เก็บไว้ตามตำแหน่งเดิมในเอกสาร</p>
+</footer>
+</div>
+
+<script>
+/* ═════ ค่าสัมประสิทธิ์การใช้น้ำของพืช (Kc) 40 ชนิด — ข้อมูล Pan Method กรมชลประทาน ═════ */
+const KC = [
+  ['ข้าว กข', 1.49], ['ข้าวขาวดอกมะลิ 105', 1.31], ['ข้าวบาสมาติ', 1.50], ['ข้าวสาลี', 0.94],
+  ['ข้าวโพดเลี้ยงสัตว์', 1.14], ['ข้าวโพดหวาน', 0.88], ['ข้าวฟ่าง', 1.10], ['ถั่วเหลือง', 1.10],
+  ['ถั่วเขียว', 0.79], ['งา', 1.09], ['ทานตะวัน', 0.96], ['แตงโม', 1.18],
+  ['กระหล่ำดอก', 1.09], ['คะน้า', 0.74], ['มะเขือเทศ', 1.23], ['หอมหัวใหญ่', 1.15],
+  ['หอมแดง', 1.01], ['มะระ', 1.18], ['บานชื่น', 1.00], ['ฝ้าย', 0.96],
+  ['อ้อย', 0.92], ['ละหุ่ง', 0.82], ['หน่อไม้ฝรั่ง', 0.97], ['เผือก', 1.83],
+  ['มะนาว (1-3 ปี)', 1.39], ['มะนาว (3-5 ปี)', 1.47], ['มะม่วง', 1.99], ['ส้มโอ', 1.77],
+  ['หญ้าแฝก', 0.92], ['กุหลาบ', 1.71], ['หญ้าลูซี่', 0.96], ['หญ้าเนเปียร์แคระ', 1.59],
+  ['ถั่วไมยรา', 0.82], ['กล้วยน้ำว้า', 2.17], ['ปทุมมา', 0.64], ['ธูปฤาษี', 1.47],
+  ['ขนุน', 1.44], ['มะลิ', 1.47], ['ข้าวนาหว่านน้ำตม (สุพรรณบุรี 1)', 1.37], ['กล้วยหอม', 1.98]
+];
+
+const MONTHS = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+const MONTHS_FULL = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน',
+                     'กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+
+/* ═════ ค่าเฉลี่ยอัตราการระเหยจากถาดวัดการระเหย (Ep) มม./วัน — ค่าเฉลี่ย 30 ปี กรมอุตุนิยมวิทยา ═════
+   ลำดับตามเอกสารต้นฉบับ หน้า 11–14 · null = ไม่มีข้อมูลในต้นฉบับ                                     */
+const EP = [
+  [1,'แม่ฮ่องสอน',   [2.58,3.57,4.54,5.84,5.03,3.86,3.33,3.24,3.62,3.38,2.73,2.30]],
+  [2,'แม่สะเรียง',    [2.68,3.76,4.70,5.53,4.30,3.04,3.02,2.62,3.04,3.40,2.88,2.61]],
+  [3,'เชียงราย',     [2.90,3.55,4.02,4.79,4.69,4.10,3.61,3.53,3.62,3.42,3.00,2.73]],
+  [4,'พะเยา',        [3.00,3.86,4.65,5.16,4.45,4.34,3.85,3.45,3.18,3.22,2.96,2.82]],
+  [5,'เชียงใหม่',    [3.38,4.40,5.10,5.73,5.20,4.44,3.90,3.83,3.84,3.94,3.63,3.20]],
+  [6,'ลำปาง',        [2.95,4.09,5.16,5.87,4.90,4.48,3.99,3.70,3.52,3.42,3.05,2.71]],
+  [7,'เถิน',         [4.00,5.20,6.83,6.63,4.86,3.86,4.05,3.50,3.25,3.00,3.28,3.50]],
+  [8,'ลำพูน',        [3.59,4.89,5.93,6.60,5.56,5.19,4.56,4.18,3.64,3.62,3.36,3.19]],
+  [9,'แพร่',         [3.02,3.84,5.03,5.82,5.15,4.54,4.15,3.86,3.62,3.48,3.07,2.85]],
+  [10,'น่าน',        [2.65,3.24,3.86,4.43,4.12,3.82,3.30,2.85,3.11,3.09,2.81,2.58]],
+  [11,'ท่าวังผา',    [2.74,3.63,4.64,5.07,4.80,4.27,3.65,3.48,3.77,3.49,2.90,2.55]],
+  [12,'ทุ่งช้าง',     [2.89,3.71,4.15,4.72,3.84,3.30,2.89,2.74,3.00,3.25,3.02,2.74]],
+  [13,'อุตรดิตถ์',    [3.56,4.21,5.00,5.66,5.06,4.56,3.83,3.77,3.86,4.15,3.91,3.67]],
+  [14,'สุโขทัย',     [3.50,4.05,5.18,6.43,5.34,5.15,4.85,4.43,4.34,4.18,3.88,3.53]],
+  [15,'ตาก',         [3.88,5.34,6.80,7.26,5.60,5.12,4.51,4.47,4.04,3.59,3.35,3.30]],
+  [16,'แม่สอด',      [3.80,4.91,5.81,6.61,4.73,3.50,3.02,2.95,3.45,3.90,3.93,3.81]],
+  [17,'เขื่อนภูมิพล', [3.41,4.54,5.64,5.84,4.81,4.42,4.03,4.03,3.65,3.29,3.29,3.07]],
+  [18,'อุ้มผาง',      [3.25,4.18,4.66,5.02,3.74,2.73,2.43,2.20,2.81,3.12,3.13,3.03]],
+  [19,'พิษณุโลก',    [3.37,4.04,4.87,5.71,5.11,4.50,4.00,3.63,3.35,3.41,3.54,3.35]],
+  [20,'เพชรบูรณ์',    [3.91,4.54,5.24,5.71,4.77,4.30,3.91,3.58,3.54,3.92,4.00,4.09]],
+  [21,'หล่มสัก',      [4.13,4.71,5.24,5.71,5.09,4.68,4.16,3.97,3.82,4.33,4.33,4.23]],
+  [22,'วิเชียรบุรี',   [3.86,4.57,5.27,5.44,4.81,4.49,4.11,3.96,3.72,4.18,4.12,4.07]],
+  [23,'กำแพงเพชร',   [3.14,3.78,4.37,4.93,4.39,3.63,3.36,3.04,3.18,3.08,2.98,2.97]],
+  [24,'หนองคาย',     [3.29,3.98,4.58,5.12,4.51,4.00,3.45,3.45,3.43,3.78,3.52,3.43]],
+  [25,'เลย',         [3.12,3.79,4.33,4.72,3.84,3.70,3.40,3.21,2.84,3.10,3.02,2.78]],
+  [26,'อุดรธานี',     [3.75,4.44,5.03,5.40,4.90,4.50,4.25,4.04,3.90,4.20,4.09,3.86]],
+  [27,'สกลนคร',      [4.00,4.53,5.05,5.20,4.24,4.01,3.64,3.35,3.33,4.11,4.03,3.85]],
+  [28,'นครพนม',      [3.76,4.32,4.69,4.92,4.01,3.29,2.93,2.81,3.31,3.98,3.90,3.84]],
+  [29,'ขอนแก่น',     [4.15,4.69,5.28,5.23,4.87,4.48,4.02,3.85,3.48,4.14,4.32,4.31]],
+  [30,'มุกดาหาร',    [3.56,4.11,4.78,5.01,4.39,3.93,3.31,3.06,3.31,3.75,3.58,3.49]],
+  [31,'โกสุมพิสัย',   [4.10,4.80,5.12,5.66,5.01,4.98,4.63,4.15,4.13,4.38,4.36,4.21]],
+  [32,'กมลาไสย',     [3.73,4.18,4.74,5.20,4.77,4.25,3.94,3.64,3.41,4.29,3.97,3.72]],
+  [33,'ชัยภูมิ',      [4.31,5.07,5.85,5.82,5.39,5.06,4.81,4.52,4.00,4.55,4.56,4.59]],
+  [34,'ร้อยเอ็ด',     [3.58,4.14,4.85,5.04,4.77,4.79,4.14,3.78,3.31,3.67,3.71,3.65]],
+  [35,'อุบลราชธานี',  [3.90,4.57,5.19,5.21,4.62,4.22,3.92,3.52,3.35,3.70,3.92,3.90]],
+  [36,'นครราชสีมา',  [4.42,4.98,5.60,5.59,5.21,5.23,5.05,4.86,4.02,4.27,4.47,4.57]],
+  [37,'โชคชัย',      [3.92,4.61,5.21,5.44,4.85,4.83,4.43,4.24,3.65,3.90,3.93,3.93]],
+  [38,'สุรินทร์',     [4.34,4.94,5.49,5.68,5.22,5.03,4.71,4.45,3.81,4.18,4.48,4.53]],
+  [39,'ท่าตูม',       [4.34,4.94,5.57,6.00,5.53,5.07,4.72,4.44,3.92,4.37,4.62,4.61]],
+  [40,'บุรีรัมย์',     [4.39,5.12,5.66,6.16,5.56,4.86,4.45,4.33,3.81,4.22,4.38,4.50]],
+  [41,'นางรอง',      [3.89,4.54,4.94,5.07,4.68,4.47,4.22,4.04,3.63,3.65,3.96,3.96]],
+  [42,'นครสวรรค์',   [4.06,5.20,6.26,6.73,5.56,5.30,4.67,4.42,4.11,3.84,3.81,3.82]],
+  [43,'สุพรรณบุรี',   [3.87,4.48,5.13,5.92,5.49,5.33,4.85,3.24,4.28,4.14,4.05,4.12]],
+  [44,'ลพบุรี',       [4.39,4.96,5.61,5.79,5.44,5.18,4.80,3.24,4.04,4.08,4.46,4.80]],
+  [45,'บัวชุม',       [4.54,5.37,6.04,5.86,4.99,4.70,4.21,3.24,3.48,4.05,4.16,4.51]],
+  [46,'กาญจนบุรี',   [4.45,5.30,6.03,6.71,5.54,5.23,4.79,3.24,4.49,3.92,4.14,4.37]],
+  [47,'ทองผาภูมิ',    [3.78,4.81,5.49,5.94,4.00,3.26,2.90,3.24,3.26,3.50,3.50,3.44]],
+  [48,'กรุงเทพ',      [3.82,4.45,4.93,5.26,4.74,4.45,4.27,3.24,3.65,3.37,3.80,3.76]],
+  [49,'ปราจีนบุรี',    [4.53,4.94,5.25,5.33,4.91,4.60,4.19,3.24,4.17,4.58,4.93,4.90]],
+  [50,'กบินทร์บุรี',   [4.48,5.16,5.34,5.41,4.51,4.14,3.81,3.24,3.65,3.94,4.44,4.79]],
+  [51,'อรัญประเทศ',  [4.09,4.60,5.21,5.62,4.83,4.59,4.23,3.24,3.78,3.74,3.81,4.05]],
+  [52,'สระแก้ว',     [4.65,5.21,5.32,5.68,4.45,4.07,3.58,3.24,3.40,4.00,4.42,4.39]],
+  [53,'ชลบุรี',       [4.71,5.03,5.47,5.30,5.28,5.24,5.09,3.24,4.33,4.20,4.70,5.03]],
+  [54,'พัทยา',        [4.13,4.65,5.04,5.03,5.02,4.96,4.76,3.24,4.09,3.46,4.25,4.65]],
+  [55,'ระยอง',       [4.15,4.58,4.85,4.55,4.22,4.43,4.52,3.24,3.64,3.89,4.66,4.64]],
+  [56,'จันทบุรี',     [4.41,4.62,4.52,4.74,3.77,3.59,3.52,3.24,3.38,3.85,4.51,4.75]],
+  [57,'คลองใหญ่',    [4.20,4.21,4.65,5.30,3.80,2.97,2.78,3.24,3.33,3.31,4.16,4.41]],
+  [58,'เพชรบุรี',     [3.30,4.30,4.73,5.63,4.57,4.22,3.33,3.24,3.48,3.09,3.33,3.37]],
+  [59,'ประจวบคีรีขันธ์',[4.24,4.65,5.04,5.83,4.89,4.84,3.86,3.24,4.19,3.71,4.25,4.65]],
+  [60,'หัวหิน',       [4.25,4.90,5.20,5.84,5.05,4.69,4.45,3.24,4.22,3.82,4.37,4.61]],
+  [61,'ชุมพร',        [3.34,3.89,4.29,4.43,3.68,3.61,3.51,3.35,3.59,2.97,3.11,3.28]],
+  [62,'สุราษฎร์ธานี',  [4.09,4.66,5.58,4.74,null,4.66,3.49,3.77,2.99,3.54,3.08,3.36]],
+  [63,'สนามบินสุราษฎร์ธานี',[3.46,4.25,4.70,4.73,3.96,3.70,3.68,3.63,3.58,2.89,2.70,2.59]],
+  [64,'เกาะสมุย',     [4.27,4.90,5.24,5.47,4.74,4.64,4.65,4.65,4.53,3.67,3.66,3.75]],
+  [65,'พระแสง',      [3.55,4.70,4.73,4.69,3.62,3.34,3.49,3.32,3.40,3.14,2.94,2.95]],
+  [66,'นครศรีธรรมราช',[3.69,4.41,4.78,5.01,4.39,4.29,4.44,4.42,4.14,3.37,2.93,2.97]],
+  [67,'ฉวาง',        [3.35,4.32,4.34,4.64,3.80,3.47,3.43,3.56,3.59,2.99,2.82,2.91]],
+  [68,'สะเดา',       [3.67,4.53,4.70,4.39,3.95,3.61,3.84,3.90,3.89,3.17,2.76,3.01]],
+  [69,'สงขลา',       [4.66,5.43,5.61,5.55,4.98,4.68,4.75,4.96,4.44,4.01,3.55,3.62]],
+  [70,'สนามบินปัตตานี',[3.77,4.52,4.92,4.81,4.55,4.32,4.38,4.62,4.34,3.92,3.06,2.90]],
+  [71,'นราธิวาส',     [3.44,4.18,4.69,5.07,4.60,4.51,4.30,4.34,4.43,3.65,2.85,2.75]],
+  [72,'ระนอง',       [4.04,4.74,5.15,4.78,3.37,3.20,3.20,2.96,3.13,2.91,3.14,3.54]],
+  [73,'ตะกั่วป่า',     [4.29,4.71,5.15,4.78,3.71,3.36,3.27,3.11,3.35,3.02,3.25,3.62]],
+  [74,'ภูเก็ต',        [4.77,5.30,4.32,4.65,3.86,3.35,3.46,3.65,3.28,3.31,3.77,4.05]],
+  [75,'สนามบินภูเก็ต', [5.11,5.50,5.19,5.13,4.34,3.84,3.99,4.01,3.87,3.36,3.99,4.20]],
+  [76,'สนามบินตรัง',  [4.70,5.38,5.58,4.61,3.86,3.36,3.46,3.45,3.29,3.10,3.28,3.49]],
+  [77,'สตูล',         [4.45,4.84,5.14,4.49,3.94,3.66,3.72,3.76,3.48,3.25,3.00,3.45]]
+];
+
+/* ต้นฉบับมีข้อบกพร่อง: คอลัมน์ ส.ค. ของสถานีลำดับ 43–60 พิมพ์เป็น 3.24 เหมือนกันหมดทั้ง 18 สถานี
+   ซึ่งเป็นไปไม่ได้ทางภูมิอากาศ — น่าจะเกิดจากการคัดลอกค่าลงมาทั้งคอลัมน์ตอนทำตาราง       */
+const AUG_BAD_FROM = 43, AUG_BAD_TO = 60, AUG_IDX = 7;
+const isAugSuspect = (id, m) => m === AUG_IDX && id >= AUG_BAD_FROM && id <= AUG_BAD_TO;
+const $ = s => document.querySelector(s);
+const nf = n => n.toLocaleString('en-US', {maximumFractionDigits:2});
+
+/* ═════ §1 rainfall ═════ */
+const rnMm = $('#rnMm'), rnRai = $('#rnRai');
+function runRain(){
+  const mm = +rnMm.value || 0, rai = +rnRai.value || 0;
+  const litres = mm * rai * 1600;
+  $('#rnOut').textContent = nf(litres);
+  $('#rnCu').textContent  = nf(litres/1000);
+}
+[rnMm, rnRai].forEach(el => el.addEventListener('input', runRain));
+runRain();
+
+/* ═════ §7 ETcrop calculator ═════ */
+const et = {
+  stn:$('#etStn'), mon:$('#etMon'), crop:$('#etCrop'), kp:$('#etKp'),
+  mode:$('#etMode'), sp:$('#etSp'), spFld:$('#etSpFld')
+};
+et.stn.innerHTML  = EP.map(([id,name]) => `<option value="${id}">${id}. ${name}</option>`).join('');
+et.mon.innerHTML  = MONTHS_FULL.map((m,i) => `<option value="${i}">${m}</option>`).join('');
+et.crop.innerHTML = `<option value="-1">ไม้ผลทั่วไป (Kc = 1)</option>` +
+  KC.map(([n,k],i) => `<option value="${i}">${n} — ${k.toFixed(2)}</option>`).join('');
+
+/* defaults = worked example 3: ส้มโอ · สุพรรณบุรี · เมษายน · 8×8 */
+et.stn.value  = String(EP.find(r => r[1] === 'สุพรรณบุรี')[0]);
+et.mon.value  = '3';
+et.crop.value = String(KC.findIndex(([n]) => n === 'ส้มโอ'));
+
+function peakMonth(vals){
+  let best = -1, bi = 0;
+  vals.forEach((v,i) => { if(v !== null && v > best){ best = v; bi = i; } });
+  return bi;
+}
+
+function runET(){
+  const id   = +et.stn.value;
+  const row  = EP.find(r => r[0] === id);
+  const m    = +et.mon.value;
+  const ci   = +et.crop.value;
+  const kc   = ci < 0 ? 1 : KC[ci][1];
+  const kcNm = ci < 0 ? 'ไม้ผลทั่วไป' : KC[ci][0];
+  const kp   = +et.kp.value || 0;
+  const ep   = row[2][m];
+  const tree = et.mode.value === 'tree';
+  et.spFld.hidden = !tree;
+
+  if(ep === null){
+    $('#etSteps').innerHTML = `<div class="st"><span class="k">!</span><span class="d" style="color:var(--fail)">ต้นฉบับไม่มีข้อมูลของสถานี ${row[1]} ในเดือนนี้ — ลองเดือนอื่นหรือสถานีใกล้เคียง</span><span class="v">—</span></div>`;
+    $('#etOut').textContent = '—';
+    $('#etWarn').innerHTML = '';
+    return;
+  }
+
+  const etc  = kc * kp * ep;
+  const area = tree ? Math.pow(+et.sp.value || 0, 2) : 1600;
+  const lit  = etc * area;
+  const pk   = peakMonth(row[2]);
+
+  const r = (k,d,v,c) => `<div class="st"><span class="k">${k}</span><span class="d">${d}</span>` +
+    `<span class="v"${c ? ` style="color:${c}"` : ''}>${v}</span></div>`;
+  let h = '';
+  h += r('Ep', `การระเหยที่สถานี${row[1]} เดือน${MONTHS_FULL[m]}`, `${ep.toFixed(2)} มม./วัน`);
+  h += r('Kp', 'สัมประสิทธิ์ถาดวัดการระเหย', kp.toFixed(2));
+  h += r('Kc', `สัมประสิทธิ์การใช้น้ำของ${kcNm}`, kc.toFixed(2));
+  h += r('ETcrop', `${kc.toFixed(2)} × ${kp.toFixed(2)} × ${ep.toFixed(2)}`, `${etc.toFixed(2)} มม./วัน`);
+  h += r('พื้นที่', tree ? `ทรงพุ่มของแต่ละต้น ${et.sp.value}×${et.sp.value} ม.` : 'พื้นที่ 1 ไร่',
+         `${nf(area)} ตร.ม.`);
+  h += `<div class="st tot"><span class="k">=</span><span class="d">ปริมาณน้ำที่ต้องให้</span>` +
+       `<span class="v">${nf(lit)} ${tree ? 'ลิตร/ต้น/วัน' : 'ลิตร/ไร่/วัน'}</span></div>`;
+  $('#etSteps').innerHTML = h;
+  $('#etOut').textContent = nf(lit);
+  $('#etUnit').textContent = tree
+    ? 'ลิตร/ต้น/วัน' : `ลิตร/ไร่/วัน  ·  ${nf(lit/1000)} ลบ.ม./ไร่/วัน`;
+
+  /* warnings */
+  let w = '';
+  if(isAugSuspect(id, m)){
+    w += `<div class="verdict no"><span class="big">ค่านี้เชื่อไม่ได้</span>` +
+         `<span>ต้นฉบับพิมพ์เดือนสิงหาคมของสถานีลำดับ 43–60 เป็น 3.24 เหมือนกันหมด</span>` +
+         `<small>ใช้เดือนอื่น หรือหาข้อมูลจากกรมอุตุนิยมวิทยาโดยตรง — ดูคำอธิบายในหัวข้อ 9</small></div>`;
+  } else if(m !== pk){
+    w += `<div class="callout"><p>เดือนที่ใช้น้ำสูงสุดของสถานี${row[1]} คือ<strong>${MONTHS_FULL[pk]}</strong> ` +
+         `(${row[2][pk].toFixed(2)} มม./วัน) — ระบบควรออกแบบให้จ่ายไหวที่เดือนนั้น</p></div>`;
+  } else {
+    w += `<div class="callout"><p><strong>นี่คือเดือนที่ใช้น้ำสูงสุดของสถานี${row[1]}</strong> ` +
+         `เหมาะกับการใช้เป็นค่าออกแบบระบบ</p></div>`;
+  }
+  $('#etWarn').innerHTML = w;
+}
+Object.values(et).forEach(el => el.addEventListener && el.addEventListener('input', runET));
+[et.stn, et.mon, et.crop, et.mode].forEach(el => el.addEventListener('change', runET));
+runET();
+
+/* ═════ §9 Kc table (sortable) ═════ */
+let kcSort = 'name';
+function drawKC(){
+  const rows = KC.map(([n,k],i) => ({n,k,i}));
+  rows.sort((a,b) => kcSort === 'kc' ? a.k - b.k : a.i - b.i);
+  const half = Math.ceil(rows.length/2);
+  const L = rows.slice(0, half), R = rows.slice(half);
+  let h = `<div class="tscroll"><table class="data" style="min-width:520px"><thead><tr>` +
+    `<th style="text-align:start"><button type="button" class="sortbtn" data-s="name">พืช</button></th>` +
+    `<th><button type="button" class="sortbtn" data-s="kc">Kc</button></th>` +
+    `<th style="text-align:start"><button type="button" class="sortbtn" data-s="name">พืช</button></th>` +
+    `<th><button type="button" class="sortbtn" data-s="kc">Kc</button></th></tr></thead><tbody>`;
+  for(let i = 0; i < half; i++){
+    const a = L[i], b = R[i];
+    h += `<tr><th style="text-align:start">${a.n}</th><td>${a.k.toFixed(2)}</td>` +
+         (b ? `<th style="text-align:start">${b.n}</th><td>${b.k.toFixed(2)}</td>`
+            : `<td class="nil">·</td><td class="nil">·</td>`) + `</tr>`;
+  }
+  $('#tabKC').innerHTML = h + `</tbody></table></div>`;
+  $('#tabKC').querySelectorAll('.sortbtn').forEach(b =>
+    b.addEventListener('click', () => { kcSort = b.dataset.s; drawKC(); }));
+}
+drawKC();
+
+/* ═════ §9 Ep table (filterable) ═════ */
+const epFilter = $('#epFilter');
+function drawEP(){
+  const q = (epFilter.value || '').trim();
+  const rows = q ? EP.filter(r => r[1].includes(q)) : EP;
+  let h = `<div class="tscroll tall"><table class="data" style="min-width:760px"><thead>` +
+    `<tr><th rowspan="2">ลำดับ</th><th rowspan="2" style="text-align:start">สถานี</th>` +
+    `<th colspan="12">เดือน</th></tr><tr>` +
+    MONTHS.map(m => `<th>${m}</th>`).join('') + `</tr></thead><tbody>`;
+  if(!rows.length){
+    h += `<tr><td colspan="14" class="nil" style="text-align:center">ไม่พบสถานีที่ตรงกับ “${q}”</td></tr>`;
+  }
+  rows.forEach(([id,name,v]) => {
+    const pk = peakMonth(v);
+    h += `<tr><th>${id}</th><th style="text-align:start">${name}</th>` +
+      v.map((x,m) => {
+        if(x === null) return `<td class="nil" title="ไม่มีข้อมูลในต้นฉบับ">–</td>`;
+        if(isAugSuspect(id, m)) return `<td class="bad" title="ค่าผิดพลาดในต้นฉบับ">${x.toFixed(2)}</td>`;
+        if(m === pk) return `<td class="hit">${x.toFixed(2)}</td>`;
+        return `<td>${x.toFixed(2)}</td>`;
+      }).join('') + `</tr>`;
+  });
+  $('#tabEP').innerHTML = h + `</tbody></table></div>`;
+}
+epFilter.addEventListener('input', drawEP);
+drawEP();
+</script>
+
+</body>
+</html>
